@@ -36,11 +36,11 @@
 
 :root {
     --primary-black: #1C201E;
-    --forest-green: #173A2A;
-    --emerald: #007261;
+    --forest-green: #0F366F;
+    --emerald: #1952A1;
     --gold: #D1B48C;
     --gold-hover: #c4a376;
-    --cream: #FDFDF5; 
+    --cream: #FAF8F5; 
     --white: #ffffff;
     
     --text-dark: #1b1e1d;
@@ -784,8 +784,69 @@ img, video {
     font-size: 18px;
     letter-spacing: 0.5px;
     display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Meet the Team */
+.meet-the-team {
+    padding: 5rem 0;
+    background-color: var(--cream);
+}
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.team-card {
+    background: var(--white);
+    border: var(--border-thin);
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 0px var(--primary-black);
+    transition: var(--transition);
+}
+.team-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px var(--forest-green);
+}
+.team-header {
+    display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+.avatar-img, .avatar-placeholder {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: var(--border-thin);
+}
+.avatar-placeholder {
+    background-color: #e5efe9;
+    color: var(--primary-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.team-header-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.1rem;
+}
+.team-header-info .role {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+.team-body p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
 }
 
 /* Footer */
