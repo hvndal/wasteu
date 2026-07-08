@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather & Holidays 2026 - Waste Universe</title>
+    <meta name="description" content="Live weather updates and service collection status for Massachusetts and Rhode Island.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/weather.css">
+</head>
+<body class="weather-page">
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <svg class="loader-logo" viewBox="0 0 100 50" fill="currentColor">
+            <path d="M10,20 L30,20 L35,35 L10,35 Z" />
+            <path d="M15,22 L27,22 L30,30 L15,30 Z" fill="var(--emerald)" />
+            <path d="M38,10 L90,10 L90,35 L38,35 Z" />
+            <circle cx="22" cy="40" r="6" />
+            <circle cx="55" cy="40" r="6" />
+            <circle cx="75" cy="40" r="6" />
+        </svg>
+        <div class="loader-text" id="loading-text">Loading...</div>
+    </div>
+
+    <!-- Dynamic Animated Background -->
+    <div id="weather-bg-container" class="weather-bg-container">
+        <!-- Canvas or CSS elements injected here by JS -->
+    </div>
+
+    <!-- Alert Banner (Hidden by default) -->
+    <div id="weather-alert-banner" class="weather-alert-banner">
+        <div class="container alert-content">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="alert-icon"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <div class="alert-text">
+                <strong id="alert-title">Weather Alert</strong>
+                <span id="alert-desc">Checking for active weather alerts in your area...</span>
+            </div>
+            <button class="alert-close" id="alert-close-btn">&times;</button>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar glass-nav" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Waste Universe Logo" style="height: 38px; width: auto; display: block;">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#about">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="index.html#blog">Blog</a>
+                <a href="weather.html" class="active">Weather & Schedule</a>
+                <a href="#" id="theme-toggle" class="theme-toggle" title="Toggle Theme" style="font-size: 1.2rem; text-decoration: none;">🌙</a>
+                <a href="index.html#contact" class="btn btn-gold nav-action">Control Panel</a>
+            </div>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dynamic Hero -->
+    <section class="weather-hero">
+        <div class="container">
+            <!-- Neo-Bauhaus Location Selector -->
+            <div class="location-selector-container">
+                <div class="state-toggles">
+                    <button class="state-btn btn-ma active" data-state="MA">Massachusetts</button>
+                    <button class="state-btn btn-ri" data-state="RI">Rhode Island</button>
+                </div>
+                <div class="city-dropdown-wrapper">
+                    <label for="city-select">Or select a specific city:</label>
+                    <select id="city-select" class="neo-select">
+                        <option value="default">General State Weather</option>
+                        <!-- Cities populated by JS -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="weather-hero-card neo-card">
+                <div class="weather-header-top">
+                    <div id="weather-location" class="weather-location skeleton-text">Loading Location...</div>
+                    <div id="weather-time" class="weather-time skeleton-text">--:--</div>
+                </div>
+                <div class="weather-current">
+                    <div class="weather-emoji-large skeleton-box interactive-emoji" id="current-icon-container">
+                        <!-- Emoji injected here -->
+                    </div>
+                    <div class="weather-temp">
+                        <span id="current-temp" class="temp-number">--</span><span class="temp-unit">&deg;F</span>
+                    </div>
+                    <div class="weather-condition" id="current-condition">Loading Conditions</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Weather & Status Grid -->
+    <section class="weather-dashboard section-pad">
+        <div class="container">
+            <div class="dashboard-grid">
+                
+                <!-- Weather Details Cards -->
+                <div class="weather-details neo-card hover-lift">
+                    <h3>Today's Details</h3>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <div class="detail-emoji interactive-emoji">💨</div>
+                            <div>
+                                <span>Wind</span>
+                                <strong id="detail-wind" class="skeleton-text">-- mph</strong>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-emoji interactive-emoji bounce-hover">💧</div>
+                            <div>
+                                <span>Humidity</span>
+                                <strong id="detail-humidity" class="skeleton-text">--%</strong>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-emoji interactive-emoji spin-hover">☀️</div>
+                            <div>
+                                <span>UV Index</span>
+                                <strong id="detail-uv" class="skeleton-text">--</strong>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-emoji interactive-emoji">🌡️</div>
+                            <div>
+                                <span>Pressure</span>
+                                <strong id="detail-pressure" class="skeleton-text">-- in</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Map Area -->
+                <div class="service-map-card neo-card">
+                    <h3>Service Region Status</h3>
+                    <p class="map-hint">Hover over a town to see local collection status.</p>
+                    <div class="interactive-map-container" id="interactive-map">
+                        <!-- Map SVG with hover regions -->
+                        <svg viewBox="0 0 600 350" class="service-map-svg" style="background: transparent;">
+                            <!-- Stylized Landmass -->
+                            <path d="M 50,150 L 150,80 L 300,50 L 450,60 L 550,130 L 580,200 L 500,240 L 420,220 L 380,330 L 300,340 L 220,290 L 120,300 Z" fill="#FFF2E6" stroke="var(--primary-black)" stroke-width="4" style="filter: drop-shadow(6px 6px 0 var(--primary-black));"></path>
+                            
+                            <!-- Highway lines -->
+                            <path d="M 420,100 L 310,120 L 220,140 L 100,160" fill="none" stroke="var(--primary-black)" stroke-width="4" stroke-dasharray="8,6"></path>
+                            <path d="M 420,100 L 330,240 L 380,290" fill="none" stroke="var(--primary-black)" stroke-width="4" stroke-dasharray="8,6"></path>
+                            <path d="M 420,100 L 500,200" fill="none" stroke="var(--primary-black)" stroke-width="4" stroke-dasharray="8,6"></path>
+
+                            <!-- Cities -->
+                            <g class="map-region" data-town="Springfield, MA" data-q="Springfield">
+                                <circle cx="100" cy="160" r="10" class="region-point"></circle>
+                                <text x="100" y="140" class="region-label">Springfield</text>
+                            </g>
+                            <g class="map-region" data-town="Worcester, MA" data-q="Worcester">
+                                <circle cx="220" cy="140" r="12" class="region-point"></circle>
+                                <text x="220" y="120" class="region-label">Worcester</text>
+                            </g>
+                            <g class="map-region" data-town="Framingham, MA" data-q="Framingham">
+                                <circle cx="310" cy="120" r="10" class="region-point"></circle>
+                                <text x="310" y="100" class="region-label">Metrowest</text>
+                            </g>
+                            
+                            <g class="map-region" data-town="Boston, MA" data-q="Boston">
+                                <circle cx="420" cy="100" r="15" class="region-point" style="fill: var(--emerald);"></circle>
+                                <text x="420" y="75" class="region-label" style="font-weight: 800;">⭐ Boston</text>
+                            </g>
+                            
+                            <g class="map-region" data-town="Cape Cod, MA" data-q="Barnstable">
+                                <circle cx="500" cy="200" r="12" class="region-point"></circle>
+                                <text x="500" y="180" class="region-label">🏖️ Cape Cod</text>
+                            </g>
+                            
+                            <g class="map-region" data-town="Providence, RI" data-q="Providence">
+                                <circle cx="330" cy="240" r="14" class="region-point" style="fill: var(--emerald);"></circle>
+                                <text x="330" y="270" class="region-label" style="font-weight: 800;">🏛️ Providence</text>
+                            </g>
+                            <g class="map-region" data-town="Newport, RI" data-q="Newport">
+                                <circle cx="380" cy="290" r="12" class="region-point"></circle>
+                                <text x="380" y="315" class="region-label">⛵ Newport</text>
+                            </g>
+                        </svg>
+
+                        <!-- Hover Tooltip -->
+                        <div id="map-tooltip" class="map-tooltip neo-tooltip hidden">
+                            <h4 id="tooltip-town">Town</h4>
+                            <div class="tooltip-weather">
+                                <span id="tooltip-temp">--&deg;F</span>
+                                <span id="tooltip-cond">--</span>
+                            </div>
+                            <div class="tooltip-status" id="tooltip-status">
+                                <span class="status-indicator"></span>
+                                <span class="status-text">On Schedule</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Holiday Schedule Section -->
+            <div class="holiday-section">
+                <div class="holiday-header" style="text-align: center; margin-bottom: 2rem;">
+                    <h3 style="font-size: 2.5rem; color: var(--forest-green); font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">Holiday Schedule 2026</h3>
+                    <p class="holiday-note" style="font-size: 1.1rem; color: var(--text-dark); max-width: 800px; margin: 0 auto;"><strong>Holiday Week Schedule:</strong> During holiday weeks, the date of the holiday will be pushed to Saturday, and the remainder of the week will be done on its scheduled day.</p>
+                </div>
+                <div class="holiday-grid">
+                    <div class="holiday-block">
+                        <div class="holiday-bg" style="background-image: url('assets/images/holiday_newyear.jpg');"></div>
+                        <div class="holiday-overlay"></div>
+                        <div class="holiday-content">
+                            <h4>New Year's Day</h4>
+                            <p>January 1</p>
+                        </div>
+                    </div>
+                    <div class="holiday-block">
+                        <div class="holiday-bg" style="background-image: url('assets/images/holiday_memorial.jpg');"></div>
+                        <div class="holiday-overlay"></div>
+                        <div class="holiday-content">
+                            <h4>Memorial Day</h4>
+                            <p>May 23</p>
+                        </div>
+                    </div>
+                    <div class="holiday-block">
+                        <div class="holiday-bg" style="background-image: url('assets/images/holiday_independence.jpg');"></div>
+                        <div class="holiday-overlay"></div>
+                        <div class="holiday-content">
+                            <h4>Independence Day</h4>
+                            <p>July 4</p>
+                        </div>
+                    </div>
+                    <div class="holiday-block">
+                        <div class="holiday-bg" style="background-image: url('assets/images/holiday_labor.jpg');"></div>
+                        <div class="holiday-overlay"></div>
+                        <div class="holiday-content">
+                            <h4>Labor Day</h4>
+                            <p>September 7</p>
+                        </div>
+                    </div>
+                    <div class="holiday-block">
+                        <div class="holiday-bg" style="background-image: url('assets/images/holiday_veterans.jpg');"></div>
+                        <div class="holiday-overlay"></div>
+                        <div class="holiday-content">
+                            <h4>Veterans Day</h4>
+                            <p>November 11</p>
+                        </div>
+                    </div>
+                    <div class="holiday-block">
+                        <div class="holiday-bg" style="background-image: url('assets/images/holiday_thanksgiving.jpg');"></div>
+                        <div class="holiday-overlay"></div>
+                        <div class="holiday-content">
+                            <h4>Thanksgiving Day</h4>
+                            <p>November 26</p>
+                        </div>
+                    </div>
+                    <div class="holiday-block">
+                        <div class="holiday-bg" style="background-image: url('assets/images/holiday_christmas.jpg');"></div>
+                        <div class="holiday-overlay"></div>
+                        <div class="holiday-content">
+                            <h4>Christmas Day</h4>
+                            <p>December 25</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <img src="assets/images/logo.png" alt="Waste Universe Logo" style="height: 48px; filter: grayscale(1) brightness(2);">
+                <p>Leading the way in sustainable waste management for our local communities.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Residential</a></li>
+                    <li><a href="dumpster-rentals.html">Dumpsters</a></li>
+                    <li><a href="#">Commercial</a></li>
+                    <li><a href="#">Recycling</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-links" style="position: relative;">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container" style="display: flex; justify-content: space-between; align-items: center; position: relative; width: 100%;">
+                <div class="copyright">
+                    &copy; 2026 Waste Universe
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="0" ry="0"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                </div>
+                
+                <div style="position: absolute; right: 0; top: -60px;">
+                    <div class="footer-stamp">
+                        ECO<br>CERTIFIED
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/weather.js"></script>
+</body>
+</html>

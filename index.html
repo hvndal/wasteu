@@ -7,28 +7,38 @@
     <meta name="description" content="Waste Universe offers local waste and recycling services, live impact tracking, and dedicated support.">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="home-page">
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <svg class="loader-logo" viewBox="0 0 100 50" fill="currentColor">
+            <path d="M10,20 L30,20 L35,35 L10,35 Z" />
+            <path d="M15,22 L27,22 L30,30 L15,30 Z" fill="var(--emerald)" />
+            <path d="M38,10 L90,10 L90,35 L38,35 Z" />
+            <circle cx="22" cy="40" r="6" />
+            <circle cx="55" cy="40" r="6" />
+            <circle cx="75" cy="40" r="6" />
+        </svg>
+        <div class="loader-text" id="loading-text">Loading...</div>
+    </div>
 
-    <!-- Navbar -->
+    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container">
             <a href="#" class="logo">
-                <div class="logo-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor"/>
-                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                Waste Universe
+                <img src="assets/images/logo.png" alt="Waste Universe Logo" style="height: 38px; width: auto; display: block;" loading="lazy">
             </a>
 
             <div class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
                 <a href="#about">About Us</a>
-                <a href="#services">Services</a>
+                <a href="services.html">Services</a>
                 <a href="#blog">Blog</a>
-                <a href="#contact" class="btn btn-gold nav-action">Control Panel</a>
+                <a href="weather.html">Weather & Schedule</a>
+                <a href="#" id="theme-toggle" class="theme-toggle" title="Toggle Theme" style="font-size: 1.2rem; text-decoration: none;">ðŸŒ™</a>
+                <a href="#contact-form-section" style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    Get in Touch
+                </a>
             </div>
 
             <div class="mobile-toggle" id="mobileToggle">
@@ -51,16 +61,13 @@
                         <div class="brand-dot"></div>
                         <span>Waste Universe</span>
                     </div>
-                    <div class="hero-nav-arrows">
-                        <button aria-label="Previous">&lt;</button>
-                        <button aria-label="Next">&gt;</button>
-                    </div>
+
                 </div>
-                <h1>Your Local Waste &amp;<br>Recycling Service</h1>
+                <h1>Your Local &amp; Family-Owned<br>Waste &amp; Recycling Service</h1>
                 <p>Professional, reliable waste management solutions tailored to your community. Experience the difference with our dedicated local team.</p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn btn-forest">Forest Green</a>
-                    <a href="#about" class="btn btn-gold">Gold's/Sage</a>
+                    <a href="tel:4012139516" class="btn btn-forest"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; flex-shrink: 0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>(401) 213-9516</a>
+                    <a href="mailto:dispatch@wasteuniverse.com" class="btn btn-gold"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; flex-shrink: 0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>dispatch<span class="hide-mobile">@wasteuniverse.com</span></a>
                 </div>
             </div>
         </div>
@@ -75,57 +82,44 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-img-wrapper">
-                        <img data-src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800" alt="Trash Collection — residential curbside pickup" class="lazy">
+                        <img data-src="assets/images/trash_collection.jpg" alt="Trash Collection â€” residential curbside pickup" class="lazy" loading="lazy">
                         <div class="card-badge">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                         </div>
                     </div>
                     <div class="service-card-content">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7v10c0 2 1.5 3 3 3h10c1.5 0 3-1 3-3V7M2 7h20M9 3v4M15 3v4"/></svg>
-                        </div>
                         <h3>Trash Collection</h3>
-                        <p>Weekly curbside pickup for your home. Recycling included. No contracts.</p>
-                        <a href="#" class="btn btn-outline">Learn more</a>
+                        <p>Weekly curbside pickup for your home with recycling included.</p>
+                        <button class="btn btn-outline open-quote-modal" data-service="Trash Collection">Ask Sales for Quote</button>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="service-img-wrapper">
-                        <img data-src="https://images.pexels.com/photos/11115607/pexels-photo-11115607.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Dumpster Rental" class="lazy">
-                        <div class="wu-brand-overlay">
-                            <div class="wu-dot"></div>
-                            <span>Waste Universe</span>
-                            <div class="wu-dot"></div>
+                        <img data-src="assets/images/dumpster_truck.jpg" alt="Dumpster Rental" class="lazy" loading="lazy">
+                        <div class="card-badge">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
                         </div>
                     </div>
                     <div class="service-card-content">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-                        </div>
                         <h3>Dumpster Rental</h3>
-                        <p>10 to 30 yard roll-off containers. Great for renovations, cleanouts, and construction. Same-day delivery.</p>
-                        <a href="#" class="btn btn-outline">Learn more</a>
+                        <p>10 to 30 yard roll-off containers for renovations and cleanouts.</p>
+                        <a href="dumpster-rentals.html" class="btn btn-outline">Click for more details</a>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="service-img-wrapper">
-                        <img data-src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800" alt="Commercial Pickup — cafe and restaurant service" class="lazy">
+                        <img data-src="assets/images/commercial_pickup.jpg" alt="Commercial Pickup â€” Blank sign" class="lazy" loading="lazy">
                         <!-- Restaurant / cafe icon badge -->
                         <div class="card-badge">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
                         </div>
                     </div>
-
-
                     <div class="service-card-content">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                        </div>
                         <h3>Commercial Pickup</h3>
-                        <p>Scheduled waste pickup for restaurants, offices, retail, and more. Flexible plans to fit your business.</p>
-                        <a href="#" class="btn btn-outline">Learn more</a>
+                        <p>Scheduled waste and recycling collection tailored for your business.</p>
+                        <button class="btn btn-outline open-quote-modal" data-service="Commercial Pickup">Ask Sales for Quote</button>
                     </div>
                 </div>
             </div>
@@ -140,207 +134,423 @@
                 <span class="live-badge">Live</span>
             </div>
             <div class="impact-grid">
-                <!-- Animated Map -->
+                <!-- Simple 2D Map Tracker -->
                 <div class="route-map-wrapper">
-                    <svg class="route-map-svg" viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="route-map-svg" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <path id="routeMain" d="M 148,148 Q 185,192 218,215 Q 278,224 345,198 Q 422,168 472,118 L 533,155"/>
-                            <path id="routeTwo"  d="M 148,148 Q 200,98 280,86 Q 332,80 415,82"/>
+                            <!-- Single path connecting all towns -->
+                            <path id="routeMain" d="M 80,110 Q 210,50 340,110 T 600,110"/>
                         </defs>
 
                         <!-- Background -->
-                        <rect width="680" height="260" fill="#EDF2EE"/>
+                        <rect width="680" height="220" fill="var(--cream)"/>
 
-                        <!-- Subtle grid -->
-                        <g stroke="#173A2A" stroke-width="0.5" opacity="0.1">
-                            <line x1="0" y1="65" x2="680" y2="65"/>
-                            <line x1="0" y1="130" x2="680" y2="130"/>
-                            <line x1="0" y1="195" x2="680" y2="195"/>
-                            <line x1="170" y1="0" x2="170" y2="260"/>
-                            <line x1="340" y1="0" x2="340" y2="260"/>
-                            <line x1="510" y1="0" x2="510" y2="260"/>
+                        <!-- Grid overlay for map look -->
+                        <g stroke="var(--forest-green)" stroke-width="0.5" opacity="0.08">
+                            <line x1="0" y1="55" x2="680" y2="55"/>
+                            <line x1="0" y1="110" x2="680" y2="110"/>
+                            <line x1="0" y1="165" x2="680" y2="165"/>
+                            <line x1="170" y1="0" x2="170" y2="220"/>
+                            <line x1="340" y1="0" x2="340" y2="220"/>
+                            <line x1="510" y1="0" x2="510" y2="220"/>
                         </g>
 
-                        <!-- State boundary -->
-                        <line x1="345" y1="18" x2="345" y2="248" stroke="#1C201E" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.3"/>
+                        <!-- Dotted path -->
+                        <path d="M 80,110 Q 210,50 340,110 T 600,110" fill="none" stroke="#ccc" stroke-width="2" stroke-dasharray="6,4"/>
+                        
+                        <!-- Map Hubs (Framingham, Maynard, Stow, Providence, Newport) -->
+                        <circle cx="80" cy="110" r="4.5" fill="var(--emerald)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                        <text x="80" y="98" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Framingham</text>
 
-                        <!-- Region labels -->
-                        <text x="172" y="20" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="10" fill="#173A2A" opacity="0.8" letter-spacing="1">METROWEST, MA</text>
-                        <text x="512" y="20" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="10" fill="#173A2A" opacity="0.8" letter-spacing="1">RHODE ISLAND</text>
+                        <circle cx="210" cy="80" r="4.5" fill="var(--emerald)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                        <text x="210" y="68" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Maynard</text>
 
-                        <!-- Coverage zone shading -->
-                        <rect x="18" y="32" width="308" height="210" fill="#173A2A" fill-opacity="0.05" stroke="#173A2A" stroke-width="1" stroke-dasharray="4,3"/>
-                        <rect x="352" y="32" width="308" height="210" fill="#D1B48C" fill-opacity="0.06" stroke="#D1B48C" stroke-width="1" stroke-dasharray="4,3"/>
+                        <circle cx="340" cy="110" r="4.5" fill="var(--emerald)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                        <text x="340" y="98" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Stow</text>
 
-                        <!-- MetroWest towns -->
-                        <circle cx="72" cy="130" r="4" fill="#173A2A"/>
-                        <text x="72" y="119" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#1C201E">Shrewsbury</text>
+                        <circle cx="470" cy="125" r="4.5" fill="var(--gold)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                        <text x="470" y="113" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Providence</text>
 
-                        <circle cx="90" cy="86" r="4" fill="#173A2A"/>
-                        <text x="90" y="75" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#1C201E">Westborough</text>
+                        <circle cx="600" cy="110" r="4.5" fill="var(--gold)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                        <text x="600" y="98" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Newport</text>
 
-                        <!-- Framingham - active hub with pulse -->
-                        <circle cx="148" cy="148" r="8" fill="#007261" stroke="#1C201E" stroke-width="2"/>
-                        <text x="148" y="136" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#007261">Framingham</text>
-                        <circle cx="148" cy="148" r="8" fill="none" stroke="#007261" stroke-width="2" opacity="0">
-                            <animate attributeName="r" values="8;24;8" dur="2.5s" repeatCount="indefinite"/>
-                            <animate attributeName="opacity" values="0.7;0;0.7" dur="2.5s" repeatCount="indefinite"/>
-                        </circle>
+                        <!-- Animated Truck along the path -->
+                        <g id="truckMainGroup">
+                            <!-- Speech Bubble -->
+                            <g class="svg-bubble" transform="translate(0, -32)">
+                                <rect x="-60" y="-11" width="120" height="17" fill="var(--white)" rx="2" stroke="var(--primary-black)" stroke-width="1.5"/>
+                                <polygon points="-4,6 4,6 0,10" fill="var(--white)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                                <line x1="-3" y1="6" x2="3" y2="6" stroke="var(--white)" stroke-width="2"/>
+                                <text id="driver-bubble-text" x="0" y="1" text-anchor="middle" font-family="monospace" font-size="7" font-weight="800" fill="var(--primary-black)">On my way!!!!!!</text>
+                            </g>
 
-                        <circle cx="192" cy="170" r="4" fill="#173A2A"/>
-                        <text x="192" y="184" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#1C201E">Natick</text>
-
-                        <circle cx="105" cy="206" r="4" fill="#173A2A"/>
-                        <text x="105" y="220" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#1C201E">Hopkinton</text>
-
-                        <circle cx="220" cy="215" r="4" fill="#173A2A"/>
-                        <text x="220" y="229" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#1C201E">Milford</text>
-
-                        <!-- RI towns -->
-                        <circle cx="415" cy="82" r="4" fill="#173A2A"/>
-                        <text x="415" y="71" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#1C201E">Woonsocket</text>
-
-                        <circle cx="472" cy="118" r="4" fill="#173A2A"/>
-                        <text x="472" y="107" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#1C201E">Pawtucket</text>
-
-                        <!-- Providence - destination hub -->
-                        <circle cx="533" cy="155" r="8" fill="#D1B48C" stroke="#1C201E" stroke-width="2"/>
-                        <text x="533" y="143" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1C201E">Providence</text>
-
-                        <circle cx="548" cy="193" r="4" fill="#173A2A"/>
-                        <text x="548" y="208" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#1C201E">Cranston</text>
-
-                        <circle cx="581" cy="225" r="4" fill="#173A2A"/>
-                        <text x="581" y="240" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#1C201E">Warwick</text>
-
-                        <!-- Route 1: planned path (gray dashed) -->
-                        <path d="M 148,148 Q 185,192 218,215 Q 278,224 345,198 Q 422,168 472,118 L 533,155"
-                              fill="none" stroke="#ccc" stroke-width="2.5" stroke-dasharray="8,5"/>
-                        <!-- Route 1: animated green progress -->
-                        <path d="M 148,148 Q 185,192 218,215 Q 278,224 345,198 Q 422,168 472,118 L 533,155"
-                              fill="none" stroke="#007261" stroke-width="2.5" stroke-dasharray="710" stroke-dashoffset="710">
-                            <animate attributeName="stroke-dashoffset" from="710" to="0" dur="5s" repeatCount="indefinite"/>
-                        </path>
-
-                        <!-- Route 2: planned (dashed, lighter) -->
-                        <path d="M 148,148 Q 200,98 280,86 Q 332,80 415,82"
-                              fill="none" stroke="#ccc" stroke-width="1.5" stroke-dasharray="6,4"/>
-                        <!-- Route 2: animated gold progress -->
-                        <path d="M 148,148 Q 200,98 280,86 Q 332,80 415,82"
-                              fill="none" stroke="#D1B48C" stroke-width="1.5" stroke-dasharray="385" stroke-dashoffset="385" opacity="0.8">
-                            <animate attributeName="stroke-dashoffset" from="385" to="0" dur="4s" begin="1.5s" repeatCount="indefinite"/>
-                        </path>
-
-                        <!-- Truck 1 on main route -->
-                        <g>
-                            <animateMotion dur="5s" repeatCount="indefinite" rotate="auto">
-                                <mpath href="#routeMain"/>
-                            </animateMotion>
-                            <rect x="-18" y="-7" width="36" height="13" fill="#173A2A" rx="1"/>
-                            <rect x="18" y="-9" width="12" height="11" fill="#112d20" rx="1"/>
-                            <rect x="20" y="-8" width="7" height="6" fill="#7ab5a0" rx="0.5"/>
-                            <circle cx="-9" cy="7" r="4" fill="#1C201E"/>
-                            <circle cx="-9" cy="7" r="1.5" fill="#555"/>
-                            <circle cx="11" cy="7" r="4" fill="#1C201E"/>
-                            <circle cx="11" cy="7" r="1.5" fill="#555"/>
-                            <circle cx="24" cy="6" r="3" fill="#1C201E"/>
-                            <text x="1" y="2" text-anchor="middle" font-family="sans-serif" font-size="4.5" fill="#D1B48C" font-weight="bold">WU</text>
-                        </g>
-
-                        <!-- Truck 2 on secondary route -->
-                        <g opacity="0.85">
-                            <animateMotion dur="4s" begin="1.5s" repeatCount="indefinite" rotate="auto">
-                                <mpath href="#routeTwo"/>
-                            </animateMotion>
-                            <rect x="-13" y="-5.5" width="26" height="11" fill="#173A2A" rx="1"/>
-                            <rect x="13" y="-7" width="9" height="9" fill="#112d20" rx="1"/>
-                            <rect x="14.5" y="-6" width="5" height="4.5" fill="#7ab5a0" rx="0.5"/>
-                            <circle cx="-7" cy="6" r="3.5" fill="#1C201E"/>
-                            <circle cx="7" cy="6" r="3.5" fill="#1C201E"/>
-                            <circle cx="17" cy="5" r="2.5" fill="#1C201E"/>
-                            <text x="0" y="1.5" text-anchor="middle" font-family="sans-serif" font-size="4" fill="#D1B48C" font-weight="bold">WU</text>
+                            <!-- 8-Bit NES Retro 2D Truck (Blocky) -->
+                            <rect x="-14" y="-6" width="22" height="12" fill="var(--forest-green)" stroke="var(--primary-black)" stroke-width="1"/>
+                            <rect x="8" y="-5" width="8" height="10" fill="#112d20" stroke="var(--primary-black)" stroke-width="1"/>
+                            <rect x="11" y="-4" width="3" height="8" fill="#7ab5a0"/>
+                            <text x="-3" y="3" font-family="monospace" font-weight="900" font-size="7.5" fill="#FFFFFF">WU</text>
                         </g>
                     </svg>
                     <div class="route-legend">
-                        <span class="legend-item active"><span class="legend-dot"></span>MetroWest, MA &mdash; Active</span>
-                        <span class="legend-item"><span class="legend-dot" style="background:var(--gold);"></span>Rhode Island</span>
-                        <span class="legend-item" style="margin-left:auto;">2 trucks en route</span>
+                        <span class="legend-item active"><span class="live-dot"></span> In Transit</span>
+                        <span class="legend-item" style="margin-left:auto;">1 truck en route</span>
                     </div>
                 </div>
 
                 <!-- Stats + description -->
                 <div class="impact-right">
                     <div class="impact-stats">
-                        <div class="impact-number">1,240<span class="impact-unit"> Tons</span></div>
-                        <div class="impact-text">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
-                            Recycled this month
+                        <div class="turner-container">
+                            <div class="turner-row">
+                                <!-- Split Flap / Tumbler digits -->
+                                <div class="odo-digit">
+                                    <div class="odo-strip" id="odo-d1">
+                                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                                    </div>
+                                </div>
+                                <div class="odo-comma">,</div>
+                                <div class="odo-digit">
+                                    <div class="odo-strip" id="odo-d2">
+                                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                                    </div>
+                                </div>
+                                <div class="odo-digit">
+                                    <div class="odo-strip" id="odo-d3">
+                                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                                    </div>
+                                </div>
+                                <div class="odo-digit">
+                                    <div class="odo-strip" id="odo-d4">
+                                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                                    </div>
+                                </div>
+                                <span class="turner-suffix">Tons</span>
+                                <!-- Chasing arrows recycling green SVG logo -->
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px; flex-shrink: 0; vertical-align: middle;"><polyline points="23 4 23 10 17 10" /><polyline points="1 20 1 14 7 14" /><polyline points="10 23 16 23 16 17" /><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" /></svg>
+                            </div>
+                            <div class="turner-label">
+                                <span class="live-dot"></span> Recycled &amp; counting...
+                            </div>
                         </div>
                     </div>
-                    <p class="impact-desc">Track our trucks in real-time across MetroWest Massachusetts and Rhode Island. We provide transparent, live metrics on every route we run.</p>
+                    <p class="impact-desc">At Waste Universe, we take pride in keeping our families safe and our community clean. We practice gentle, sustainable recycling services to protect our shared environment for generations to come.</p>
                     <a href="#" class="btn btn-forest">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
+
     <!-- About Us -->
     <section class="about animate-on-scroll" id="about">
         <div class="container about-grid">
             <div class="about-content">
                 <h2>About Us</h2>
-                <p>Waste Universe is a team of dedicated professionals committed to providing reliable, eco-friendly waste management solutions for our community. We combine innovative technology with local expertise to keep our neighborhoods clean.</p>
+                <p>Waste Universe is a proudly family-owned and operated business. Our founder, Connor, returned home to start this company with one mission: to serve the community he grew up in. Based in Massachusetts and Rhode Island, we truly live where we serve, bringing a personal touch to reliable waste management.</p>
                 <a href="#" class="btn btn-forest">Learn More</a>
             </div>
             <div class="about-image">
-                <img data-src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800" alt="Waste Universe Team" class="lazy">
+                <img data-src="assets/images/about_us_team.jpg" alt="Waste Universe Team" class="lazy" loading="lazy">
+            </div>
+        </div>
+        
+        <div class="container" style="margin-top: 4rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem; border-bottom: 3px solid var(--primary-black); padding-bottom: 0.5rem; flex-wrap: wrap; gap: 1rem;">
+                <h3 style="font-size: 1.5rem; color: var(--forest-green); display: flex; align-items: center; gap: 10px; text-transform: uppercase; margin: 0;">
+                    <span style="width: 12px; height: 12px; background-color: #ff3333; border-radius: 50%; animation: pulse-dot 1.5s infinite;"></span>
+                    Live Customer Feedback
+                </h3>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="display: flex; color: var(--gold); font-size: 1.2rem; letter-spacing: 2px;">â˜…â˜…â˜…â˜…â˜…</div>
+                    <span style="font-weight: 800; font-size: 0.9rem; color: var(--primary-black);">4.9/5 Average Rating</span>
+                </div>
+            </div>
+            <div id="live-reviews-container" class="testimonial-grid" style="display: flex; flex-wrap: wrap; background: rgba(16, 42, 29, 0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: var(--shadow-solid);">
+                <!-- Dynamic Content Loaded via JS -->
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="choose-us animate-on-scroll">
-        <div class="container choose-grid">
-            <div class="choose-header">
-                <h2>Why people<br>choose us</h2>
+    <!-- Why Choose Us - Redesigned Grid -->
+    <section class="choose-us-grid-section animate-on-scroll">
+        <div class="container choose-header-new" style="text-align: center; margin-bottom: 2rem; padding: 0 20px;">
+            <h2 style="font-size: 2.5rem; color: var(--forest-green); font-weight: 800; margin-bottom: 0.5rem; text-transform: uppercase;">Why People Choose Us</h2>
+            <p style="font-size: 1.1rem; color: var(--emerald); font-weight: 700; margin-bottom: 0.25rem; letter-spacing: 1px;">PROUDLY SERVING MASSACHUSETTS &amp; RHODE ISLAND</p>
+            <p style="font-size: 1.05rem; color: var(--text-muted); font-style: italic;">Where tradition meets innovation, sustainability, and price savings.</p>
+        </div>
+        <div class="container">
+            <div class="choose-us-grid">
+            <!-- Block 1 -->
+            <div class="choose-block">
+                <div class="choose-bg" style="background-image: url('assets/images/choose_pricing.jpg');"></div>
+                <div class="choose-overlay"></div>
+                <div class="choose-content">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <h4>PRICE SAVINGS</h4>
+                </div>
             </div>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    </div>
-                    <h4>Waste Services</h4>
-                    <p>Comprehensive waste and recycling services designed around your schedule.</p>
+            <!-- Block 2 -->
+            <div class="choose-block">
+                <div class="choose-bg" style="background-image: url('assets/images/choose_eco.jpg');"></div>
+                <div class="choose-overlay"></div>
+                <div class="choose-content">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    </svg>
+                    <h4>ECO-FRIENDLY FOCUS</h4>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    </div>
-                    <h4>24/7 Support</h4>
-                    <p>Our dedicated support team is always ready to assist you with your waste management needs.</p>
+            </div>
+            <!-- Block 3 -->
+            <div class="choose-block">
+                <div class="choose-bg" style="background-image: url('assets/images/choose_fleet.jpg');"></div>
+                <div class="choose-overlay"></div>
+                <div class="choose-content">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    <h4>MODERN FLEET</h4>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <!-- Block 4 -->
+            <div class="choose-block">
+                <div class="choose-bg" style="background-image: url('assets/images/choose_team.jpg');"></div>
+                <div class="choose-overlay"></div>
+                <div class="choose-content">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <h4>EXPERT TEAM</h4>
+                </div>
+            </div>
+            <!-- Block 5 -->
+            <div class="choose-block">
+                <div class="choose-bg" style="background-image: url('assets/images/choose_support.jpg');"></div>
+                <div class="choose-overlay"></div>
+                <div class="choose-content">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                    </svg>
+                    <h4>24/7 SUPPORT</h4>
+                    <p style="font-size: 0.95rem; text-transform: none; margin-top: 0.5rem; font-weight: 500;">When you call, real people answer.</p>
+                </div>
+            </div>
+            <!-- Block 6: Get In Touch -->
+            <div class="choose-block get-in-touch-block">
+                <div class="choose-content">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--primary-black)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem;">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <h4 style="color: var(--primary-black);">GET IN TOUCH</h4>
+                    <p style="margin-top: 0.5rem; text-transform: none;">Experience our exceptional customer service.</p>
+                    <p style="text-transform: none;">Give us a call at <a href="tel:4012139516" class="contact-link">(401) 213-9516</a></p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    <!-- Meet The Team -->
+    <section class="meet-the-team animate-on-scroll" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet the Team</h2>
+                <p>Welcome to the Waste Universe family! From our family to yours, we're dedicated to keeping our neighborhoods clean. Get to know the dedicated local folks making it happen every single day.</p>
+            </div>
+            
+            <h3 style="margin-top: 2rem; margin-bottom: 1.5rem; color: var(--forest-green); font-size: 1.8rem; font-weight: 800;">Leadership & Office Team</h3>
+            <div class="team-grid" style="margin-top: 0;">
+                <!-- Connor -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img src="assets/images/connor.jpg" alt="Connor" class="avatar-img" loading="lazy">
+                        <div class="team-header-info">
+                            <h3>Connor</h3>
+                            <span class="role">Founder</span>
+                        </div>
                     </div>
-                    <h4>Expert Team</h4>
-                    <p>We employ highly trained professionals equipped to handle all levels of waste collection safely.</p>
+                    <div class="team-body">
+                        <p>Originally from Newburyport, Connor grew up with a deep appreciation for community roots. After spending some time out at San Francisco State, the call of his home state brought him right back to Massachusetts. He founded Waste Universe to cultivate something honest, dependable, and meaningful for his neighbors.</p>
+                    </div>
+                </div>
+                <!-- Peter -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img src="assets/images/peter.jpg" alt="Peter" class="avatar-img" loading="lazy">
+                        <div class="team-header-info">
+                            <h3>Peter</h3>
+                            <span class="role">Logistics</span>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <p>Joining us fresh out of high school in Florida, Peter brings a whole lot of sunshine and hard work to the crew. He keeps our day-to-day operations rolling smooth as a country road, making sure every truck gets where it needs to be with a smile.</p>
+                    </div>
+                </div>
+                <!-- Erik -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img src="assets/images/erik_photo.jpg" alt="Erik" class="avatar-img" loading="lazy">
+                        <div class="team-header-info">
+                            <h3>Erik</h3>
+                            <span class="role">Logistics Coordinator</span>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <p>Erik is our down-to-earth route wizard, working hand-in-hand with Peter. He treats every dispatch like he's looking out for his own neighborhood. When he's not keeping the routes running perfectly, you'll probably find him hanging out with his dogs or <strong style="color: var(--primary-black); background: rgba(255, 196, 37, 0.6); padding: 2px 6px; border-radius: 4px; font-weight: 800;">🏎️ tinkering with Corvettes in the garage!</strong></p>
+                    </div>
+                </div>
+                <!-- Damien -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img src="assets/images/damien.jpg" alt="Damien" class="avatar-img" loading="lazy">
+                        <div class="team-header-info">
+                            <h3>Damien</h3>
+                            <span class="role">Head of Customer Experience</span>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <p>Originally from the UK, Damien traveled across the pond to pursue religious studies. He brings a wonderfully grounded, folksy warmth to everyone he meets, ensuring every single person in our community feels heard, valued, and well taken care of.</p>
+                    </div>
+                </div>
+                <!-- Mike -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img src="assets/images/mike.jpg" alt="Mike" class="avatar-img" loading="lazy">
+                        <div class="team-header-info">
+                            <h3>Mike</h3>
+                            <span class="role">Customer Service</span>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <p>With ten solid years of service under his belt, Mike brings a neighborly hospitality to every phone call. He treats every customer like they're family dropping by for a chat, making sure no problem goes unsolved and everyone walks away happy.</p>
+                    </div>
+                </div>
+                <!-- Evan -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <div class="avatar-placeholder" style="background-color: var(--emerald); color: var(--white);">EV</div>
+                        <div class="team-header-info">
+                            <h3>Evan</h3>
+                            <span class="role">Sales &amp; Partnerships</span>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <p>A Boston native with a huge heart, Evan loves getting out and meeting local business owners. He's passionate about helping folks set up sustainable, sensible waste solutions that keep their shops clean and save them some hard-earned money.</p>
+                    </div>
+                </div>
+                <!-- Corsini -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img src="assets/images/corsini.jpg" alt="Corsini" class="avatar-img" loading="lazy">
+                        <div class="team-header-info">
+                            <h3>Corsini</h3>
+                            <span class="role">Billing Team</span>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <p>Corsini is the warm, friendly voice that keeps our billing and front office running like a well-oiled machine. She tends to every detail with absolute care, ensuring that every customer is treated fairly and with a neighborly smile.</p>
+                    </div>
+                </div>
+                <!-- Herman -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <div class="avatar-placeholder" style="background-color: var(--primary-black); color: var(--cream);">?</div>
+                        <div class="team-header-info">
+                            <h3>Herman</h3>
+                            <span class="role">Mystery Guy</span>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <p>We don't really know him... we have no idea what he actually does here. He just shows up, types furiously on his mechanical keyboard, drinks an ungodly amount of espresso, and occasionally mumbles something about "the algorithm." We're too afraid to ask for his last name, so we just let him be. Nice guy though!</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem; margin-bottom: 1.5rem; color: var(--forest-green); font-size: 1.8rem; font-weight: 800;">Our Pride on the Routes</h3>
+            <div class="team-grid" style="margin-top: 0;">
+                <!-- John -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img src="assets/images/john.jpg" alt="John" class="avatar-img" loading="lazy">
+                        <div class="team-header-info">
+                            <h3>John</h3>
+                            <span class="role">Driver (MA)</span>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <p>A true local, John is a selectman in Stow where he lives out by the lake, just a stone's throw from Honey Pot Orchards. He knows the backroads of our Massachusetts towns like the back of his hand, and takes immense pride in keeping them green and clean.</p>
+                    </div>
+                </div>
+                <!-- Brandon -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img src="assets/images/brandon.jpg" alt="Brandon" class="avatar-img" loading="lazy">
+                        <div class="team-header-info">
+                            <h3>Brandon</h3>
+                            <span class="role">Driver (RI)</span>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <p>Brandon has been out on the roads for over 5 years and has a deep, genuine love for the great outdoors. He handles our Rhode Island routes with care, treating every neighborhood like his own backyard.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Partners -->
-    <section class="partners animate-on-scroll">
-        <div class="container partners-flex">
-            <h3>Partner</h3>
-            <div class="partner-logos">
-                <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg> NUBNTIAK</span>
-                <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg> Amastoa</span>
-                <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> SMISPECT</span>
-                <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> untovo</span>
+
+
+    <!-- Contact Form Section -->
+    <section class="contact-section animate-on-scroll" id="contact-form-section" style="padding: 100px 0; background-color: var(--primary-black); color: var(--cream); border-bottom: var(--border-thick);">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2 class="contact-title">Get In Touch</h2>
+                    <p class="contact-desc">Have questions about our services or need a custom quote? Send us a message and our dispatch team will get right back to you.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method-card">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <div>
+                                <h4>Call Dispatch</h4>
+                                <a href="tel:4012139516" class="contact-link">(401) 213-9516</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-box">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="web3-contact-form">
+                        <input type="hidden" name="access_key" value="6c3dcbc2-5e09-471d-95d1-fe3483023ea2">
+                        <input type="hidden" name="subject" value="New Inquiry from Waste Universe Website">
+                        <!-- Redirect back to the site after submission -->
+                        <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                        
+                        <div class="form-row">
+                            <div class="floating-group">
+                                <input type="text" id="name" name="name" placeholder=" " required>
+                                <label for="name">Full Name</label>
+                            </div>
+                            <div class="floating-group">
+                                <input type="email" id="email" name="email" placeholder=" " required>
+                                <label for="email">Email Address</label>
+                            </div>
+                        </div>
+                        <div class="floating-group">
+                            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+                            <label for="message">How can we help you today?</label>
+                        </div>
+                        <button type="submit" class="btn btn-gold form-submit-btn">Send Message <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+                    </form>
+                </div>
             </div>
-            <button class="btn btn-outline" style="border-radius: 0; width: 40px; height: 40px; padding: 0;">&gt;</button>
         </div>
     </section>
 
@@ -349,7 +559,9 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h2>Waste Universe</h2>
+                    <div style="margin-bottom: 1.5rem;">
+                        <img src="assets/images/logo.png" alt="Waste Universe Logo" style="height: 48px; width: auto; display: block;" loading="lazy">
+                    </div>
                     <p>Sign up for our newsletter to receive the latest updates on sustainable waste practices.</p>
                     <form class="newsletter-form">
                         <input type="email" placeholder="Email address" required>
@@ -370,7 +582,7 @@
                     <h4>Services</h4>
                     <ul>
                         <li><a href="#">Residential</a></li>
-                        <li><a href="#">Dumpsters</a></li>
+                        <li><a href="dumpster-rentals.html">Dumpsters</a></li>
                         <li><a href="#">Commercial</a></li>
                         <li><a href="#">Recycling</a></li>
                         <li><a href="#">Support</a></li>
@@ -406,6 +618,203 @@
         </div>
     </footer>
 
+    <!-- Quote Request Modal -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <span class="modal-badge">Contact Sales</span>
+                <h2 id="modalServiceTitle">Get a Quote</h2>
+            </div>
+            <p class="modal-lead">Get in touch with our team for pricing and custom schedules tailored to your needs.</p>
+            <div class="modal-contact-methods">
+                <a href="tel:4012139516" class="modal-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <div>
+                        <span>Call Sales</span>
+                        <strong>(401) 213-9516</strong>
+                    </div>
+                </a>
+                <a href="mailto:dispatch@wasteuniverse.com" class="modal-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <div>
+                        <span>Email Sales</span>
+                        <strong>dispatch@wasteuniverse.com</strong>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/loader.js"></script>
+
+    <!-- Simulated Live API Reviews -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const reviewsContainer = document.getElementById('live-reviews-container');
+        if (!reviewsContainer) return;
+
+        // 1. Render Loading Skeletons
+        const skeletonHTML = Array(3).fill(`
+            <div style="flex: 1; min-width: 250px; background: var(--forest-green); padding: 1.5rem; border: 4px solid var(--primary-black); box-shadow: 4px 4px 0px rgba(0,0,0,0.1); opacity: 0.7; animation: pulse 1.5s infinite;">
+                <div style="width: 100px; height: 16px; background: rgba(255,255,255,0.2); margin-bottom: 1rem;"></div>
+                <div style="width: 100%; height: 12px; background: rgba(255,255,255,0.2); margin-bottom: 0.5rem;"></div>
+                <div style="width: 100%; height: 12px; background: rgba(255,255,255,0.2); margin-bottom: 0.5rem;"></div>
+                <div style="width: 80%; height: 12px; background: rgba(255,255,255,0.2); margin-bottom: 1.5rem;"></div>
+                <div style="width: 120px; height: 16px; background: rgba(255,255,255,0.1);"></div>
+            </div>
+        `).join('');
+        
+        if (!document.getElementById('skeleton-styles')) {
+            const style = document.createElement('style');
+            style.id = 'skeleton-styles';
+            style.innerHTML = `@keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 0.3; } 100% { opacity: 0.6; } }
+            @keyframes pulse-dot { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 51, 51, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 51, 51, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 51, 51, 0); } }`;
+            document.head.appendChild(style);
+        }
+
+        reviewsContainer.innerHTML = skeletonHTML;
+        // 2. Simulate API Call Delay
+        setTimeout(() => {
+            const mockApiData = [
+                {
+                    name: "Sarah M.",
+                    location: "MA",
+                    text: "Omgggg! The easiest rental I've ever done. Peter dropped the dumpster exactly where I needed it without me even having to be home. True professionals. Love it!",
+                    timeAgo: "2 days ago",
+                    avatar: "assets/images/review_avatar_1.jpg",
+                    sourceIcon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
+                    sourceName: "Facebook"
+                },
+                {
+                    name: "David T.",
+                    location: "RI",
+                    text: "We switched our residential pickup to Waste Universe and couldn't be happier. John is always on time, friendly, and even waves to our kids. Highly recommend!",
+                    timeAgo: "1 week ago",
+                    avatar: "assets/images/review_avatar_3.jpg",
+                    sourceIcon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--white);"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`,
+                    sourceName: "WasteUniverse.com"
+                },
+                {
+                    name: "Greg M.",
+                    location: "MA",
+                    text: "I called last minute for a commercial pickup and Damien handled it perfectly. Wow, it's so nice dealing with a local company that actually cares! Totally recommend.",
+                    timeAgo: "2 weeks ago",
+                    avatar: "assets/images/review_avatar_2.jpg",
+                    sourceIcon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
+                    sourceName: "Facebook"
+                },
+                {
+                    name: "Emily R.",
+                    location: "RI",
+                    text: "Absolutely phenomenal service. They showed up exactly when they said they would. The crew was super polite. Couldn't ask for more!",
+                    timeAgo: "3 weeks ago",
+                    avatar: "assets/images/review-girl-1.jpg",
+                    sourceIcon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
+                    sourceName: "Facebook"
+                },
+                {
+                    name: "Michael K.",
+                    location: "MA",
+                    text: "Waste Universe is a breath of fresh air compared to the national chains. Straightforward pricing and amazing customer care.",
+                    timeAgo: "1 month ago",
+                    avatar: "assets/images/review-guy-1.jpg",
+                    sourceIcon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--white);"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`,
+                    sourceName: "WasteUniverse.com"
+                }
+            ];
+
+            const renderStars = () => `<div style="color: var(--gold); font-size: 1.2rem; letter-spacing: 2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>`;
+            
+            // Set container to a smooth scrolling carousel
+            reviewsContainer.style.flexWrap = 'nowrap';
+            reviewsContainer.style.overflowX = 'auto';
+            reviewsContainer.style.scrollSnapType = 'x mandatory';
+            reviewsContainer.style.scrollBehavior = 'smooth';
+            // Hide scrollbar for a cleaner look
+            reviewsContainer.style.scrollbarWidth = 'none';
+            
+            reviewsContainer.innerHTML = mockApiData.map((review, i) => `
+                <div class="testimonial-card" style="flex: 0 0 33.333%; min-width: 300px; scroll-snap-align: start; background: ${i % 2 === 0 ? 'rgba(32, 60, 47, 0.4)' : 'rgba(255, 255, 255, 0.03)'}; padding: 1.5rem; display: flex; flex-direction: column; border-right: ${i !== mockApiData.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none'}; transition: background 0.4s ease;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="${review.avatar}" alt="${review.name}" loading="lazy" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1);">
+                            <div>
+                                <h4 style="font-weight: 700; font-size: 0.95rem; color: var(--gold); margin: 0;">${review.name}</h4>
+                                <span style="font-size: 0.7rem; color: var(--text-dark); font-weight: 500; opacity: 0.7;">${review.location} &bull; ${review.sourceName}</span>
+                            </div>
+                        </div>
+                        ${review.sourceIcon}
+                    </div>
+                    ${renderStars()}
+                    <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem; margin-top: 0.75rem; color: var(--text-dark); flex-grow: 1; font-weight: 400;">"${review.text}"</p>
+                    <div style="padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.05);">
+                        <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500;">Verified <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color: #34A853; vertical-align: -2px;"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                        <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500;">${review.timeAgo}</span>
+                    </div>
+                </div>
+            `).join('');
+
+            // Auto-scroll +1 item every 5 seconds
+            let scrollIndex = 0;
+            setInterval(() => {
+                if (!reviewsContainer.children.length) return;
+                const itemWidth = reviewsContainer.children[0].offsetWidth;
+                scrollIndex++;
+                if (scrollIndex >= mockApiData.length - 2) {
+                    scrollIndex = 0; // reset to beginning when reaching end
+                }
+                reviewsContainer.scrollTo({ left: scrollIndex * itemWidth, behavior: 'smooth' });
+            }, 5000);
+
+        }, 1200);
+    });
+    </script>
+
+    <script>
+    // Sound Pack: Click effect for interactive elements
+    let audioCtx = null;
+    const initAudio = () => {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+    };
+    
+    const playClickSound = () => {
+        if (!audioCtx) return;
+        // Resume context if suspended (browser autoplay policy)
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+        
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        
+        // Subliminal pleasant pop sound
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(600, audioCtx.currentTime);
+        oscillator.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.08); 
+        
+        gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        
+        oscillator.start();
+        oscillator.stop(audioCtx.currentTime + 0.08);
+    };
+
+    document.addEventListener('click', (e) => {
+        initAudio(); // Initialize on first interaction to bypass autoplay restrictions
+        if (e.target.closest('a, button, .btn, .service-card, .team-card')) {
+            playClickSound();
+        }
+    });
+    </script>
 </body>
 </html>
+

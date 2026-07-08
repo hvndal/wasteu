@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Dumpsters - Waste Universe</title>
+    <meta name="description" content="Explore our Residential collection and Commercial dumpster options at Waste Universe.">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <svg class="loader-logo" viewBox="0 0 100 50" fill="currentColor">
+            <path d="M10,20 L30,20 L35,35 L10,35 Z" />
+            <path d="M15,22 L27,22 L30,30 L15,30 Z" fill="var(--emerald)" />
+            <path d="M38,10 L90,10 L90,35 L38,35 Z" />
+            <circle cx="22" cy="40" r="6" />
+            <circle cx="55" cy="40" r="6" />
+            <circle cx="75" cy="40" r="6" />
+        </svg>
+        <div class="loader-text" id="loading-text">Loading...</div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Waste Universe Logo" style="height: 38px; width: auto; display: block;">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#about">About Us</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="index.html#blog">Blog</a>
+                <a href="weather.html">Weather & Schedule</a>
+                <a href="#" id="theme-toggle" class="theme-toggle" title="Toggle Theme" style="font-size: 1.2rem; text-decoration: none;">🌙</a>
+                <a href="index.html#contact" class="btn btn-gold nav-action">Control Panel</a>
+            </div>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Hero -->
+    <section class="services-hero">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Reliable waste management tailored for your home or business.</p>
+            
+            <div class="services-tabs">
+                <button class="tab-btn active" data-tab="residential">Residential</button>
+                <button class="tab-btn" data-tab="commercial">Commercial Dumpsters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab Content: Residential -->
+    <section class="tab-content active" id="tab-residential">
+        <div class="container">
+            <div class="residential-box">
+                <h2 style="font-size: 2rem; color: var(--forest-green); margin-bottom: 0.5rem;">Residential Collection</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Simple, hassle-free curbside pickup for your home.</p>
+                
+                <ul class="res-list">
+                    <li>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        Weekly curbside pickup
+                    </li>
+                    <li>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        Recycling included
+                    </li>
+                    <li>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        No contract required
+                    </li>
+                    <li>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        Monthly or yearly billing
+                    </li>
+                    <li>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        Bulk items by appointment
+                    </li>
+                    <li>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        Cancel anytime
+                    </li>
+                </ul>
+
+                <div style="margin-top: 2rem;">
+                    <a href="index.html#contact" class="btn btn-forest">Sign Up Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab Content: Commercial -->
+    <section class="tab-content" id="tab-commercial">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem; position: relative;">
+                <h2 style="font-size: 2.5rem; color: var(--forest-green); margin-bottom: 0.5rem;">Dumpster Sizing Guide</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Use our sizing guide below to determine which dumpster is best for your business operations!</p>
+                
+                <a href="mailto:sales@wasteuniverse.com" style="position: absolute; top: 0px; right: 0; background-color: var(--gold); padding: 12px 24px; border-radius: 30px; font-weight: 800; color: var(--primary-black); text-decoration: none; box-shadow: 3px 3px 0px rgba(0,0,0,0.2); animation: floatBubble 2s infinite alternate; font-size: 1.1rem; border: 2px solid var(--primary-black); z-index: 5;">
+                    Not sure? Ask sales! 👋
+                </a>
+            </div>
+
+            <div class="dumpster-grid">
+                <!-- 2 Yard -->
+                <div class="dumpster-card">
+                    <div class="d-size">2 Yard</div>
+                    <div class="d-weight">~400 lbs capacity</div>
+                    <div class="d-feature">
+                        <strong>Ideal For:</strong>
+                        <span>Small offices, cafes</span>
+                    </div>
+                    <div class="d-feature">
+                        <strong>Pickup Options:</strong>
+                        <span>1-2x per week</span>
+                    </div>
+                    <div class="d-cta">
+                        <a href="index.html#contact" class="btn btn-outline" style="width:100%; text-align:center;">Get a Quote</a>
+                    </div>
+                </div>
+
+                <!-- 4 Yard -->
+                <div class="dumpster-card">
+                    <div class="d-size">4 Yard</div>
+                    <div class="d-weight">~800 lbs capacity</div>
+                    <div class="d-feature">
+                        <strong>Ideal For:</strong>
+                        <span>Restaurants, retail</span>
+                    </div>
+                    <div class="d-feature">
+                        <strong>Pickup Options:</strong>
+                        <span>1-2x per week</span>
+                    </div>
+                    <div class="d-cta">
+                        <a href="index.html#contact" class="btn btn-outline" style="width:100%; text-align:center;">Get a Quote</a>
+                    </div>
+                </div>
+
+                <!-- 6 Yard -->
+                <div class="dumpster-card">
+                    <div class="d-size">6 Yard</div>
+                    <div class="d-weight">~1,200 lbs capacity</div>
+                    <div class="d-feature">
+                        <strong>Ideal For:</strong>
+                        <span>Large restaurants, hotels</span>
+                    </div>
+                    <div class="d-feature">
+                        <strong>Pickup Options:</strong>
+                        <span>1-2x per week</span>
+                    </div>
+                    <div class="d-cta">
+                        <a href="index.html#contact" class="btn btn-outline" style="width:100%; text-align:center;">Get a Quote</a>
+                    </div>
+                </div>
+
+                <!-- 8 Yard -->
+                <div class="dumpster-card">
+                    <div class="d-size">8 Yard</div>
+                    <div class="d-weight">~1,600 lbs capacity</div>
+                    <div class="d-feature">
+                        <strong>Ideal For:</strong>
+                        <span>Shopping centers, warehouses</span>
+                    </div>
+                    <div class="d-feature">
+                        <strong>Pickup Options:</strong>
+                        <span>1-2x per week</span>
+                    </div>
+                    <div class="d-cta">
+                        <a href="index.html#contact" class="btn btn-outline" style="width:100%; text-align:center;">Get a Quote</a>
+                    </div>
+                </div>
+
+                <!-- 10 Yard -->
+                <div class="dumpster-card">
+                    <div class="d-size">10 Yard</div>
+                    <div class="d-weight">~2,000 lbs capacity</div>
+                    <div class="d-feature">
+                        <strong>Ideal For:</strong>
+                        <span>High-volume operations</span>
+                    </div>
+                    <div class="d-feature">
+                        <strong>Pickup Options:</strong>
+                        <span>1-2x per week</span>
+                    </div>
+                    <div class="d-cta">
+                        <a href="index.html#contact" class="btn btn-outline" style="width:100%; text-align:center;">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Still Not Sure -->
+            <div class="not-sure-block">
+                <h3>Still not sure which size is best?</h3>
+                <p>We're here to help you evaluate your waste volume and find the most cost-effective solution.</p>
+                <p>Contact our commercial sales team directly at:<br>
+                   <a href="mailto:sales@wasteuniverse.com">sales@wasteuniverse.com</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3 style="font-size: 1.5rem; color: var(--gold); margin-bottom: 0.5rem; text-transform: uppercase;">Waste Universe</h3>
+                <p style="color: #999;">Reliable, sustainable waste management for Massachusetts and Rhode Island.</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#about">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="weather.html">Weather</a>
+            </div>
+            <div class="footer-contact">
+                <p><strong>Call:</strong> (401) 213-9516</p>
+                <p><strong>Email:</strong> sales@wasteuniverse.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Waste Universe LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script>
+        // Tab switching logic for Services page
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    // Add active class to clicked
+                    tab.classList.add('active');
+                    const targetId = `tab-${tab.dataset.tab}`;
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
