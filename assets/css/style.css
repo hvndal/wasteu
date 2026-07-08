@@ -276,7 +276,7 @@ img, video {
     min-height: 700px;
     display: flex;
     align-items: center;
-    background-color: var(--forest-green);
+    background-color: var(--primary-black);
     overflow: hidden;
 }
 
@@ -289,7 +289,7 @@ img, video {
     object-fit: cover;
     object-position: center 35%;
     z-index: 1;
-    opacity: 0.72;
+    opacity: 0.8;
 }
 
 .hero .container {
