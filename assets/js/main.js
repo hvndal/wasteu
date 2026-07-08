@@ -91,4 +91,27 @@ document.addEventListener('DOMContentLoaded', () => {
     lazyImages.forEach(img => {
         imageObserver.observe(img);
     });
+
+    // Driver Speech Bubble Rotation
+    const bubbleText = document.querySelector('.bubble-text');
+    const lines = [
+        "On my way!",
+        "Working hard to get it delivered!",
+        "Keeping our neighborhoods clean!",
+        "Serving MetroWest with pride!",
+        "Rain or shine, we're on the line!",
+        "Another collection done! Onto the next!",
+        "Your friendly neighborhood driver here!"
+    ];
+    let idx = 0;
+    if (bubbleText) {
+        setInterval(() => {
+            idx = (idx + 1) % lines.length;
+            bubbleText.style.opacity = 0;
+            setTimeout(() => {
+                bubbleText.textContent = lines[idx];
+                bubbleText.style.opacity = 1;
+            }, 300);
+        }, 4000);
+    }
 });
