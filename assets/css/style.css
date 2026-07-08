@@ -399,16 +399,21 @@ img, video {
 
 .hero-actions {
     display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    gap: 8px;
+    flex-wrap: nowrap;
 }
 
 /* Override buttons inside the transparent hero */
 .hero-card .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-color: rgba(255,255,255,0.8);
     box-shadow: none;
-    font-size: 19px;
-    padding: 16px 36px;
+    font-size: 14px;
+    padding: 10px 20px;
+    text-transform: none;
+    letter-spacing: 0px;
 }
 .hero-card .btn:active {
     transform: none;
