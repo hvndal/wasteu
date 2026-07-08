@@ -92,85 +92,62 @@ document.addEventListener('DOMContentLoaded', () => {
         imageObserver.observe(img);
     });
 
-    // Animated Trucks along paths with Stops & Speech Bubbles
-    const routes = [
-        {
-            id: 'MA',
-            pathId: 'routeMA',
-            truckId: 'truckMA',
-            bubbleTextId: 'bubbleTextMA',
-            cities: [
-                { name: "Framingham", ratio: 0.0, msg: "Departing Framingham Hub!" },
-                { name: "Maynard", ratio: 0.5, msg: "Emptying recycling bins in Maynard!" },
-                { name: "Stow", ratio: 1.0, msg: "Stow reached! Preparing return run..." }
-            ],
-            speed: 0.8,
-            direction: 1
-        },
-        {
-            id: 'RI',
-            pathId: 'routeRI',
-            truckId: 'truckRI',
-            bubbleTextId: 'bubbleTextRI',
-            cities: [
-                { name: "Woonsocket", ratio: 0.0, msg: "Departing Woonsocket!" },
-                { name: "Providence", ratio: 0.5, msg: "Loading waste in Providence!" },
-                { name: "Newport", ratio: 1.0, msg: "Final collection in Newport!" }
-            ],
-            speed: 0.65,
-            direction: 1
-        }
-    ];
+    // Animated NES Retro Truck with Stops & Speech Bubbles
+    const route = {
+        path: document.getElementById('routeMain'),
+        truck: document.getElementById('truckMainGroup'),
+        bubbleText: document.getElementById('driver-bubble-text'),
+        cities: [
+            { name: "Framingham", ratio: 0.0, msg: "Departing Framingham Hub!" },
+            { name: "Maynard", ratio: 0.25, msg: "Emptying recycling bins in Maynard!" },
+            { name: "Stow", ratio: 0.5, msg: "Picking up trash in Stow!" },
+            { name: "Providence", ratio: 0.75, msg: "Loading waste in Providence!" },
+            { name: "Newport", ratio: 1.0, msg: "Final collection in Newport!" }
+        ],
+        speed: 0.75,
+        direction: 1
+    };
 
-    // Setup routes variables
-    routes.forEach(route => {
-        route.path = document.getElementById(route.pathId);
-        route.truck = document.getElementById(route.truckId);
-        route.bubbleText = document.getElementById(route.bubbleTextId);
-        if (route.path) {
-            route.length = route.path.getTotalLength();
-        }
-        route.distance = 0;
-        route.paused = false;
-        route.pauseTimer = 0;
-        route.lastCityIdx = -1;
-    });
+    if (route.path) {
+        route.length = route.path.getTotalLength();
+    }
+    route.distance = 0;
+    route.paused = false;
+    route.pauseTimer = 0;
+    route.lastCityIdx = -1;
 
-    function animateTrucks() {
-        routes.forEach(route => {
-            if (!route.path || !route.truck || !route.bubbleText) return;
+    function animateTruck() {
+        if (!route.path || !route.truck || !route.bubbleText) return;
 
-            if (route.paused) {
-                route.pauseTimer += 16.67; // Approx 1 frame at 60fps
-                if (route.pauseTimer >= 3000) { // 3 seconds stop
-                    route.paused = false;
-                    route.pauseTimer = 0;
-                    route.bubbleText.textContent = "On my way!!!!!!";
-                }
-                return;
+        if (route.paused) {
+            route.pauseTimer += 16.67;
+            if (route.pauseTimer >= 3000) { // 3 seconds pause
+                route.paused = false;
+                route.pauseTimer = 0;
+                route.bubbleText.textContent = "On my way!!!!!!";
             }
+            requestAnimationFrame(animateTruck);
+            return;
+        }
 
-            // Move
-            route.distance += route.speed * route.direction;
+        // Move
+        route.distance += route.speed * route.direction;
 
-            // Loop bounds
-            if (route.distance >= route.length) {
-                route.distance = route.length;
-                route.direction = -1; // Reverse direction
-                route.paused = true;
-                route.lastCityIdx = route.cities.length - 1;
-                route.bubbleText.textContent = route.cities[route.lastCityIdx].msg;
-                return;
-            } else if (route.distance <= 0) {
-                route.distance = 0;
-                route.direction = 1; // Forward direction
-                route.paused = true;
-                route.lastCityIdx = 0;
-                route.bubbleText.textContent = route.cities[0].msg;
-                return;
-            }
-
-            // Check if near any city (excluding endpoints which are handled by bounds)
+        // Loop bounds
+        if (route.distance >= route.length) {
+            route.distance = route.length;
+            route.direction = -1; // Reverse
+            route.paused = true;
+            route.lastCityIdx = route.cities.length - 1;
+            route.bubbleText.textContent = route.cities[route.lastCityIdx].msg;
+        } else if (route.distance <= 0) {
+            route.distance = 0;
+            route.direction = 1; // Forward
+            route.paused = true;
+            route.lastCityIdx = 0;
+            route.bubbleText.textContent = route.cities[0].msg;
+        } else {
+            // Check intermediate stops
             const currentRatio = route.distance / route.length;
             route.cities.forEach((city, idx) => {
                 if (idx > 0 && idx < route.cities.length - 1) {
@@ -181,41 +158,39 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
+        }
 
-            // Reset city lock once we move away
-            if (route.lastCityIdx !== -1) {
-                const lastCity = route.cities[route.lastCityIdx];
-                if (Math.abs(currentRatio - lastCity.ratio) > 0.05) {
-                    route.lastCityIdx = -1;
-                }
+        // Reset lastCityIdx lock
+        if (route.lastCityIdx !== -1) {
+            const currentRatio = route.distance / route.length;
+            const lastCity = route.cities[route.lastCityIdx];
+            if (Math.abs(currentRatio - lastCity.ratio) > 0.05) {
+                route.lastCityIdx = -1;
             }
+        }
 
-            // Calculate position & rotation
-            const p1 = route.path.getPointAtLength(route.distance);
-            const nextDist = Math.max(0, Math.min(route.length, route.distance + 2 * route.direction));
-            const p2 = route.path.getPointAtLength(nextDist);
-            
-            let angle = 0;
-            if (p2) {
-                angle = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
-            }
+        // Position & rotate
+        const p1 = route.path.getPointAtLength(route.distance);
+        const nextDist = Math.max(0, Math.min(route.length, route.distance + 2 * route.direction));
+        const p2 = route.path.getPointAtLength(nextDist);
+        
+        let angle = 0;
+        if (p2) {
+            angle = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
+        }
 
-            // Apply SVG transforms
-            route.truck.setAttribute('transform', `translate(${p1.x}, ${p1.y}) rotate(${angle})`);
-            
-            // Counter rotate bubble to keep it perfectly horizontal
-            const bubble = route.truck.querySelector('.svg-bubble');
-            if (bubble) {
-                bubble.setAttribute('transform', `translate(0, -32) rotate(${-angle})`);
-            }
-        });
+        route.truck.setAttribute('transform', `translate(${p1.x}, ${p1.y}) rotate(${angle})`);
+        
+        const bubble = route.truck.querySelector('.svg-bubble');
+        if (bubble) {
+            bubble.setAttribute('transform', `translate(0, -32) rotate(${-angle})`);
+        }
 
-        requestAnimationFrame(animateTrucks);
+        requestAnimationFrame(animateTruck);
     }
 
-    // Start animating if paths are loaded
     setTimeout(() => {
-        requestAnimationFrame(animateTrucks);
+        requestAnimationFrame(animateTruck);
     }, 1000);
 
     // Tonnage Turner (Odometer) logic

@@ -133,10 +133,8 @@
                 <div class="route-map-wrapper">
                     <svg class="route-map-svg" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <!-- Path 1 (MA) -->
-                            <path id="routeMA" d="M 60,160 Q 120,130 180,98 T 280,60"/>
-                            <!-- Path 2 (RI) -->
-                            <path id="routeRI" d="M 400,60 Q 450,90 500,116 T 620,160"/>
+                            <!-- Single path connecting all towns -->
+                            <path id="routeMain" d="M 80,110 Q 210,50 340,110 T 600,110"/>
                         </defs>
 
                         <!-- Background -->
@@ -152,65 +150,45 @@
                             <line x1="510" y1="0" x2="510" y2="220"/>
                         </g>
 
-                        <!-- Dotted paths -->
-                        <path d="M 60,160 Q 120,130 180,98 T 280,60" fill="none" stroke="#ccc" stroke-width="2.5" stroke-dasharray="8,5"/>
-                        <path d="M 400,60 Q 450,90 500,116 T 620,160" fill="none" stroke="#ccc" stroke-width="2.5" stroke-dasharray="8,5"/>
+                        <!-- Dotted path -->
+                        <path d="M 80,110 Q 210,50 340,110 T 600,110" fill="none" stroke="#ccc" stroke-width="2" stroke-dasharray="6,4"/>
                         
-                        <!-- MA Map Hubs -->
-                        <circle cx="60" cy="160" r="5" fill="var(--emerald)" stroke="var(--primary-black)" stroke-width="1.5"/>
-                        <text x="60" y="148" text-anchor="middle" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="var(--primary-black)">Framingham</text>
+                        <!-- Map Hubs (Framingham, Maynard, Stow, Providence, Newport) -->
+                        <circle cx="80" cy="110" r="4.5" fill="var(--emerald)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                        <text x="80" y="98" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Framingham</text>
 
-                        <circle cx="180" cy="98" r="5" fill="var(--emerald)" stroke="var(--primary-black)" stroke-width="1.5"/>
-                        <text x="180" y="86" text-anchor="middle" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="var(--primary-black)">Maynard</text>
+                        <circle cx="210" cy="80" r="4.5" fill="var(--emerald)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                        <text x="210" y="68" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Maynard</text>
 
-                        <circle cx="280" cy="60" r="5" fill="var(--emerald)" stroke="var(--primary-black)" stroke-width="1.5"/>
-                        <text x="280" y="48" text-anchor="middle" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="var(--primary-black)">Stow</text>
+                        <circle cx="340" cy="110" r="4.5" fill="var(--emerald)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                        <text x="340" y="98" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Stow</text>
 
-                        <!-- RI Map Hubs -->
-                        <circle cx="400" cy="60" r="5" fill="var(--gold)" stroke="var(--primary-black)" stroke-width="1.5"/>
-                        <text x="400" y="48" text-anchor="middle" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="var(--primary-black)">Woonsocket</text>
+                        <circle cx="470" cy="125" r="4.5" fill="var(--gold)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                        <text x="470" y="113" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Providence</text>
 
-                        <circle cx="500" cy="116" r="5" fill="var(--gold)" stroke="var(--primary-black)" stroke-width="1.5"/>
-                        <text x="500" y="104" text-anchor="middle" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="var(--primary-black)">Providence</text>
+                        <circle cx="600" cy="110" r="4.5" fill="var(--gold)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                        <text x="600" y="98" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Newport</text>
 
-                        <circle cx="620" cy="160" r="5" fill="var(--gold)" stroke="var(--primary-black)" stroke-width="1.5"/>
-                        <text x="620" y="148" text-anchor="middle" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="var(--primary-black)">Newport</text>
-
-                        <!-- MA Truck Group -->
-                        <g id="truckMA">
+                        <!-- Animated Truck along the path -->
+                        <g id="truckMainGroup">
                             <!-- Speech Bubble -->
                             <g class="svg-bubble" transform="translate(0, -32)">
-                                <rect x="-65" y="-12" width="130" height="18" fill="var(--white)" rx="4" stroke="var(--primary-black)" stroke-width="1.5"/>
-                                <polygon points="-5,6 5,6 0,11" fill="var(--white)" stroke="var(--primary-black)" stroke-width="1.5"/>
-                                <line x1="-4" y1="6" x2="4" y2="6" stroke="var(--white)" stroke-width="2"/>
-                                <text id="bubbleTextMA" x="0" y="0" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="800" fill="var(--primary-black)">On my way!!!!!!</text>
+                                <rect x="-60" y="-11" width="120" height="17" fill="var(--white)" rx="2" stroke="var(--primary-black)" stroke-width="1.5"/>
+                                <polygon points="-4,6 4,6 0,10" fill="var(--white)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                                <line x1="-3" y1="6" x2="3" y2="6" stroke="var(--white)" stroke-width="2"/>
+                                <text id="driver-bubble-text" x="0" y="1" text-anchor="middle" font-family="monospace" font-size="7" font-weight="800" fill="var(--primary-black)">On my way!!!!!!</text>
                             </g>
-                            <!-- Simple 2D Truck -->
-                            <rect x="-18" y="-7" width="36" height="13" fill="var(--forest-green)" rx="1.5"/>
-                            <rect x="18" y="-9" width="12" height="11" fill="#112d20" rx="1"/>
-                            <rect x="20" y="-8" width="7" height="6" fill="#7ab5a0" rx="0.5"/>
-                            <text x="0" y="1.5" text-anchor="middle" font-family="sans-serif" font-size="5.5" fill="#FFFFFF" font-weight="900">WU</text>
-                        </g>
 
-                        <!-- RI Truck Group -->
-                        <g id="truckRI">
-                            <!-- Speech Bubble -->
-                            <g class="svg-bubble" transform="translate(0, -32)">
-                                <rect x="-65" y="-12" width="130" height="18" fill="var(--white)" rx="4" stroke="var(--primary-black)" stroke-width="1.5"/>
-                                <polygon points="-5,6 5,6 0,11" fill="var(--white)" stroke="var(--primary-black)" stroke-width="1.5"/>
-                                <line x1="-4" y1="6" x2="4" y2="6" stroke="var(--white)" stroke-width="2"/>
-                                <text id="bubbleTextRI" x="0" y="0" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="800" fill="var(--primary-black)">On my way!!!!!!</text>
-                            </g>
-                            <!-- Simple 2D Truck -->
-                            <rect x="-18" y="-7" width="36" height="13" fill="var(--forest-green)" rx="1.5"/>
-                            <rect x="18" y="-9" width="12" height="11" fill="#112d20" rx="1"/>
-                            <rect x="20" y="-8" width="7" height="6" fill="#7ab5a0" rx="0.5"/>
-                            <text x="0" y="1.5" text-anchor="middle" font-family="sans-serif" font-size="5.5" fill="#FFFFFF" font-weight="900">WU</text>
+                            <!-- 8-Bit NES Retro 2D Truck (Blocky) -->
+                            <rect x="-14" y="-6" width="22" height="12" fill="var(--forest-green)" stroke="var(--primary-black)" stroke-width="1"/>
+                            <rect x="8" y="-5" width="8" height="10" fill="#112d20" stroke="var(--primary-black)" stroke-width="1"/>
+                            <rect x="11" y="-4" width="3" height="8" fill="#7ab5a0"/>
+                            <text x="-3" y="3" font-family="monospace" font-weight="900" font-size="7.5" fill="#FFFFFF">WU</text>
                         </g>
                     </svg>
                     <div class="route-legend">
                         <span class="legend-item active"><span class="live-dot"></span> In Transit</span>
-                        <span class="legend-item" style="margin-left:auto;">2 trucks en route</span>
+                        <span class="legend-item" style="margin-left:auto;">1 truck en route</span>
                     </div>
                 </div>
 
