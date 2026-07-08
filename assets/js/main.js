@@ -93,15 +93,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Driver Speech Bubble Rotation
-    const bubbleText = document.querySelector('.bubble-text');
+    const bubbleText = document.getElementById('driver-bubble-text');
     const lines = [
-        "On my way!",
+        "On my way!!!!!!",
         "Working hard to get it delivered!",
         "Keeping our neighborhoods clean!",
-        "Serving MetroWest with pride!",
+        "In route to the next stop!",
         "Rain or shine, we're on the line!",
-        "Another collection done! Onto the next!",
-        "Your friendly neighborhood driver here!"
+        "Keeping the community safe!",
+        "Truck en route to Providence!"
     ];
     let idx = 0;
     if (bubbleText) {

@@ -129,44 +129,62 @@
                 <span class="live-badge">Live</span>
             </div>
             <div class="impact-grid">
-                <!-- Endless loop animation with map elements -->
-                <div class="route-game-container">
-                    <div class="game-sky"></div>
-                    <div class="game-grid-overlay"></div>
-                    
-                    <!-- Scrolling Town Pins (Map Imagery) -->
-                    <div class="game-towns">
-                        <div class="town-sign" style="--delay: 0s; --y: 40px;"><span>Framingham</span></div>
-                        <div class="town-sign" style="--delay: 2.5s; --y: 90px;"><span>Natick</span></div>
-                        <div class="town-sign" style="--delay: 5s; --y: 35px;"><span>Hopkinton</span></div>
-                        <div class="town-sign" style="--delay: 7.5s; --y: 80px;"><span>Woonsocket</span></div>
-                        <div class="town-sign" style="--delay: 10s; --y: 50px;"><span>Providence</span></div>
-                    </div>
-                    
-                    <div class="game-road"></div>
-                    
-                    <!-- Driving Truck -->
-                    <div class="game-truck-wrapper">
-                        <!-- Speech Bubble -->
-                        <div class="driver-bubble">
-                            <span class="bubble-text">On my way!</span>
-                        </div>
-                        <!-- Exhaust smoke puffs -->
-                        <div class="exhaust-puffs">
-                            <div class="puff p1"></div>
-                            <div class="puff p2"></div>
-                            <div class="puff p3"></div>
-                        </div>
-                        <!-- Top-down 2D Map style Truck SVG -->
-                        <svg class="game-truck" viewBox="0 0 100 50">
-                            <!-- Top-down Cabin -->
-                            <rect x="68" y="15" width="18" height="20" fill="#112d20" rx="2"/>
-                            <rect x="70" y="17" width="10" height="16" fill="#7ab5a0" rx="1"/>
-                            <!-- Top-down Body -->
-                            <rect x="15" y="10" width="53" height="30" fill="var(--forest-green)" rx="3"/>
-                            <!-- WU Text -->
-                            <text x="41.5" y="29" font-family="'Google Sans', sans-serif" font-weight="900" font-size="12" fill="#FFFFFF">WU</text>
-                        </svg>
+            <div class="impact-grid">
+                <!-- Simple 2D Map Tracker -->
+                <div class="route-map-wrapper">
+                    <svg class="route-map-svg" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <!-- Path from Framingham to Providence -->
+                            <path id="routeMain" d="M 80,110 C 200,40 400,180 600,110"/>
+                        </defs>
+
+                        <!-- Background -->
+                        <rect width="680" height="220" fill="var(--cream)"/>
+
+                        <!-- Grid overlay for map look -->
+                        <g stroke="var(--forest-green)" stroke-width="0.5" opacity="0.08">
+                            <line x1="0" y1="55" x2="680" y2="55"/>
+                            <line x1="0" y1="110" x2="680" y2="110"/>
+                            <line x1="0" y1="165" x2="680" y2="165"/>
+                            <line x1="170" y1="0" x2="170" y2="220"/>
+                            <line x1="340" y1="0" x2="340" y2="220"/>
+                            <line x1="510" y1="0" x2="510" y2="220"/>
+                        </g>
+
+                        <!-- Dotted path -->
+                        <path d="M 80,110 C 200,40 400,180 600,110" fill="none" stroke="#ccc" stroke-width="2.5" stroke-dasharray="8,5"/>
+                        
+                        <!-- Map Hubs (Framingham & Providence) -->
+                        <circle cx="80" cy="110" r="6" fill="var(--emerald)" stroke="var(--primary-black)" stroke-width="2"/>
+                        <text x="80" y="98" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="var(--primary-black)">Framingham Hub</text>
+
+                        <circle cx="600" cy="110" r="6" fill="var(--gold)" stroke="var(--primary-black)" stroke-width="2"/>
+                        <text x="600" y="98" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="var(--primary-black)">Providence Route</text>
+
+                        <!-- Animated Truck along the path -->
+                        <g>
+                            <animateMotion dur="12s" repeatCount="indefinite" rotate="auto">
+                                <mpath href="#routeMain"/>
+                            </animateMotion>
+                            
+                            <!-- Speech Bubble inside SVG -->
+                            <g transform="translate(0, -32)" class="svg-bubble">
+                                <rect x="-65" y="-12" width="130" height="18" fill="var(--white)" rx="4" stroke="var(--primary-black)" stroke-width="1.5"/>
+                                <polygon points="-5,6 5,6 0,11" fill="var(--white)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                                <line x1="-4" y1="6" x2="4" y2="6" stroke="var(--white)" stroke-width="2"/>
+                                <text id="driver-bubble-text" x="0" y="0" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="800" fill="var(--primary-black)">On my way!!!!!!</text>
+                            </g>
+
+                            <!-- Simple 2D Truck -->
+                            <rect x="-18" y="-7" width="36" height="13" fill="var(--forest-green)" rx="1.5"/>
+                            <rect x="18" y="-9" width="12" height="11" fill="#112d20" rx="1"/>
+                            <rect x="20" y="-8" width="7" height="6" fill="#7ab5a0" rx="0.5"/>
+                            <text x="0" y="1.5" text-anchor="middle" font-family="sans-serif" font-size="5.5" fill="#FFFFFF" font-weight="900">WU</text>
+                        </g>
+                    </svg>
+                    <div class="route-legend">
+                        <span class="legend-item active"><span class="live-dot"></span> In Transit</span>
+                        <span class="legend-item" style="margin-left:auto;">1 truck en route</span>
                     </div>
                 </div>
 
@@ -204,7 +222,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="impact-desc">At Waste Universe, we take heart in keeping our families safe and our community clean. We practice gentle, sustainable recycling services to protect our shared environment for generations to come.</p>
+                    <p class="impact-desc">At Waste Universe, we take pride in keeping our families safe and our community clean. We practice gentle, sustainable recycling services to protect our shared environment for generations to come.</p>
                     <a href="#" class="btn btn-forest">Learn More</a>
                 </div>
             </div>
