@@ -121,7 +121,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const odoD3 = document.getElementById('odo-d3');
     const odoD4 = document.getElementById('odo-d4');
 
-    let currentTonnage = 1240;
+    let currentTonnage = 1;
+    const targetTonnage = 1240;
 
     function updateOdometer(value) {
         const valStr = value.toString().padStart(4, '0');
@@ -134,14 +135,33 @@ document.addEventListener('DOMContentLoaded', () => {
         if (odoD4) odoD4.style.transform = `translateY(${-digits[3] * 42}px)`;
     }
 
-    // Initial setup with a slight delay for split-flap dramatic visual effect
-    setTimeout(() => {
-        updateOdometer(currentTonnage);
-    }, 500);
+    // Roll up animation from 1 to 1240
+    function startOdometerAnimation() {
+        const duration = 2500; // 2.5 seconds rollup
+        const startTime = performance.now();
 
-    // Slowly increment every 8 seconds (realistic tick for small-mid size business)
-    setInterval(() => {
-        currentTonnage++;
-        updateOdometer(currentTonnage);
-    }, 8000);
+        function animate(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Ease-out cubic
+            const ease = 1 - Math.pow(1 - progress, 3);
+            currentTonnage = Math.floor(ease * (targetTonnage - 1) + 1);
+            updateOdometer(currentTonnage);
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                // Ticking interval once rollup completes
+                setInterval(() => {
+                    currentTonnage++;
+                    updateOdometer(currentTonnage);
+                }, 8000);
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+
+    // Initialize with a slight delay
+    setTimeout(startOdometerAnimation, 600);
 });
