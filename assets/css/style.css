@@ -1269,3 +1269,26 @@ img, video {
         display: none;
     }
 }
+
+/* Responsive Hide for Mobile (keeps contact buttons compact and side-by-side) */
+@media (max-width: 480px) {
+    .hide-mobile {
+        display: none;
+    }
+    .hero-actions {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 6px;
+        justify-content: center;
+        width: 100%;
+    }
+    .hero-actions .btn {
+        flex: 1;
+        padding: 10px 4px;
+        font-size: 11px;
+        white-space: nowrap;
+        text-align: center;
+        min-width: 0;
+        letter-spacing: 0px;
+    }
+}

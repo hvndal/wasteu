@@ -92,28 +92,131 @@ document.addEventListener('DOMContentLoaded', () => {
         imageObserver.observe(img);
     });
 
-    // Driver Speech Bubble Rotation
-    const bubbleText = document.getElementById('driver-bubble-text');
-    const lines = [
-        "On my way!!!!!!",
-        "Working hard to get it delivered!",
-        "Keeping our neighborhoods clean!",
-        "In route to the next stop!",
-        "Rain or shine, we're on the line!",
-        "Keeping the community safe!",
-        "Truck en route to Providence!"
+    // Animated Trucks along paths with Stops & Speech Bubbles
+    const routes = [
+        {
+            id: 'MA',
+            pathId: 'routeMA',
+            truckId: 'truckMA',
+            bubbleTextId: 'bubbleTextMA',
+            cities: [
+                { name: "Framingham", ratio: 0.0, msg: "Departing Framingham Hub!" },
+                { name: "Maynard", ratio: 0.5, msg: "Emptying recycling bins in Maynard!" },
+                { name: "Stow", ratio: 1.0, msg: "Stow reached! Preparing return run..." }
+            ],
+            speed: 0.8,
+            direction: 1
+        },
+        {
+            id: 'RI',
+            pathId: 'routeRI',
+            truckId: 'truckRI',
+            bubbleTextId: 'bubbleTextRI',
+            cities: [
+                { name: "Woonsocket", ratio: 0.0, msg: "Departing Woonsocket!" },
+                { name: "Providence", ratio: 0.5, msg: "Loading waste in Providence!" },
+                { name: "Newport", ratio: 1.0, msg: "Final collection in Newport!" }
+            ],
+            speed: 0.65,
+            direction: 1
+        }
     ];
-    let idx = 0;
-    if (bubbleText) {
-        setInterval(() => {
-            idx = (idx + 1) % lines.length;
-            bubbleText.style.opacity = 0;
-            setTimeout(() => {
-                bubbleText.textContent = lines[idx];
-                bubbleText.style.opacity = 1;
-            }, 300);
-        }, 4000);
+
+    // Setup routes variables
+    routes.forEach(route => {
+        route.path = document.getElementById(route.pathId);
+        route.truck = document.getElementById(route.truckId);
+        route.bubbleText = document.getElementById(route.bubbleTextId);
+        if (route.path) {
+            route.length = route.path.getTotalLength();
+        }
+        route.distance = 0;
+        route.paused = false;
+        route.pauseTimer = 0;
+        route.lastCityIdx = -1;
+    });
+
+    function animateTrucks() {
+        routes.forEach(route => {
+            if (!route.path || !route.truck || !route.bubbleText) return;
+
+            if (route.paused) {
+                route.pauseTimer += 16.67; // Approx 1 frame at 60fps
+                if (route.pauseTimer >= 3000) { // 3 seconds stop
+                    route.paused = false;
+                    route.pauseTimer = 0;
+                    route.bubbleText.textContent = "On my way!!!!!!";
+                }
+                return;
+            }
+
+            // Move
+            route.distance += route.speed * route.direction;
+
+            // Loop bounds
+            if (route.distance >= route.length) {
+                route.distance = route.length;
+                route.direction = -1; // Reverse direction
+                route.paused = true;
+                route.lastCityIdx = route.cities.length - 1;
+                route.bubbleText.textContent = route.cities[route.lastCityIdx].msg;
+                return;
+            } else if (route.distance <= 0) {
+                route.distance = 0;
+                route.direction = 1; // Forward direction
+                route.paused = true;
+                route.lastCityIdx = 0;
+                route.bubbleText.textContent = route.cities[0].msg;
+                return;
+            }
+
+            // Check if near any city (excluding endpoints which are handled by bounds)
+            const currentRatio = route.distance / route.length;
+            route.cities.forEach((city, idx) => {
+                if (idx > 0 && idx < route.cities.length - 1) {
+                    if (Math.abs(currentRatio - city.ratio) < 0.015 && route.lastCityIdx !== idx) {
+                        route.paused = true;
+                        route.lastCityIdx = idx;
+                        route.bubbleText.textContent = city.msg;
+                    }
+                }
+            });
+
+            // Reset city lock once we move away
+            if (route.lastCityIdx !== -1) {
+                const lastCity = route.cities[route.lastCityIdx];
+                if (Math.abs(currentRatio - lastCity.ratio) > 0.05) {
+                    route.lastCityIdx = -1;
+                }
+            }
+
+            // Calculate position & rotation
+            const p1 = route.path.getPointAtLength(route.distance);
+            const nextDist = Math.max(0, Math.min(route.length, route.distance + 2 * route.direction));
+            const p2 = route.path.getPointAtLength(nextDist);
+            
+            let angle = 0;
+            if (p2) {
+                angle = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
+            }
+
+            // Apply SVG transforms
+            route.truck.setAttribute('transform', `translate(${p1.x}, ${p1.y}) rotate(${angle})`);
+            
+            // Counter rotate bubble to keep it perfectly horizontal
+            const bubble = route.truck.querySelector('.svg-bubble');
+            if (bubble) {
+                bubble.setAttribute('transform', `translate(0, -32) rotate(${-angle})`);
+            }
+        });
+
+        requestAnimationFrame(animateTrucks);
     }
+
+    // Start animating if paths are loaded
+    setTimeout(() => {
+        requestAnimationFrame(animateTrucks);
+    }, 1000);
 
     // Tonnage Turner (Odometer) logic
     const odoD1 = document.getElementById('odo-d1');
