@@ -726,7 +726,6 @@ img, video {
     background: var(--white);
     border: var(--border-thick);
     padding: 32px;
-    box-shadow: 6px 6px 0px var(--primary-black);
 }
 
 .feature-icon {
