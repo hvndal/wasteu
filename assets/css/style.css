@@ -1065,9 +1065,9 @@ img, video {
     color: var(--gold);
 }
 
-/* Route game container (game-like truck animation) */
+/* Route game container (compact map-scroller animation) */
 .route-game-container {
-    height: 260px;
+    height: 200px;
     border: var(--border-thick);
     position: relative;
     overflow: hidden;
@@ -1080,8 +1080,78 @@ img, video {
     top: 0;
     left: 0;
     width: 100%;
-    height: 180px;
+    height: 140px;
     background: linear-gradient(to bottom, #7ab5a0 0%, #FAF9F6 100%);
+}
+
+/* Map Grid lines overlay */
+.game-grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(16, 54, 32, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(16, 54, 32, 0.04) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.8;
+}
+
+/* Town Pin scrolling */
+@keyframes scrollTowns {
+    0% { transform: translateX(650px); }
+    100% { transform: translateX(-180px); }
+}
+
+.game-towns {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+}
+
+.town-sign {
+    position: absolute;
+    left: 0;
+    top: var(--y);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: scrollTowns 8s linear infinite;
+    animation-delay: var(--delay);
+    transform: translateX(650px);
+}
+
+.town-sign::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--emerald);
+    border: 2px solid var(--primary-black);
+    border-radius: 50%;
+}
+
+.town-sign::after {
+    content: '';
+    width: 2px;
+    height: 12px;
+    background: var(--primary-black);
+}
+
+.town-sign span {
+    background: var(--white);
+    border: var(--border-thin);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--primary-black);
+    box-shadow: 1px 1px 0px rgba(0,0,0,0.15);
+    margin-top: -24px;
+    white-space: nowrap;
 }
 
 @keyframes scrollBg {
@@ -1089,36 +1159,12 @@ img, video {
     100% { background-position-x: -600px; }
 }
 
-.game-mountains {
-    position: absolute;
-    bottom: 50px;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30' preserveAspectRatio='none'%3E%3Cpath d='M0 30 L20 10 L45 25 L70 5 L100 30 Z' fill='%235c8b77' opacity='0.3'/%3E%3C/svg%3E");
-    background-repeat: repeat-x;
-    background-size: 300px 80px;
-    animation: scrollBg 25s linear infinite;
-}
-
-.game-trees {
-    position: absolute;
-    bottom: 45px;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 40'%3E%3Cpolygon points='25,5 10,35 40,35' fill='%232a523d' opacity='0.6'/%3E%3Cpolygon points='25,0 15,25 35,25' fill='%232a523d' opacity='0.7'/%3E%3C/svg%3E");
-    background-repeat: repeat-x;
-    background-size: 40px 40px;
-    animation: scrollBg 12s linear infinite;
-}
-
 .game-road {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: 40px;
     background: #2b302d;
     border-top: var(--border-thick);
 }
@@ -1126,7 +1172,7 @@ img, video {
 .game-road::after {
     content: '';
     position: absolute;
-    top: 22px;
+    top: 17px;
     left: 0;
     width: 100%;
     height: 4px;
@@ -1141,7 +1187,7 @@ img, video {
 }
 .game-truck-wrapper {
     position: absolute;
-    bottom: 12px;
+    bottom: 8px;
     left: 60px;
     width: 120px;
     height: 70px;
@@ -1172,7 +1218,7 @@ img, video {
 
 .driver-bubble {
     position: absolute;
-    top: -45px;
+    top: -42px;
     left: 45px;
     background: var(--white);
     border: var(--border-thin);
@@ -1183,6 +1229,7 @@ img, video {
     color: var(--primary-black);
     white-space: nowrap;
     box-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+    z-index: 10;
 }
 
 .driver-bubble::after {
@@ -1215,65 +1262,114 @@ img, video {
     display: inline-block;
 }
 
-/* Tons meter styling */
-.meter-container {
-    position: relative;
-    width: 140px;
-    height: 140px;
-    margin: 0 auto 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.meter-spin {
-    display: block;
-}
-
-.meter-info {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+/* Split-flap Tonnage Turner */
+.turner-container {
+    background: var(--cream);
+    border: var(--border-thick);
+    padding: 24px;
+    display: inline-block;
+    width: 100%;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
     text-align: center;
 }
 
-.meter-info .impact-number {
-    font-size: 32px;
-    margin-bottom: 0;
+.turner-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.odo-digit {
+    position: relative;
+    width: 28px;
+    height: 42px;
+    background: #1C201E;
+    color: var(--gold);
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 42px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: inset 0px 3px 6px rgba(0,0,0,0.6);
+}
+
+.odo-digit::after {
+    content: '';
+    position: absolute;
+    top: 21px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0,0,0,0.7);
+    z-index: 2;
+    box-shadow: 0px 1px 1px rgba(255,255,255,0.1);
+}
+
+.odo-comma {
+    font-size: 28px;
+    font-weight: 700;
     color: var(--primary-black);
+    line-height: 42px;
+    margin: 0 2px;
 }
 
-.meter-info .impact-unit {
-    font-size: 14px;
+.odo-strip {
+    display: flex;
+    flex-direction: column;
+    transition: transform 1.5s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.odo-strip span {
+    display: block;
+    height: 42px;
+}
+
+@keyframes odoSpinFast {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-378px); } /* 9 * 42px = 378px */
+}
+@keyframes odoTarget {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(var(--target)); }
+}
+.animate-strip {
+    animation: odoTarget 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    animation-delay: var(--delay);
+}
+.animate-strip-fast {
+    animation: odoSpinFast 0.8s linear infinite;
+}
+
+.turner-suffix {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-black);
+    margin-left: 8px;
+    text-transform: uppercase;
+}
+
+.turner-label {
+    font-size: 13px;
+    font-weight: 700;
     color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
-@keyframes wiggleNeedle {
-    0% { transform: rotate(-30deg); }
-    50% { transform: rotate(40deg); }
-    100% { transform: rotate(-30deg); }
-}
-.needle {
-    transform-origin: 50px 50px;
-    animation: wiggleNeedle 3s ease-in-out infinite;
-}
-
-@keyframes rotateRing {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-.progress-ring {
-    transform-origin: 50px 50px;
-    animation: rotateRing 8s linear infinite;
-    stroke-dasharray: 20, 10;
-}
-
-.meter-container:hover .needle {
-    animation: none;
-    transform: rotate(180deg);
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--emerald);
+    animation: pulse 1.5s infinite;
 }
 
 /* Responsive */

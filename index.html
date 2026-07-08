@@ -129,11 +129,20 @@
                 <span class="live-badge">Live</span>
             </div>
             <div class="impact-grid">
-                <!-- Endless loop animation -->
+                <!-- Endless loop animation with map elements -->
                 <div class="route-game-container">
                     <div class="game-sky"></div>
-                    <div class="game-mountains"></div>
-                    <div class="game-trees"></div>
+                    <div class="game-grid-overlay"></div>
+                    
+                    <!-- Scrolling Town Pins (Map Imagery) -->
+                    <div class="game-towns">
+                        <div class="town-sign" style="--delay: 0s; --y: 40px;"><span>Framingham</span></div>
+                        <div class="town-sign" style="--delay: 2.5s; --y: 90px;"><span>Natick</span></div>
+                        <div class="town-sign" style="--delay: 5s; --y: 35px;"><span>Hopkinton</span></div>
+                        <div class="town-sign" style="--delay: 7.5s; --y: 80px;"><span>Woonsocket</span></div>
+                        <div class="town-sign" style="--delay: 10s; --y: 50px;"><span>Providence</span></div>
+                    </div>
+                    
                     <div class="game-road"></div>
                     
                     <!-- Driving Truck -->
@@ -176,22 +185,35 @@
                 <!-- Stats + description -->
                 <div class="impact-right">
                     <div class="impact-stats">
-                        <div class="meter-container">
-                            <svg class="meter-spin" viewBox="0 0 100 100" width="120" height="120">
-                                <circle cx="50" cy="50" r="45" stroke="rgba(15, 54, 111, 0.1)" stroke-width="4" fill="none"/>
-                                <circle class="progress-ring" cx="50" cy="50" r="45" stroke="var(--emerald)" stroke-width="5" fill="none" stroke-dasharray="283" stroke-dashoffset="70"/>
-                                <circle cx="50" cy="50" r="40" fill="var(--cream)" />
-                                <!-- Pointer/Needle or spinning elements -->
-                                <line x1="50" y1="50" x2="50" y2="20" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" class="needle"/>
-                                <circle cx="50" cy="50" r="4" fill="var(--primary-black)"/>
-                            </svg>
-                            <div class="meter-info">
-                                <div class="impact-number">1,240</div>
-                                <div class="impact-unit">Tons</div>
+                        <div class="turner-container">
+                            <div class="turner-row">
+                                <!-- Split Flap / Tumbler digits -->
+                                <div class="odo-digit">
+                                    <div class="odo-strip animate-strip" style="--delay: 0.1s; --target: -36px;">
+                                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                                    </div>
+                                </div>
+                                <div class="odo-comma">,</div>
+                                <div class="odo-digit">
+                                    <div class="odo-strip animate-strip" style="--delay: 0.3s; --target: -72px;">
+                                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                                    </div>
+                                </div>
+                                <div class="odo-digit">
+                                    <div class="odo-strip animate-strip" style="--delay: 0.5s; --target: -144px;">
+                                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                                    </div>
+                                </div>
+                                <div class="odo-digit">
+                                    <div class="odo-strip animate-strip-fast" style="--delay: 0.7s;">
+                                        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                                    </div>
+                                </div>
+                                <span class="turner-suffix">Tons</span>
                             </div>
-                        </div>
-                        <div class="impact-text">
-                            Recycled this month
+                            <div class="turner-label">
+                                <span class="live-dot"></span> Recycled &amp; counting...
+                            </div>
                         </div>
                     </div>
                     <p class="impact-desc">Track our trucks in real-time across MetroWest Massachusetts and Rhode Island. We provide transparent, live metrics on every route we run.</p>
