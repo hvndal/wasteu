@@ -151,6 +151,12 @@
                         <div class="driver-bubble">
                             <span class="bubble-text">On my way!</span>
                         </div>
+                        <!-- Exhaust smoke puffs -->
+                        <div class="exhaust-puffs">
+                            <div class="puff p1"></div>
+                            <div class="puff p2"></div>
+                            <div class="puff p3"></div>
+                        </div>
                         <!-- Truck SVG -->
                         <svg class="game-truck" viewBox="0 0 120 60">
                             <!-- Truck Cabin -->
@@ -189,23 +195,23 @@
                             <div class="turner-row">
                                 <!-- Split Flap / Tumbler digits -->
                                 <div class="odo-digit">
-                                    <div class="odo-strip animate-strip" style="--delay: 0.1s; --target: -36px;">
+                                    <div class="odo-strip" id="odo-d1">
                                         <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
                                     </div>
                                 </div>
                                 <div class="odo-comma">,</div>
                                 <div class="odo-digit">
-                                    <div class="odo-strip animate-strip" style="--delay: 0.3s; --target: -72px;">
+                                    <div class="odo-strip" id="odo-d2">
                                         <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
                                     </div>
                                 </div>
                                 <div class="odo-digit">
-                                    <div class="odo-strip animate-strip" style="--delay: 0.5s; --target: -144px;">
+                                    <div class="odo-strip" id="odo-d3">
                                         <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
                                     </div>
                                 </div>
                                 <div class="odo-digit">
-                                    <div class="odo-strip animate-strip-fast" style="--delay: 0.7s;">
+                                    <div class="odo-strip" id="odo-d4">
                                         <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
                                     </div>
                                 </div>

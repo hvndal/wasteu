@@ -114,4 +114,34 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 300);
         }, 4000);
     }
+
+    // Tonnage Turner (Odometer) logic
+    const odoD1 = document.getElementById('odo-d1');
+    const odoD2 = document.getElementById('odo-d2');
+    const odoD3 = document.getElementById('odo-d3');
+    const odoD4 = document.getElementById('odo-d4');
+
+    let currentTonnage = 1240;
+
+    function updateOdometer(value) {
+        const valStr = value.toString().padStart(4, '0');
+        const digits = valStr.split('').map(Number);
+        
+        // height of each span is 42px in style.css
+        if (odoD1) odoD1.style.transform = `translateY(${-digits[0] * 42}px)`;
+        if (odoD2) odoD2.style.transform = `translateY(${-digits[1] * 42}px)`;
+        if (odoD3) odoD3.style.transform = `translateY(${-digits[2] * 42}px)`;
+        if (odoD4) odoD4.style.transform = `translateY(${-digits[3] * 42}px)`;
+    }
+
+    // Initial setup with a slight delay for split-flap dramatic visual effect
+    setTimeout(() => {
+        updateOdometer(currentTonnage);
+    }, 500);
+
+    // Slowly increment every 8 seconds (realistic tick for small-mid size business)
+    setInterval(() => {
+        currentTonnage++;
+        updateOdometer(currentTonnage);
+    }, 8000);
 });
