@@ -34,7 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('[Portal] Attempting signup for:', email);
 
             try {
-                const { data, error } = await sb.auth.signUp({ email, password });
+                const siteOrigin = window.location.origin;
+                const { data, error } = await sb.auth.signUp({
+                    email,
+                    password,
+                    options: {
+                        emailRedirectTo: siteOrigin + '/dashboard.html'
+                    }
+                });
 
                 if (error) {
                     console.error('[Portal] Signup error:', error.message);
