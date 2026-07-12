@@ -383,6 +383,38 @@
                 <button class="expand-btn">[ READ FULL STORY + ]</button>
             </article>
 
+            <!-- Sustainability Article -->
+            <article class="news-article">
+                <div class="article-tag">SUSTAINABILITY</div>
+                <h2 class="article-title" style="font-size: 1.8rem;">Recycling Reality: What Actually Happens to Your Waste in Massachusetts</h2>
+                <div class="byline">By Connor (Owner)</div>
+                
+                <div class="article-image" style="background: url('assets/images/recycling_plant.jpg') center/cover;">
+                    <div style="background: rgba(0,0,0,0.6); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem; letter-spacing: 2px;">THE RECYCLING TRUTH</div>
+                </div>
+                
+                <div class="article-text">
+                    <p>There is a massive misconception in New England about where our trash goes. We like to think that once it leaves the curb, it magically disappears or gets turned into new products. The reality is much more complex.</p>
+                    
+                    <div class="full-content">
+                        <p>Massachusetts is currently facing a looming waste disposal crisis. Over the last decade, several major landfills and incinerators have closed, drastically reducing our state's capacity to process solid waste. What does this mean for you? It means disposal costs are skyrocketing, and the importance of responsible hauling is higher than ever.</p>
+                        
+                        <h3 style="font-family: monospace; font-size: 1.3rem; margin: 1.5rem 0 0.5rem; text-transform: uppercase;">The Myth of Wish-Cycling</h3>
+                        <p>One of the biggest hurdles we face at the transfer stations is "wish-cycling"—the act of throwing questionable items into the recycling bin and hoping the facility figures it out. Greasy pizza boxes, plastic bags, and mixed-material toys contaminate entire loads. When a recycling load is contaminated, the facility rejects it, and it ends up in a landfill anyway, costing more fuel, time, and money.</p>
+                        
+                        <h3 style="font-family: monospace; font-size: 1.3rem; margin: 1.5rem 0 0.5rem; text-transform: uppercase;">How We Handle Diversion</h3>
+                        <p>When you rent a dumpster from Waste Universe for a cleanout, we don't just blindly dump it into a hole in the ground. We work closely with specialized transfer stations that utilize massive industrial sorting lines. Heavy machinery and manual sorters pull out clean cardboard, scrap metal, and rigid plastics before the remaining refuse is sent to a waste-to-energy plant or out-of-state landfill.</p>
+                        
+                        <h3 style="font-family: monospace; font-size: 1.3rem; margin: 1.5rem 0 0.5rem; text-transform: uppercase;">The Future of Waste in MA</h3>
+                        <p>As space continues to shrink, the future of waste management relies heavily on better sorting at the source. That’s why we're constantly upgrading our operations and educating our customers. Whether it’s a small residential bin or a massive 30-yard commercial roll-off, every ton we divert from a landfill matters.</p>
+                        <p>So next time you're doing a home renovation or a garage cleanout, remember: it doesn't just disappear. But with a reliable local hauler, you can ensure it's handled the right way.</p>
+                        <a href="services.html" class="btn btn-gold" style="margin-top: 1rem; border: 2px solid var(--primary-black);">Learn More About Our Processes</a>
+                    </div>
+                </div>
+                
+                <button class="expand-btn">[ READ FULL STORY + ]</button>
+            </article>
+
         </div>
     </main>
 
@@ -413,6 +445,24 @@
         </div>
     </div>
 
+    <!-- Blog Reading Modal -->
+    <div id="blogModal" class="modal" style="z-index: 9999;">
+        <div class="modal-content" style="max-width: 800px; padding: 3rem; background: var(--cream); border: 4px solid var(--primary-black); box-shadow: 12px 12px 0px var(--forest-green); max-height: 90vh; overflow-y: auto;">
+            <span class="close-modal" id="closeBlogModal" style="font-size: 2.5rem; color: var(--primary-black); right: 1.5rem; top: 1rem;">&times;</span>
+            <div id="blogModalImage" style="width: 100%; height: 300px; background: var(--primary-black); margin-bottom: 2rem; border: 4px solid var(--primary-black); background-size: cover; background-position: center;"></div>
+            
+            <div style="margin-bottom: 2rem;">
+                <div id="blogModalTag" class="article-tag" style="display: inline-block; margin-bottom: 1rem; background: var(--primary-black); color: var(--gold); padding: 0.3rem 0.8rem; font-weight: 800; text-transform: uppercase;">TAG</div>
+                <h2 id="blogModalTitle" style="font-size: 2.5rem; line-height: 1.2; color: var(--primary-black); font-weight: 900; margin-bottom: 0.5rem;">Article Title</h2>
+                <div id="blogModalByline" class="byline" style="font-weight: 700; color: var(--forest-green); text-transform: uppercase; border-bottom: 2px solid var(--primary-black); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">By Author</div>
+            </div>
+            
+            <div id="blogModalBody" class="article-text" style="font-size: 1.2rem; line-height: 1.8; color: var(--text-dark);">
+                <!-- Content injected here -->
+            </div>
+        </div>
+    </div>
+
     <!-- Floating Contact Widget -->
     <div class="floating-contact">
         <a href="#" class="float-btn open-quote-modal" data-service="Contact Us" title="Call Us" style="font-size: 28px; text-decoration: none;">
@@ -429,23 +479,79 @@
     <script src="assets/js/loader.js"></script>
     
     <script>
-        // Article Expand/Collapse Logic
+        // Article Modal Popup Logic
         document.addEventListener('DOMContentLoaded', () => {
             const expandBtns = document.querySelectorAll('.expand-btn');
+            const blogModal = document.getElementById('blogModal');
+            const closeBlogModal = document.getElementById('closeBlogModal');
+            
+            // Modal Elements
+            const modalImage = document.getElementById('blogModalImage');
+            const modalTag = document.getElementById('blogModalTag');
+            const modalTitle = document.getElementById('blogModalTitle');
+            const modalByline = document.getElementById('blogModalByline');
+            const modalBody = document.getElementById('blogModalBody');
             
             expandBtns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const article = e.target.closest('.news-article');
-                    const fullContent = article.querySelector('.full-content');
                     
-                    if (fullContent.classList.contains('expanded')) {
-                        fullContent.classList.remove('expanded');
-                        e.target.textContent = '[ READ FULL STORY + ]';
+                    // Extract Content
+                    const tag = article.querySelector('.article-tag').textContent;
+                    const title = article.querySelector('.article-title').textContent;
+                    const byline = article.querySelector('.byline').textContent;
+                    
+                    // Extract background image URL safely
+                    const imageDiv = article.querySelector('.article-image');
+                    const bgStyle = window.getComputedStyle(imageDiv).backgroundImage;
+                    
+                    // Extract Intro text
+                    const textDiv = article.querySelector('.article-text');
+                    let introHTML = '';
+                    Array.from(textDiv.children).forEach(child => {
+                        if (!child.classList.contains('full-content')) {
+                            introHTML += child.outerHTML;
+                        }
+                    });
+                    
+                    // Extract Full content
+                    const fullContent = article.querySelector('.full-content');
+                    const fullContentHTML = fullContent ? fullContent.innerHTML : '';
+                    
+                    // Populate Modal
+                    modalTag.textContent = tag;
+                    modalTitle.textContent = title;
+                    modalByline.textContent = byline;
+                    modalImage.style.backgroundImage = bgStyle;
+                    
+                    // Styling overrides
+                    if (article.classList.contains('office-column')) {
+                        modalTag.style.background = 'var(--white)';
+                        modalTag.style.color = 'var(--primary-black)';
                     } else {
-                        fullContent.classList.add('expanded');
-                        e.target.textContent = '[ COLLAPSE STORY - ]';
+                        modalTag.style.background = 'var(--primary-black)';
+                        modalTag.style.color = 'var(--gold)';
                     }
+                    
+                    modalBody.innerHTML = introHTML + '<hr style="border: 1px dashed var(--primary-black); margin: 2rem 0;">' + fullContentHTML;
+                    
+                    // Show Modal
+                    blogModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
                 });
+            });
+            
+            // Close logic
+            closeBlogModal.addEventListener('click', () => {
+                blogModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            window.addEventListener('click', (e) => {
+                if (e.target === blogModal) {
+                    blogModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
             });
         });
     </script>
