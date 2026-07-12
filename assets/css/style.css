@@ -2670,3 +2670,40 @@ img, video {
 body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
     font-family: var(--font-main) !important;
 }
+
+/* APP CARDS (What are you cleaning?) */
+.app-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+.app-card { background: var(--white); border: 2px solid var(--primary-black); border-radius: 16px; padding: 2rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; cursor: pointer; transition: all 0.2s ease; box-shadow: 4px 4px 0 var(--primary-black); }
+.app-card:hover { transform: translateY(-5px); box-shadow: 6px 6px 0 var(--emerald); border-color: var(--emerald); }
+.app-card .card-icon { font-size: 3.5rem; }
+.app-card .card-title { font-weight: 800; font-size: 1.1rem; color: var(--primary-black); text-align: center; }
+
+/* POPUP MODAL */
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-content { background: var(--white); border: 3px solid var(--primary-black); border-radius: 20px; padding: 2.5rem; width: 90%; max-width: 450px; position: relative; box-shadow: 8px 8px 0 var(--gold); transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.modal-overlay.active .modal-content { transform: scale(1); }
+.close-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; background: none; border: none; cursor: pointer; color: var(--text-dark); transition: color 0.2s ease; }
+.close-modal:hover { color: var(--primary-black); }
+.modal-badge { background: var(--gold); color: var(--primary-black); padding: 5px 12px; border-radius: 30px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border: 2px solid var(--primary-black); display: inline-block; margin-bottom: 1rem; }
+.modal-header h3 { font-size: 1.5rem; color: var(--text-dark); margin-bottom: 0.5rem; font-weight: 700; }
+
+/* RENTAL CARDS */
+.rental-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+.rental-card { background: var(--white); border: 2px solid var(--primary-black); border-radius: 16px; display: flex; flex-direction: column; overflow: hidden; transition: all 0.2s ease; box-shadow: 4px 4px 0 var(--primary-black); position: relative; }
+.rental-card:hover { transform: translateY(-5px); box-shadow: 6px 6px 0 var(--forest-green); }
+.rental-card.popular-card { border: 3px solid var(--gold); box-shadow: 6px 6px 0 var(--gold); }
+.rental-card.popular-card:hover { box-shadow: 8px 8px 0 var(--gold); }
+.rc-badge { position: absolute; top: 0; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--primary-black); padding: 4px 15px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; border: 2px solid var(--primary-black); border-top: none; font-size: 0.85rem; font-weight: 800; z-index: 2; white-space: nowrap; }
+.rc-header { background: var(--cream); padding: 2rem 1.5rem 1.5rem; text-align: center; border-bottom: 2px dashed var(--gray); position: relative; }
+.rc-header h4 { font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--primary-black); font-weight: 800; }
+.rc-dim { font-weight: 700; color: var(--text-dark); font-size: 1rem; }
+.rc-body { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+.rc-price-box { margin-bottom: 0.5rem; }
+.rc-price { font-size: 2.8rem; font-weight: 900; color: var(--primary-black); display: block; line-height: 1; }
+.rc-period { font-size: 0.9rem; font-weight: 800; color: var(--forest-green); text-transform: uppercase; margin-top: 5px; display: block; }
+.rc-capacity { display: flex; flex-direction: column; align-items: center; background: var(--emerald); padding: 1.25rem; border-radius: 12px; border: 2px solid var(--primary-black); width: 100%; box-shadow: 2px 2px 0 var(--primary-black); }
+.rc-capacity .rc-bags { font-size: 2.2rem; font-weight: 800; color: var(--primary-black); line-height: 1; margin-bottom: 4px; }
+.rc-capacity .rc-label { font-size: 0.85rem; font-weight: 800; color: var(--primary-black); text-transform: uppercase; }
+.rc-ideal { font-size: 1rem; color: var(--text-dark); line-height: 1.5; font-weight: 600; margin-top: auto; padding-top: 1rem; }
+.rc-footer { padding: 1.5rem; border-top: 1px solid var(--gray); background: var(--off-white); }
