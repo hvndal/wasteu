@@ -83,24 +83,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // === VISUALIZER LOGIC ===
-    const visToggles = document.querySelectorAll('.vis-toggle');
-    const dumpsters = document.querySelectorAll('.dumpster-model');
+    const sizeTabs = document.querySelectorAll('.size-tab');
+    const sizePanels = document.querySelectorAll('.size-panel');
 
-    if (visToggles.length > 0) {
-        visToggles.forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                visToggles.forEach(t => t.classList.remove('active'));
-                toggle.classList.add('active');
-                const view = toggle.dataset.view;
-
-                dumpsters.forEach(d => {
-                    const label = d.querySelector('.d-tooltip');
-                    if (view === 'capacity') {
-                        label.innerHTML = d.dataset.capacity;
-                    } else {
-                        label.innerHTML = d.dataset.dim;
-                    }
-                });
+    if (sizeTabs.length > 0) {
+        sizeTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active from all
+                sizeTabs.forEach(t => t.classList.remove('active'));
+                sizePanels.forEach(p => p.classList.remove('active'));
+                
+                // Add active to clicked
+                tab.classList.add('active');
+                const targetId = tab.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
             });
         });
     }
