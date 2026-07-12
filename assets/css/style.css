@@ -46,6 +46,7 @@
     --text-dark: #1b1e1d;
     --text-muted: #4a5550;
     --text-light: #e5efe9;
+    --off-white: #F4F5F7;
     
     --font-main: 'Google Sans', sans-serif;
 
@@ -62,14 +63,16 @@
 }
 
 [data-theme="dark"] {
-    --primary-black: #F7F4ED;
-    --white: #1C201E;
-    --cream: #101311;
-    --text-dark: #e5efe9;
-    --text-muted: #8c9c93;
-    --text-light: #4a5550;
+    --primary-black: #F7F9FC;
+    --white: #0B0F19;
+    --cream: #111827;
+    --off-white: #1F2937;
+    --text-dark: #F3F4F6;
+    --text-muted: #9CA3AF;
+    --text-light: #E5E7EB;
+    
     /* Shadows look better slightly subtle in dark mode */
-    --shadow-solid: 3px 3px 0px rgba(247, 244, 237, 0.2);
+    --shadow-solid: 3px 3px 0px rgba(247, 249, 252, 0.15);
 }
 
 /* Loading Screen */
