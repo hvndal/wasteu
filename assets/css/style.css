@@ -2541,3 +2541,117 @@ img, video {
     }
 }
 
+
+
+/* --- MOBILE RESPONSIVENESS REDESIGN --- */
+@media (max-width: 768px) {
+    /* Global Section Padding */
+    section {
+        padding: 60px 0 !important;
+    }
+    
+    .hero {
+        padding: 120px 0 60px 0 !important;
+        min-height: 70vh !important;
+    }
+
+    /* Services Grid -> Horizontal Swipe Carousel */
+    .services-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 24px !important;
+        gap: 16px !important;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    
+    /* Hide scrollbar for a cleaner look */
+    .services-grid::-webkit-scrollbar {
+        display: none;
+    }
+    .services-grid {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .service-card {
+        flex: 0 0 85% !important;
+        scroll-snap-align: center;
+        max-width: 85% !important;
+    }
+
+    /* Make images compact */
+    .service-img-wrapper {
+        aspect-ratio: 16 / 10 !important;
+        height: auto !important;
+    }
+    .service-img-wrapper img {
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    /* Why Choose Us Grid -> 2-Column Grid */
+    .choose-us-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+
+    .choose-block {
+        height: 180px !important;
+    }
+
+    .choose-content h4 {
+        font-size: 1rem !important;
+    }
+
+    .choose-content svg {
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    /* Get in Touch block inside the grid */
+    .get-in-touch-block h4 {
+        font-size: 1.2rem !important;
+    }
+
+    /* Footer adjustments */
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .choose-block {
+        height: 150px !important;
+    }
+    .choose-content h4 {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* --- MOBILE AUTO HOVER STATES --- */
+@media (max-width: 768px) {
+    .service-card.active-hover {
+        transform: translateY(-10px) !important;
+        box-shadow: var(--shadow-solid) !important;
+    }
+    
+    .choose-block.active-hover .choose-overlay {
+        opacity: 1 !important;
+    }
+    
+    .choose-block.active-hover .choose-bg {
+        transform: scale(1.1) !important;
+    }
+    
+    .dumpster-card.active-hover {
+        transform: translateY(-5px) !important;
+        box-shadow: var(--shadow-solid-green) !important;
+        border-color: var(--forest-green) !important;
+    }
+}
