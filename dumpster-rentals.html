@@ -36,7 +36,7 @@
     <main class="dumpster-rentals-page dumpster-guide-section">
         <div class="container">
             
-            <div class="guide-header animate-on-scroll">
+            <div class="guide-header ">
                 <h2>Dumpster Rental Guide</h2>
                 <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1rem;">Affordable, local roll-off containers delivered straight to your driveway.</p>
                 <div style="background-color: var(--gold); display: inline-block; padding: 10px 20px; border-radius: 30px; font-weight: 800; border: 2px solid var(--primary-black); box-shadow: 2px 2px 0 rgba(0,0,0,0.2);">
@@ -44,209 +44,204 @@
                 </div>
             </div>
 
-            <!-- "What Are You Cleaning?" App Interface -->
-            <div class="app-wizard-section" style="margin-bottom: 4rem;">
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <h3 style="font-size: 2.5rem; color: var(--primary-black);">Find Your Perfect Size</h3>
-                    <p style="color: var(--text-dark); font-size: 1.1rem; font-weight: 500;">Select your project type below to get an instant recommendation.</p>
-                </div>
-                
-                <div class="app-card-grid">
-                    <button class="app-card task-btn" data-task="Garage Cleanout" data-rec="15" data-bags="80">
-                        <span class="card-icon">🚗</span>
-                        <span class="card-title">Garage Cleanout</span>
-                    </button>
-                    <button class="app-card task-btn" data-task="Basement / Attic" data-rec="15" data-bags="80">
-                        <span class="card-icon">📦</span>
-                        <span class="card-title">Basement / Attic</span>
-                    </button>
-                    <button class="app-card task-btn" data-task="Roofing" data-rec="20" data-bags="120">
-                        <span class="card-icon">🏠</span>
-                        <span class="card-title">Roofing</span>
-                    </button>
-                    <button class="app-card task-btn" data-task="Kitchen Remodel" data-rec="20" data-bags="120">
-                        <span class="card-icon">🔨</span>
-                        <span class="card-title">Kitchen Remodel</span>
-                    </button>
-                    <button class="app-card task-btn" data-task="Bathroom Remodel" data-rec="10" data-bags="50">
-                        <span class="card-icon">🛁</span>
-                        <span class="card-title">Bathroom Remodel</span>
-                    </button>
-                    <button class="app-card task-btn" data-task="Landscaping" data-rec="15" data-bags="80">
-                        <span class="card-icon">🌳</span>
-                        <span class="card-title">Landscaping</span>
-                    </button>
-                    <button class="app-card task-btn" data-task="Whole House" data-rec="30" data-bags="180">
-                        <span class="card-icon">🏡</span>
-                        <span class="card-title">Whole House</span>
-                    </button>
-                    <button class="app-card task-btn" data-task="Commercial" data-rec="30" data-bags="180">
-                        <span class="card-icon">🏢</span>
-                        <span class="card-title">Commercial</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Popup Modal (Hidden by default) -->
-            <div class="modal-overlay" id="rec-modal">
-                <div class="modal-content">
-                    <button class="close-modal" id="close-modal">&times;</button>
-                    <div class="modal-header">
-                        <span class="modal-badge">Perfect Match</span>
-                        <h3 id="modal-project-title">For a Garage Cleanout</h3>
+            <!-- "Which Dumpster Do I Need?" Wizard -->
+            <div class="wizard-container ">
+                <!-- Step 1 -->
+                <div class="wizard-step active" id="wiz-step-1">
+                    <h3>What are you cleaning?</h3>
+                    <div class="wizard-options">
+                        <button class="wizard-btn task-btn" data-task="garage">Garage</button>
+                        <button class="wizard-btn task-btn" data-task="basement">Basement</button>
+                        <button class="wizard-btn task-btn" data-task="roofing">Roofing</button>
+                        <button class="wizard-btn task-btn" data-task="kitchen">Kitchen Remodel</button>
+                        <button class="wizard-btn task-btn" data-task="bathroom">Bathroom Remodel</button>
+                        <button class="wizard-btn task-btn" data-task="deck">Deck Removal</button>
+                        <button class="wizard-btn task-btn" data-task="landscaping">Landscaping</button>
+                        <button class="wizard-btn task-btn" data-task="whole_house">Whole House</button>
+                        <button class="wizard-btn task-btn" data-task="commercial">Commercial</button>
                     </div>
-                    <div class="modal-body">
-                        <h4 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--forest-green);" id="modal-rec-size">15 Yard Dumpster</h4>
-                        <div style="background: var(--cream); border: 2px dashed var(--gold); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; text-align: center;">
-                            <span style="display: block; font-size: 3.5rem; font-weight: 800; color: var(--primary-black);" id="modal-bags">~80</span>
-                            <span style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); text-transform: uppercase;">Trash Bags Equivalent</span>
-                        </div>
-                        <a href="#listings" class="btn btn-forest" style="display: block; width: 100%; text-align: center; padding: 1rem; font-size: 1.2rem; border-radius: 30px;" id="modal-cta">See Pricing & Details</a>
+                    <div class="wizard-nav" style="justify-content: center;">
+                        <button class="btn btn-forest" id="wiz-next" style="display: none;">Next Step &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="wizard-step" id="wiz-step-2">
+                    <h3>Project Size</h3>
+                    <div class="wizard-options">
+                        <button class="wizard-btn size-btn" data-size="small">Small</button>
+                        <button class="wizard-btn size-btn" data-size="medium">Medium</button>
+                        <button class="wizard-btn size-btn" data-size="large">Large</button>
+                    </div>
+                    <div class="wizard-nav">
+                        <button class="btn btn-outline" id="wiz-prev">&larr; Back</button>
+                    </div>
+                </div>
+
+                <!-- Step 3 (Result) -->
+                <div class="wizard-step wizard-result" id="wiz-step-3">
+                    <div class="result-badge">Recommendation Complete</div>
+                    <h3>Based on your project, you need:</h3>
+                    <div class="result-box">
+                        <h4 id="rec-size">20 Yard Dumpster</h4>
+                        <p id="rec-reason" style="font-size: 1.2rem; color: var(--text-dark);">Perfect for your selected project.</p>
+                        <a href="#listings" class="btn btn-forest" style="margin-top: 1rem;">View Details Below</a>
+                    </div>
+                    <div class="wizard-nav" style="justify-content: center;">
+                        <button class="btn btn-outline" id="wiz-reset" style="border: none; text-decoration: underline;">Start Over</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Interactive Visualizer & Pricing Cards -->
-            <div class="visualizer-container" id="visualizer">
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <h3 style="font-size: 2.5rem; color: var(--primary-black); margin-bottom: 0.5rem;">Explore All Sizes</h3>
-                    <p style="color: var(--text-dark); font-size: 1.1rem; font-weight: 500;">Clear dimensions and true capacity.</p>
+            <!-- Interactive Visualizer -->
+            <div class="visualizer-container ">
+                <h3 style="font-size: 2rem; color: var(--primary-black); margin-bottom: 1.5rem;">Visual Size Comparison</h3>
+                <div class="visualizer-controls">
+                    <button class="vis-toggle active" data-view="dimensions">Dimensions View</button>
+                    <button class="vis-toggle" data-view="capacity">Capacity View</button>
                 </div>
                 
-                <!-- 10px = 1 Foot Scale Graphic (Unified) -->
-                <div class="visualizer-stage-simple" style="display: flex; align-items: flex-end; justify-content: center; gap: 2rem; border-bottom: 4px solid var(--primary-black); padding-bottom: 2px; overflow-x: auto; margin-bottom: 4rem;">
-                    <!-- Human -->
-                    <div class="human-scale" style="display: flex; flex-direction: column; align-items: center; padding-bottom: 5px;">
-                        <svg viewBox="0 0 100 250" height="58" style="margin-bottom: 5px;"><path d="M50 0C36 0 25 11 25 25s11 25 25 25 25-11 25-25S64 0 50 0zm0 60c-22 0-40 18-40 40v60h20v90h40v-90h20v-60c0-22-18-40-40-40z" fill="var(--primary-black)"/></svg>
-                        <span style="font-size: 0.9rem; font-weight: 800; color: var(--primary-black);">5'10"</span>
+                <div class="visualizer-stage">
+                    <!-- 10 Yard -->
+                    <div class="dumpster-model" data-dim="14' L × 8' W × 3.5' H" data-capacity="~50 Trash Bags">
+                        <div class="d-tooltip">14' L × 8' W × 3.5' H</div>
+                        <svg class="dumpster-svg" width="90" height="40" viewBox="0 0 100 50">
+                            <polygon points="5,5 95,5 90,45 10,45" />
+                        </svg>
+                        <div class="d-label">10 YD</div>
                     </div>
-                    <!-- 10 YD -->
-                    <div class="d-model-simple">
-                        <div class="d-info-hover">14' L × 3.5' H</div>
-                        <div class="d-box" style="width: 140px; height: 35px;"></div>
-                        <div class="d-label-simple">10 YD</div>
+                    <!-- 15 Yard -->
+                    <div class="dumpster-model" data-dim="16' L × 8' W × 4' H" data-capacity="~80 Trash Bags">
+                        <div class="d-tooltip">16' L × 8' W × 4' H</div>
+                        <svg class="dumpster-svg" width="110" height="50" viewBox="0 0 120 60">
+                            <polygon points="5,5 115,5 110,55 10,55" />
+                        </svg>
+                        <div class="d-label">15 YD</div>
                     </div>
-                    <!-- 15 YD -->
-                    <div class="d-model-simple">
-                        <div class="d-info-hover">16' L × 4' H</div>
-                        <div class="d-box" style="width: 160px; height: 40px;"></div>
-                        <div class="d-label-simple">15 YD</div>
+                    <!-- 20 Yard -->
+                    <div class="dumpster-model" data-dim="22' L × 8' W × 4.5' H" data-capacity="~120 Trash Bags">
+                        <div class="d-tooltip">22' L × 8' W × 4.5' H</div>
+                        <svg class="dumpster-svg" width="150" height="60" viewBox="0 0 160 70">
+                            <polygon points="5,5 155,5 150,65 10,65" />
+                        </svg>
+                        <div class="d-label">20 YD</div>
                     </div>
-                    <!-- 20 YD -->
-                    <div class="d-model-simple">
-                        <div class="d-info-hover">22' L × 4.5' H</div>
-                        <div class="d-box" style="width: 220px; height: 45px;"><span style="color: white; font-size: 0.75rem; font-weight: 800; opacity: 0.8;">POPULAR</span></div>
-                        <div class="d-label-simple">20 YD</div>
+                    <!-- 30 Yard -->
+                    <div class="dumpster-model" data-dim="22' L × 8' W × 6' H" data-capacity="~180 Trash Bags">
+                        <div class="d-tooltip">22' L × 8' W × 6' H</div>
+                        <svg class="dumpster-svg" width="150" height="85" viewBox="0 0 160 95">
+                            <polygon points="5,5 155,5 150,90 10,90" />
+                        </svg>
+                        <div class="d-label">30 YD</div>
                     </div>
-                    <!-- 30 YD -->
-                    <div class="d-model-simple">
-                        <div class="d-info-hover">22' L × 6' H</div>
-                        <div class="d-box" style="width: 220px; height: 60px;"></div>
-                        <div class="d-label-simple">30 YD</div>
+                </div>
+            </div>
+
+            <!-- Listings -->
+            <div id="listings" class="dumpster-grid">
+                
+                <!-- 10 Yard Dumpster -->
+                <div class="dumpster-card ">
+                    <div class="dumpster-img-sec">
+                        <div class="dumpster-badge-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <img src="assets/images/dumpster_10.jpg" alt="10 Yard Dumpster" class="dumpster-photo">
+                    </div>
+                    <div class="dumpster-card-content">
+                        <div class="dumpster-title-row">
+                            <h2>10 Yard</h2>
+                            <div class="dumpster-price-box">
+                                <span class="dumpster-price">$419</span>
+                                <span class="dumpster-period">10-day rental</span>
+                            </div>
+                        </div>
+                        <div class="dumpster-weight-info">Up to 1 ton included</div>
+                        <div class="dumpster-dimensions">14' L &times; 8' W &times; 3.5' H</div>
+                        <div class="dumpster-best-for">
+                            <strong>Best for:</strong> Small cleanouts, Garage cleanup, Minor renovations, Bathroom remodels, Attic cleanouts, Small landscaping
+                        </div>
+                        <a href="tel:4012139516" class="btn btn-forest" style="width:100%; text-align:center;">Order Online</a>
                     </div>
                 </div>
 
-                <!-- Rental Cards Grid -->
-                <div class="rental-cards-grid" id="listings">
-                    
-                    <!-- Card 10 -->
-                    <div class="rental-card">
-                        <img src="assets/images/dumpster_10.jpg" alt="10 Yard Dumpster" style="width: 100%; height: 200px; object-fit: cover; border-bottom: 2px solid var(--primary-black);">
-                        <div class="rc-header">
-                            <h4>10 Yard</h4>
-                            <span class="rc-dim">14' L × 8' W × 3.5' H</span>
+                <!-- 15 Yard Dumpster -->
+                <div class="dumpster-card ">
+                    <div class="dumpster-img-sec">
+                        <div class="dumpster-badge-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         </div>
-                        <div class="rc-body">
-                            <div class="rc-price-box">
-                                <span class="rc-price">$419</span>
-                                <span class="rc-period">Up to 1 ton included</span>
-                            </div>
-                            <div class="rc-capacity">
-                                <span class="rc-bags">~50</span>
-                                <span class="rc-label">Trash Bags Equivalent</span>
-                            </div>
-                            <p class="rc-ideal">Ideal for heavy debris (dirt, concrete) or small single-room cleanups.</p>
-                        </div>
-                        <div class="rc-footer">
-                            <a href="tel:4012139516" class="btn btn-forest btn-block" style="width: 100%; text-align: center;">Order Online</a>
-                        </div>
+                        <img src="assets/images/dumpster_15.jpg" alt="15 Yard Dumpster" class="dumpster-photo">
                     </div>
-
-                    <!-- Card 15 -->
-                    <div class="rental-card">
-                        <img src="assets/images/dumpster_15.jpg" alt="15 Yard Dumpster" style="width: 100%; height: 200px; object-fit: cover; border-bottom: 2px solid var(--primary-black);">
-                        <div class="rc-header">
-                            <h4>15 Yard</h4>
-                            <span class="rc-dim">16' L × 8' W × 4' H</span>
-                        </div>
-                        <div class="rc-body">
-                            <div class="rc-price-box">
-                                <span class="rc-price">$499</span>
-                                <span class="rc-period">Up to 1 ton included</span>
+                    <div class="dumpster-card-content">
+                        <div class="dumpster-title-row">
+                            <h2>15 Yard</h2>
+                            <div class="dumpster-price-box">
+                                <span class="dumpster-price">$499</span>
+                                <span class="dumpster-period">10-day rental</span>
                             </div>
-                            <div class="rc-capacity">
-                                <span class="rc-bags">~80</span>
-                                <span class="rc-label">Trash Bags Equivalent</span>
-                            </div>
-                            <p class="rc-ideal">Perfect for medium basement or garage cleanouts, and small deck removals.</p>
                         </div>
-                        <div class="rc-footer">
-                            <a href="tel:4012139516" class="btn btn-forest btn-block" style="width: 100%; text-align: center;">Order Online</a>
+                        <div class="dumpster-weight-info">Up to 1 ton included</div>
+                        <div class="dumpster-dimensions">16' L &times; 8' W &times; 4' H</div>
+                        <div class="dumpster-best-for">
+                            <strong>Best for:</strong> Medium renovation projects, Flooring removal, Deck demolition, Medium bathroom/kitchen remodels
                         </div>
+                        <a href="tel:4012139516" class="btn btn-forest" style="width:100%; text-align:center;">Order Online</a>
                     </div>
-
-                    <!-- Card 20 -->
-                    <div class="rental-card popular-card">
-                        <div class="rc-badge">Most Popular</div>
-                        <img src="assets/images/dumpster_20.jpg" alt="20 Yard Dumpster" style="width: 100%; height: 200px; object-fit: cover; border-bottom: 2px solid var(--primary-black);">
-                        <div class="rc-header">
-                            <h4>20 Yard</h4>
-                            <span class="rc-dim">22' L × 8' W × 4.5' H</span>
-                        </div>
-                        <div class="rc-body">
-                            <div class="rc-price-box">
-                                <span class="rc-price">$579</span>
-                                <span class="rc-period">Up to 1 ton included</span>
-                            </div>
-                            <div class="rc-capacity">
-                                <span class="rc-bags">~120</span>
-                                <span class="rc-label">Trash Bags Equivalent</span>
-                            </div>
-                            <p class="rc-ideal">The standard for roofing, kitchen remodels, and large home cleanouts.</p>
-                        </div>
-                        <div class="rc-footer">
-                            <a href="tel:4012139516" class="btn btn-forest btn-block" style="width: 100%; text-align: center;">Order Online</a>
-                        </div>
-                    </div>
-
-                    <!-- Card 30 -->
-                    <div class="rental-card">
-                        <img src="assets/images/dumpster_30.jpg" alt="30 Yard Dumpster" style="width: 100%; height: 200px; object-fit: cover; border-bottom: 2px solid var(--primary-black);">
-                        <div class="rc-header">
-                            <h4>30 Yard</h4>
-                            <span class="rc-dim">22' L × 8' W × 6' H</span>
-                        </div>
-                        <div class="rc-body">
-                            <div class="rc-price-box">
-                                <span class="rc-price">$629</span>
-                                <span class="rc-period">Up to 2 tons included</span>
-                            </div>
-                            <div class="rc-capacity">
-                                <span class="rc-bags">~180</span>
-                                <span class="rc-label">Trash Bags Equivalent</span>
-                            </div>
-                            <p class="rc-ideal">Best for major construction, whole-house cleanouts, and commercial jobs.</p>
-                        </div>
-                        <div class="rc-footer">
-                            <a href="tel:4012139516" class="btn btn-forest btn-block" style="width: 100%; text-align: center;">Order Online</a>
-                        </div>
-                    </div>
-
                 </div>
+
+                <!-- 20 Yard Dumpster (Most Popular) -->
+                <div class="dumpster-card popular-card ">
+                    <span class="popular-tag">⭐ Most Popular</span>
+                    <div class="dumpster-img-sec">
+                        <img src="assets/images/dumpster_20.jpg" alt="20 Yard Dumpster" class="dumpster-photo">
+                    </div>
+                    <div class="dumpster-card-content">
+                        <div class="dumpster-title-row">
+                            <h2>20 Yard</h2>
+                            <div class="dumpster-price-box">
+                                <span class="dumpster-price">$579</span>
+                                <span class="dumpster-period">10-day rental</span>
+                            </div>
+                        </div>
+                        <div class="dumpster-weight-info">Up to 1 ton included</div>
+                        <div class="dumpster-dimensions">22' L &times; 8' W &times; 4.5' H</div>
+                        <div class="dumpster-best-for">
+                            <strong>Best for:</strong> Home renovations, Roof replacements, Large garage cleanouts, Kitchen/Bathroom remodels
+                        </div>
+                        <a href="tel:4012139516" class="btn btn-forest" style="width:100%; text-align:center;">Order Online</a>
+                    </div>
+                </div>
+
+                <!-- 30 Yard Dumpster -->
+                <div class="dumpster-card ">
+                    <div class="dumpster-img-sec">
+                        <div class="dumpster-badge-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <img src="assets/images/dumpster_30.jpg" alt="30 Yard Dumpster" class="dumpster-photo">
+                    </div>
+                    <div class="dumpster-card-content">
+                        <div class="dumpster-title-row">
+                            <h2>30 Yard</h2>
+                            <div class="dumpster-price-box">
+                                <span class="dumpster-price">$629</span>
+                                <span class="dumpster-period">10-day rental</span>
+                            </div>
+                        </div>
+                        <div class="dumpster-weight-info">Up to 2 tons included</div>
+                        <div class="dumpster-dimensions">22' L &times; 8' W &times; 6' H</div>
+                        <div class="dumpster-best-for">
+                            <strong>Best for:</strong> Major construction, Whole-home cleanouts, Commercial projects, Home additions
+                        </div>
+                        <a href="tel:4012139516" class="btn btn-forest" style="width:100%; text-align:center;">Order Online</a>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Fee & Tips Panels -->
-            <div class="info-panels animate-on-scroll">
+            <div class="info-panels ">
                 <div class="info-card">
                     <div style="font-size: 2.5rem; color: var(--gold); margin-bottom: 0.5rem;">⚖️</div>
                     <h3>Overweight Fee</h3>
