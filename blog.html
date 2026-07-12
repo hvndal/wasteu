@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Waste Universe</title>
+    <meta name="description" content="Read the latest news, guides, and sustainability tips from Waste Universe.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .blog-header {
+            text-align: center;
+            padding: 8rem 20px 3rem;
+        }
+        .blog-header h1 {
+            font-size: 3rem;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        .blog-header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* blog-grid moved to style.css */
+        .blog-card:hover {
+            transform: translateY(-8px);
+        }
+        .blog-card:hover .blog-card-img img {
+            transform: scale(1.05);
+        }
+    </style>
+    <!-- SEO & Social Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Waste Universe">
+    <meta property="og:image" content="https://wasteuniverse.com/assets/images/hero_truck_1783466317759.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#101E4A">
+    
+    <!-- Google Analytics Tracking (Placeholder) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body class="blog-page">
+
+    <!-- Navigation -->
+    <nav class="navbar glass-nav" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Waste Universe Logo" style="height: 38px; width: auto; display: block;" loading="lazy">
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="weather.html">Weather & Schedule</a>
+                
+                <a href="index.html#contact-form-section" style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    Get in Touch
+                </a>
+            </div>
+
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="blog-header">
+            <h1>The Waste Universe Blog</h1>
+            <p>Industry insights, sustainability tips, and local news from your favorite waste management team.</p>
+        </header>
+
+        <div class="blog-grid" id="blog-grid-container">
+            <!-- Blog cards will be injected here by JS -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <img src="assets/images/logo.png" alt="Waste Universe Logo" style="height: 38px; width: auto; display: block; filter: brightness(0) invert(1); margin-bottom: 24px;">
+                <p style="color: var(--text-light); max-width: 300px; margin-bottom: 24px; opacity: 0.8;">Professional waste and recycling solutions for residential and commercial needs across Massachusetts & Rhode Island.</p>
+                <div style="display: flex; gap: 16px;">
+                    <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--gold);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Trash Collection</a></li>
+                    <li><a href="dumpster-rentals.html">Dumpster Rentals</a></li>
+                    <li><a href="services.html">Commercial Pickup</a></li>
+                    <li><a href="services.html">Recycling Programs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#team">Meet the Team</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact-form-section">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 48px; padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <p style="color: var(--text-light); opacity: 0.6; font-size: 14px;">&copy; 2026 Waste Universe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    
+    <script src="assets/js/blog-data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('blog-grid-container');
+            if (grid && typeof blogPosts !== 'undefined') {
+                grid.innerHTML = blogPosts.map(post => createBlogCard(post)).join('');
+            }
+        });
+    </script>
+</body>
+</html>
+

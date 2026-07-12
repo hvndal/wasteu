@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | Waste Universe</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .post-header {
+            text-align: center;
+            padding: 8rem 20px 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .post-category {
+            display: inline-block;
+            background: rgba(16, 30, 74, 0.1);
+            color: var(--forest-green);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .post-title {
+            font-size: 2.8rem;
+            color: var(--primary-black);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+        .post-hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-solid);
+        }
+        .post-content {
+            max-width: 760px;
+            margin: 0 auto 6rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+        .post-content h3 {
+            font-size: 1.8rem;
+            color: var(--forest-green);
+            margin: 2.5rem 0 1rem;
+        }
+        .post-content p {
+            margin-bottom: 1.5rem;
+        }
+        .post-content ul {
+            list-style-type: disc;
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .post-content li {
+            margin-bottom: 0.5rem;
+        }
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--emerald);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            transition: transform 0.2s ease;
+        }
+        .back-to-blog:hover {
+            transform: translateX(-5px);
+        }
+        #error-message {
+            text-align: center;
+            padding: 10rem 20px;
+            display: none;
+        }
+    </style>
+    <!-- SEO & Social Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Waste Universe">
+    <meta property="og:image" content="https://wasteuniverse.com/assets/images/hero_truck_1783466317759.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#101E4A">
+    
+    <!-- Google Analytics Tracking (Placeholder) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body class="blog-page">
+
+    <!-- Navigation -->
+    <nav class="navbar glass-nav" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Waste Universe Logo" style="height: 38px; width: auto; display: block;" loading="lazy">
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="weather.html">Weather & Schedule</a>
+                
+                <a href="index.html#contact-form-section" style="display: flex; align-items: center; gap: 6px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    Get in Touch
+                </a>
+            </div>
+
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <div id="error-message">
+            <h2>Post Not Found</h2>
+            <p>Sorry, the article you are looking for does not exist.</p>
+            <br>
+            <a href="blog.html" class="btn btn-forest">Return to Blog</a>
+        </div>
+
+        <article id="blog-post-container" style="display: none;">
+            <header class="post-header">
+                <a href="blog.html" class="back-to-blog">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back to Articles
+                </a>
+                <div><span class="post-category" id="post-category">Category</span></div>
+                <h1 class="post-title" id="post-title">Blog Title</h1>
+                <div class="post-meta">
+                    <span id="post-date">Date</span>
+                    <span>&bull;</span>
+                    <span id="post-author">By Author</span>
+                </div>
+            </header>
+
+            <img src="" alt="" class="post-hero-image" id="post-image">
+
+            <div class="post-content" id="post-content">
+                <!-- Content injected here -->
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <img src="assets/images/logo.png" alt="Waste Universe Logo" style="height: 38px; width: auto; display: block; filter: brightness(0) invert(1); margin-bottom: 24px;">
+                <p style="color: var(--text-light); max-width: 300px; margin-bottom: 24px; opacity: 0.8;">Professional waste and recycling solutions for residential and commercial needs across Massachusetts & Rhode Island.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Trash Collection</a></li>
+                    <li><a href="dumpster-rentals.html">Dumpster Rentals</a></li>
+                    <li><a href="services.html">Commercial Pickup</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact-form-section">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    
+    <script src="assets/js/blog-data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = parseInt(urlParams.get('id'));
+
+            const post = typeof blogPosts !== 'undefined' ? blogPosts.find(p => p.id === postId) : null;
+
+            if (post) {
+                document.getElementById('blog-post-container').style.display = 'block';
+                document.title = post.title + " | Waste Universe";
+                document.getElementById('post-category').textContent = post.category;
+                document.getElementById('post-title').textContent = post.title;
+                document.getElementById('post-date').innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> ${post.date}`;
+                document.getElementById('post-author').textContent = `By ${post.author}`;
+                document.getElementById('post-image').src = post.image;
+                document.getElementById('post-image').alt = post.title;
+                document.getElementById('post-content').innerHTML = post.content;
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
+

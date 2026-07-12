@@ -29,6 +29,7 @@ The goal of this project was to build a highly responsive, performant, and visua
   - Preconnected fonts and optimized critical CSS.
   - Zero heavy external JS dependencies.
 - **Responsive Architecture**: Fully fluid and adaptive layout that looks flawless on both ultra-wide desktops and mobile devices.
+- **SEO & Analytics Ready**: Configured with Open Graph meta tags, Twitter Cards, and Google Analytics (GTAG) integration.
 
 ## 🛠️ Tech Stack
 
