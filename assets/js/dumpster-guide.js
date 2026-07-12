@@ -94,11 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const view = toggle.dataset.view;
 
                 dumpsters.forEach(d => {
-                    const label = d.querySelector('.d-tooltip');
-                    if (view === 'capacity') {
-                        label.innerHTML = d.dataset.capacity;
-                    } else {
-                        label.innerHTML = d.dataset.dim;
+                    const info = d.querySelector('.d-info');
+                    if (info) {
+                        if (view === 'capacity') {
+                            info.innerHTML = d.dataset.capacity;
+                        } else {
+                            info.innerHTML = d.dataset.dim;
+                        }
                     }
                 });
             });
