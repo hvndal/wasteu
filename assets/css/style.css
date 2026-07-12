@@ -1995,12 +1995,11 @@ img, video {
 /* Wizard */
 .wizard-container {
     max-width: 800px;
-    margin: 0 auto 4rem;
-    background: var(--cream);
-    border: var(--border-thick);
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: var(--shadow-solid);
+    margin: 0 auto 3rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
 }
 .wizard-step {
     display: none;
@@ -2671,3 +2670,8 @@ img, video {
 .human-fig span { display: block; font-weight: 700; font-size: 0.9rem; margin-top: 0.5rem; }
 @media(max-width: 768px) { .panel-grid { grid-template-columns: 1fr; } .size-tabs { overflow-x: auto; white-space: nowrap; } }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* GLOBAL FONT ENFORCEMENT */
+body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
+    font-family: var(--font-main) !important;
+}
