@@ -7,32 +7,41 @@
     <meta name="description" content="Local news, waste management updates, and stories from our family-owned business serving Harvard, MA, and Rhode Island. Number 1 Dumpster Rental.">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* Neo-Brutalist Newspaper Masthead */
+        /* Classic Newspaper Masthead */
         .masthead {
             background-color: var(--white);
             color: var(--primary-black);
-            padding: 8rem 2rem 2rem;
+            padding: 8rem 0rem 2rem;
             text-align: center;
-            border-bottom: 8px solid var(--primary-black);
             margin-bottom: 3rem;
         }
         .masthead h1 {
-            font-size: 5rem;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 5.5rem;
             font-weight: 900;
             margin-bottom: 0.5rem;
-            letter-spacing: -2px;
+            letter-spacing: -1px;
             text-transform: uppercase;
         }
-        .masthead-meta {
+        .masthead-dateline {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Georgia', 'Times New Roman', serif;
             font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-weight: bold;
             border-top: 2px solid var(--primary-black);
             border-bottom: 2px solid var(--primary-black);
             padding: 0.5rem 0;
-            max-width: 800px;
-            margin: 0 auto;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        .masthead-meta {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            border-bottom: 4px solid var(--primary-black);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -205,7 +214,12 @@
     </nav>
 
     <!-- Masthead -->
-    <header class="masthead">
+    <header class="masthead container">
+        <div class="masthead-dateline">
+            <span>VOL. CXLIV ... No. 1</span>
+            <span>MAYNARD, MA, SUNDAY, JULY 12, 2026</span>
+            <span>PRICE: FREE</span>
+        </div>
         <h1>The WasteU Chronicle</h1>
         <div class="masthead-meta">Serving the MetroWest & Rhode Island • A Family Owned Operation</div>
     </header>
@@ -220,7 +234,7 @@
                 <h2 class="article-title">Maynard's New Residential Waste Program: What It Means for You</h2>
                 <div class="byline">By Herman (IT & Marketing) | July 10, 2026</div>
                 
-                <div class="article-image" style="background: url('assets/images/service_residential.jpg') center/cover;">
+                <div class="article-image" style="background: url('assets/images/maynard_curb.jpg') center/cover;">
                     <div style="background: rgba(0,0,0,0.6); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem; letter-spacing: 2px;">LOCAL NEWS BRIEF</div>
                 </div>
                 
@@ -248,6 +262,10 @@
                     <h2 class="article-title" style="font-size: 1.6rem;">Number 1 Dumpster Rental in Rhode Island & Harvard MA</h2>
                     <div class="byline">By Connor (Operations)</div>
                     
+                    <div class="article-image" style="background: url('assets/images/harvard_truck.jpg') center/cover;">
+                        <div style="background: rgba(0,0,0,0.6); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem; letter-spacing: 2px;">OPERATIONS LOG</div>
+                    </div>
+                    
                     <div class="article-text">
                         <p>As a family owned and operated business, we don't rely on massive national call centers. We rely on grit, local knowledge, and an obsession with customer service. That's why we are proud to be recognized as the number 1 dumpster rental service across Rhode Island and Harvard, Massachusetts.</p>
                         
@@ -267,6 +285,10 @@
                     <div class="article-tag" style="background: var(--white); color: var(--primary-black);">THE WATERCOOLER</div>
                     <h2 class="article-title" style="font-size: 1.6rem;">Growing Pains: When a 'Family' Business Actually Grows Up</h2>
                     <div class="byline" style="border-color: var(--primary-black);">By Herman (Marketing & IT)</div>
+                    
+                    <div class="article-image" style="background: url('assets/images/office_coffee.jpg') center/cover;">
+                        <div style="background: rgba(0,0,0,0.6); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem; letter-spacing: 2px;">OFFICE HIJINKS</div>
+                    </div>
                     
                     <div class="article-text">
                         <p>Working in a fast-growing, family-owned waste management company is basically a sitcom waiting to happen. The dispatch board is half state-of-the-art software and half Connor yelling across the office about a missed driveway in Stow.</p>
@@ -292,6 +314,10 @@
                 <div class="article-tag">FROM THE ROAD</div>
                 <h2 class="article-title" style="font-size: 1.8rem;">The Stow Squeeze: Dropping 20 Yards in the Woods</h2>
                 <div class="byline">By Damien (Lead Driver)</div>
+                
+                <div class="article-image" style="background: url('assets/images/stow_squeeze.jpg') center/cover; height: 400px;">
+                    <div style="background: rgba(0,0,0,0.6); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem; letter-spacing: 2px;">THE STOW SQUEEZE</div>
+                </div>
                 
                 <div class="article-text">
                     <p>I've driven commercial trucks for fifteen years, but navigating the backroads of Stow, MA with a 20-yard roll-off strapped to the back is a totally different beast. You don't just drive; you thread the needle.</p>
