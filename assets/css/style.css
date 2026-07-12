@@ -540,7 +540,7 @@ img, video {
 }
 
 .service-img-wrapper {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 1 / 1;
     height: auto;
     border-bottom: var(--border-thick);
     overflow: hidden;
@@ -2585,7 +2585,7 @@ img, video {
 
     /* Make images compact */
     .service-img-wrapper {
-        aspect-ratio: 16 / 10 !important;
+        aspect-ratio: 1 / 1 !important;
         height: auto !important;
     }
     .service-img-wrapper img {
