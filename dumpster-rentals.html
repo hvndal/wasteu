@@ -44,59 +44,10 @@
                 </div>
             </div>
 
-            <!-- "Which Dumpster Do I Need?" Wizard -->
-            <div class="wizard-container ">
-                <!-- Step 1 -->
-                <div class="wizard-step active" id="wiz-step-1">
-                    <h3>What are you cleaning?</h3>
-                    <div class="wizard-options">
-                        <button class="wizard-btn task-btn" data-task="garage">Garage</button>
-                        <button class="wizard-btn task-btn" data-task="basement">Basement</button>
-                        <button class="wizard-btn task-btn" data-task="roofing">Roofing</button>
-                        <button class="wizard-btn task-btn" data-task="kitchen">Kitchen Remodel</button>
-                        <button class="wizard-btn task-btn" data-task="bathroom">Bathroom Remodel</button>
-                        <button class="wizard-btn task-btn" data-task="deck">Deck Removal</button>
-                        <button class="wizard-btn task-btn" data-task="landscaping">Landscaping</button>
-                        <button class="wizard-btn task-btn" data-task="whole_house">Whole House</button>
-                        <button class="wizard-btn task-btn" data-task="commercial">Commercial</button>
-                    </div>
-                    <div class="wizard-nav" style="justify-content: center;">
-                        <button class="btn btn-forest" id="wiz-next" style="display: none;">Next Step &rarr;</button>
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="wizard-step" id="wiz-step-2">
-                    <h3>Project Size</h3>
-                    <div class="wizard-options">
-                        <button class="wizard-btn size-btn" data-size="small">Small</button>
-                        <button class="wizard-btn size-btn" data-size="medium">Medium</button>
-                        <button class="wizard-btn size-btn" data-size="large">Large</button>
-                    </div>
-                    <div class="wizard-nav">
-                        <button class="btn btn-outline" id="wiz-prev">&larr; Back</button>
-                    </div>
-                </div>
-
-                <!-- Step 3 (Result) -->
-                <div class="wizard-step wizard-result" id="wiz-step-3">
-                    <div class="result-badge">Recommendation Complete</div>
-                    <h3>Based on your project, you need:</h3>
-                    <div class="result-box">
-                        <h4 id="rec-size">20 Yard Dumpster</h4>
-                        <p id="rec-reason" style="font-size: 1.2rem; color: var(--text-dark);">Perfect for your selected project.</p>
-                        <a href="#listings" class="btn btn-forest" style="margin-top: 1rem;">View Details Below</a>
-                    </div>
-                    <div class="wizard-nav" style="justify-content: center;">
-                        <button class="btn btn-outline" id="wiz-reset" style="border: none; text-decoration: underline;">Start Over</button>
-                    </div>
-                </div>
-            </div>
-
             <!-- Interactive Visualizer -->
-            <div class="visualizer-container ">
-                <h3 style="font-size: 2rem; color: var(--primary-black); margin-bottom: 1.5rem;">Visual Size Comparison</h3>
-                <div class="visualizer-controls">
+            <div class="visualizer-container" style="margin-bottom: 4rem;">
+                <h3 style="font-size: 2rem; color: var(--primary-black); margin-bottom: 1.5rem; text-align: center;">Visual Size Comparison</h3>
+                <div class="visualizer-controls" style="justify-content: center; margin-bottom: 2rem;">
                     <button class="vis-toggle active" data-view="dimensions">Dimensions View</button>
                     <button class="vis-toggle" data-view="capacity">Capacity View</button>
                 </div>
@@ -133,6 +84,83 @@
                             <polygon points="5,5 155,5 150,90 10,90" />
                         </svg>
                         <div class="d-label">30 YD</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- "Which Dumpster Do I Need?" Wizard -->
+            <div class="wizard-container" style="margin-bottom: 4rem; text-align: center;">
+                <h3 style="font-size: 2.2rem; color: var(--primary-black); margin-bottom: 2rem;">What are you cleaning?</h3>
+                
+                <!-- Step 1 -->
+                <div class="wizard-step active" id="wiz-step-1">
+                    <div class="wizard-options" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; padding: 0 1rem;">
+                        <button class="wizard-btn task-btn service-card" data-task="garage" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; cursor: pointer; transition: all 0.2s ease;">
+                            <span style="font-size: 3rem; margin-bottom: 1rem;">🚗</span>
+                            <strong style="font-size: 1.2rem;">Garage</strong>
+                        </button>
+                        <button class="wizard-btn task-btn service-card" data-task="basement" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; cursor: pointer; transition: all 0.2s ease;">
+                            <span style="font-size: 3rem; margin-bottom: 1rem;">📦</span>
+                            <strong style="font-size: 1.2rem;">Basement</strong>
+                        </button>
+                        <button class="wizard-btn task-btn service-card" data-task="roofing" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; cursor: pointer; transition: all 0.2s ease;">
+                            <span style="font-size: 3rem; margin-bottom: 1rem;">🏠</span>
+                            <strong style="font-size: 1.2rem;">Roofing</strong>
+                        </button>
+                        <button class="wizard-btn task-btn service-card" data-task="kitchen" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; cursor: pointer; transition: all 0.2s ease;">
+                            <span style="font-size: 3rem; margin-bottom: 1rem;">🍳</span>
+                            <strong style="font-size: 1.2rem;">Kitchen</strong>
+                        </button>
+                        <button class="wizard-btn task-btn service-card" data-task="bathroom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; cursor: pointer; transition: all 0.2s ease;">
+                            <span style="font-size: 3rem; margin-bottom: 1rem;">🛁</span>
+                            <strong style="font-size: 1.2rem;">Bathroom</strong>
+                        </button>
+                        <button class="wizard-btn task-btn service-card" data-task="deck" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; cursor: pointer; transition: all 0.2s ease;">
+                            <span style="font-size: 3rem; margin-bottom: 1rem;">🪚</span>
+                            <strong style="font-size: 1.2rem;">Deck Removal</strong>
+                        </button>
+                        <button class="wizard-btn task-btn service-card" data-task="landscaping" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; cursor: pointer; transition: all 0.2s ease;">
+                            <span style="font-size: 3rem; margin-bottom: 1rem;">🌳</span>
+                            <strong style="font-size: 1.2rem;">Landscaping</strong>
+                        </button>
+                        <button class="wizard-btn task-btn service-card" data-task="whole_house" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; cursor: pointer; transition: all 0.2s ease;">
+                            <span style="font-size: 3rem; margin-bottom: 1rem;">🏡</span>
+                            <strong style="font-size: 1.2rem;">Whole House</strong>
+                        </button>
+                        <button class="wizard-btn task-btn service-card" data-task="commercial" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; cursor: pointer; transition: all 0.2s ease;">
+                            <span style="font-size: 3rem; margin-bottom: 1rem;">🏢</span>
+                            <strong style="font-size: 1.2rem;">Commercial</strong>
+                        </button>
+                    </div>
+                    <div class="wizard-nav" style="justify-content: center; margin-top: 2rem;">
+                        <button class="btn btn-forest" id="wiz-next" style="display: none; padding: 15px 30px; font-size: 1.2rem; border-radius: 30px;">Next Step &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="wizard-step" id="wiz-step-2">
+                    <h3 style="font-size: 2rem; color: var(--primary-black); margin-bottom: 1.5rem;">Project Size</h3>
+                    <div class="wizard-options" style="display: flex; justify-content: center; gap: 1rem;">
+                        <button class="wizard-btn size-btn service-card" data-size="small" style="padding: 1.5rem 3rem; cursor: pointer; transition: all 0.2s ease; font-weight: bold; font-size: 1.2rem;">Small</button>
+                        <button class="wizard-btn size-btn service-card" data-size="medium" style="padding: 1.5rem 3rem; cursor: pointer; transition: all 0.2s ease; font-weight: bold; font-size: 1.2rem;">Medium</button>
+                        <button class="wizard-btn size-btn service-card" data-size="large" style="padding: 1.5rem 3rem; cursor: pointer; transition: all 0.2s ease; font-weight: bold; font-size: 1.2rem;">Large</button>
+                    </div>
+                    <div class="wizard-nav" style="justify-content: center; margin-top: 2rem;">
+                        <button class="btn btn-outline" id="wiz-prev" style="padding: 10px 25px; border-radius: 30px;">&larr; Back</button>
+                    </div>
+                </div>
+
+                <!-- Step 3 (Result) -->
+                <div class="wizard-step wizard-result" id="wiz-step-3" style="background: var(--off-white); border: 2px solid var(--primary-black); border-radius: var(--radius-md); padding: 3rem 2rem; max-width: 600px; margin: 0 auto; box-shadow: 4px 4px 0 var(--emerald);">
+                    <div class="result-badge" style="background: var(--gold); color: var(--primary-black); padding: 5px 15px; border-radius: 20px; font-weight: 800; display: inline-block; margin-bottom: 1rem; border: 2px solid var(--primary-black);">Recommendation</div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Based on your project, you need:</h3>
+                    <div class="result-box">
+                        <h4 id="rec-size" style="font-size: 3rem; color: var(--forest-green); font-weight: 900; margin-bottom: 0.5rem;">20 Yard Dumpster</h4>
+                        <p id="rec-reason" style="font-size: 1.2rem; color: var(--text-dark); line-height: 1.5;">Perfect for your selected project.</p>
+                        <a href="#listings" class="btn btn-forest" style="margin-top: 1.5rem; font-size: 1.1rem; padding: 12px 30px; border-radius: 30px;">View Pricing & Availability Below</a>
+                    </div>
+                    <div class="wizard-nav" style="justify-content: center; margin-top: 2rem;">
+                        <button class="btn btn-outline" id="wiz-reset" style="border: none; text-decoration: underline; background: transparent;">Start Over</button>
                     </div>
                 </div>
             </div>

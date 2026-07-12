@@ -2660,3 +2660,22 @@ img, video {
 body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
     font-family: var(--font-main) !important;
 }
+
+/* WIZARD CARD SELECTED STATE */
+.wizard-btn.service-card {
+    background-color: var(--white);
+    color: var(--primary-black);
+}
+.wizard-btn.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 0 var(--forest-green);
+    border-color: var(--forest-green);
+}
+.wizard-btn.service-card.selected {
+    background-color: var(--forest-green) !important;
+    color: var(--white) !important;
+    border-color: var(--primary-black) !important;
+    box-shadow: 4px 4px 0 var(--primary-black) !important;
+    transform: translateY(-5px);
+}
+
