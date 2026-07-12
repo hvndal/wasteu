@@ -2655,21 +2655,16 @@ img, video {
     }
 }
 
-/* NEW SHOWCASE CSS */
-.size-tabs { display: flex; gap: 1rem; padding: 1rem 1.5rem; background: var(--off-white); }
-.size-tab { padding: 0.75rem 1.5rem; font-size: 1.1rem; font-weight: 800; border: none; background: transparent; cursor: pointer; color: var(--text-dark); transition: 0.3s; }
-.size-tab:hover { color: var(--primary-black); }
-.size-tab.active { background: var(--forest-green); color: var(--white); border-radius: 8px; }
-.size-panel { display: none; }
-.size-panel.active { display: block; animation: fadeIn 0.4s ease; }
-.panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
-.panel-media img { width: 100%; border-radius: 8px; border: 2px solid var(--primary-black); }
-.scale-graphic-box { background: var(--off-white); padding: 1.5rem; border-radius: 8px; border: 2px dashed var(--primary-black); }
-.scale-stage { display: flex; align-items: flex-end; gap: 1rem; }
-.human-fig { text-align: center; }
-.human-fig span { display: block; font-weight: 700; font-size: 0.9rem; margin-top: 0.5rem; }
-@media(max-width: 768px) { .panel-grid { grid-template-columns: 1fr; } .size-tabs { overflow-x: auto; white-space: nowrap; } }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+/* SIMPLE VISUALIZER */
+.d-model-simple { position: relative; cursor: pointer; display: flex; flex-direction: column; align-items: center; transition: transform 0.2s ease; }
+.d-model-simple:hover { transform: translateY(-5px); }
+.d-box { background: var(--forest-green); border: 2px solid var(--primary-black); border-radius: 4px 4px 0 0; transition: background 0.2s ease; display: flex; align-items: center; justify-content: center; border-top: 4px solid var(--primary-black); overflow: hidden; }
+.d-model-simple:hover .d-box { background: var(--emerald); }
+.d-label-simple { font-size: 1.1rem; font-weight: 800; margin-top: 8px; color: var(--primary-black); }
+.d-info-hover { position: absolute; bottom: 100%; margin-bottom: 10px; background: var(--primary-black); color: var(--white); padding: 8px 14px; border-radius: 6px; font-size: 0.95rem; font-weight: 700; white-space: nowrap; text-align: center; opacity: 0; pointer-events: none; transition: all 0.2s ease; transform: translateY(10px); z-index: 10; }
+.d-model-simple:hover .d-info-hover { opacity: 1; transform: translateY(0); }
+.human-scale svg { transition: transform 0.2s ease; }
+.human-scale:hover svg { transform: scale(1.05); }
 
 /* GLOBAL FONT ENFORCEMENT */
 body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {

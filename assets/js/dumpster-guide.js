@@ -83,21 +83,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // === VISUALIZER LOGIC ===
-    const sizeTabs = document.querySelectorAll('.size-tab');
-    const sizePanels = document.querySelectorAll('.size-panel');
-
-    if (sizeTabs.length > 0) {
-        sizeTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active from all
-                sizeTabs.forEach(t => t.classList.remove('active'));
-                sizePanels.forEach(p => p.classList.remove('active'));
-                
-                // Add active to clicked
-                tab.classList.add('active');
-                const targetId = tab.getAttribute('data-target');
-                document.getElementById(targetId).classList.add('active');
-            });
-        });
-    }
+    // (Hover logic is now entirely handled via CSS)
 });

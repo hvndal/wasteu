@@ -93,125 +93,50 @@
                 </div>
             </div>
 
-            <!-- Interactive Size Showcase -->
-            <div class="visualizer-container" style="background: var(--white); border: 2px solid var(--primary-black); border-radius: 12px; overflow: hidden; box-shadow: 6px 6px 0 rgba(0,0,0,1);">
-                <div class="showcase-header" style="background: var(--cream); padding: 1.5rem; border-bottom: 2px solid var(--primary-black); text-align: center;">
-                    <h3 style="font-size: 2rem; color: var(--primary-black); margin: 0;">Visual Size Comparison</h3>
-                    <p style="color: var(--text-dark); margin-top: 0.5rem; font-weight: 500;">Select a size below to see it in action.</p>
+            <!-- Interactive Visualizer -->
+            <div class="visualizer-container" style="margin: 3rem 0; padding: 2.5rem; background: var(--off-white); border-radius: 12px; border: 2px solid var(--primary-black);">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h3 style="font-size: 2.2rem; color: var(--primary-black); margin-bottom: 0.5rem;">Size Comparison</h3>
+                    <p style="color: var(--text-dark); font-size: 1.1rem; font-weight: 500;">Hover over a dumpster to see its dimensions.</p>
                 </div>
                 
-                <div class="size-showcase-wrapper" style="display: flex; flex-direction: column;">
-                    <!-- Tabs -->
-                    <div class="size-tabs" style="display: flex; border-bottom: 2px solid var(--primary-black);">
-                        <button class="size-tab active" data-target="sz-10">10 Yard</button>
-                        <button class="size-tab" data-target="sz-15">15 Yard</button>
-                        <button class="size-tab" data-target="sz-20">20 Yard <span style="font-size:0.7rem; background:var(--gold); padding:2px 6px; border-radius:4px; margin-left:4px;">POPULAR</span></button>
-                        <button class="size-tab" data-target="sz-30">30 Yard</button>
-                    </div>
+                <!-- 10px = 1 Foot Scale -->
+                <div class="visualizer-stage-simple" style="display: flex; align-items: flex-end; justify-content: center; gap: 2rem; border-bottom: 4px solid var(--primary-black); padding-bottom: 2px; overflow-x: auto;">
                     
-                    <!-- Display Area -->
-                    <div class="size-display-area" style="padding: 2rem;">
-                        
-                        <!-- 10 YD -->
-                        <div class="size-panel active" id="sz-10">
-                            <div class="panel-grid">
-                                <div class="panel-media">
-                                    <img src="assets/images/dumpster_10.jpg" alt="10 Yard Dumpster">
-                                </div>
-                                <div class="panel-info">
-                                    <h4 style="font-size: 1.8rem; margin-bottom: 0.5rem;">10 Yard Roll-Off</h4>
-                                    <p style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-dark);"><strong>Dimensions:</strong> 14' L × 8' W × 3.5' H</p>
-                                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-dark);"><strong>Capacity:</strong> ~50 Trash Bags</p>
-                                    
-                                    <div class="scale-graphic-box">
-                                        <div class="scale-stage">
-                                            <!-- 5'10" is 70 inches. 3.5' is 42 inches. -->
-                                            <div class="human-fig">
-                                                <svg viewBox="0 0 100 250" height="100"><path d="M50 0C36 0 25 11 25 25s11 25 25 25 25-11 25-25S64 0 50 0zm0 60c-22 0-40 18-40 40v60h20v90h40v-90h20v-60c0-22-18-40-40-40z" fill="var(--primary-black)"/></svg>
-                                                <span>5'10"</span>
-                                            </div>
-                                            <div class="dumpster-box" style="height: 60px; width: 140px; background: var(--forest-green); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; border-radius: 4px; border: 2px solid var(--primary-black);">3.5' Tall</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Human -->
+                    <div class="human-scale" style="display: flex; flex-direction: column; align-items: center; padding-bottom: 5px;">
+                        <svg viewBox="0 0 100 250" height="58" style="margin-bottom: 5px;"><path d="M50 0C36 0 25 11 25 25s11 25 25 25 25-11 25-25S64 0 50 0zm0 60c-22 0-40 18-40 40v60h20v90h40v-90h20v-60c0-22-18-40-40-40z" fill="var(--primary-black)"/></svg>
+                        <span style="font-size: 0.9rem; font-weight: 800; color: var(--primary-black);">5'10"</span>
+                    </div>
 
-                        <!-- 15 YD -->
-                        <div class="size-panel" id="sz-15">
-                            <div class="panel-grid">
-                                <div class="panel-media">
-                                    <img src="assets/images/dumpster_15.jpg" alt="15 Yard Dumpster">
-                                </div>
-                                <div class="panel-info">
-                                    <h4 style="font-size: 1.8rem; margin-bottom: 0.5rem;">15 Yard Roll-Off</h4>
-                                    <p style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-dark);"><strong>Dimensions:</strong> 16' L × 8' W × 4' H</p>
-                                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-dark);"><strong>Capacity:</strong> ~80 Trash Bags</p>
-                                    
-                                    <div class="scale-graphic-box">
-                                        <div class="scale-stage">
-                                            <!-- 4' is 48 inches -->
-                                            <div class="human-fig">
-                                                <svg viewBox="0 0 100 250" height="100"><path d="M50 0C36 0 25 11 25 25s11 25 25 25 25-11 25-25S64 0 50 0zm0 60c-22 0-40 18-40 40v60h20v90h40v-90h20v-60c0-22-18-40-40-40z" fill="var(--primary-black)"/></svg>
-                                                <span>5'10"</span>
-                                            </div>
-                                            <div class="dumpster-box" style="height: 68px; width: 160px; background: var(--forest-green); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; border-radius: 4px; border: 2px solid var(--primary-black);">4' Tall</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- 10 YD -->
+                    <div class="d-model-simple">
+                        <div class="d-info-hover">14' L × 3.5' H<br><span style="color: var(--gold);">~50 Bags</span></div>
+                        <div class="d-box" style="width: 140px; height: 35px;"></div>
+                        <div class="d-label-simple">10 YD</div>
+                    </div>
 
-                        <!-- 20 YD -->
-                        <div class="size-panel" id="sz-20">
-                            <div class="panel-grid">
-                                <div class="panel-media">
-                                    <img src="assets/images/dumpster_20.jpg" alt="20 Yard Dumpster">
-                                </div>
-                                <div class="panel-info">
-                                    <h4 style="font-size: 1.8rem; margin-bottom: 0.5rem;">20 Yard Roll-Off</h4>
-                                    <p style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-dark);"><strong>Dimensions:</strong> 22' L × 8' W × 4.5' H</p>
-                                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-dark);"><strong>Capacity:</strong> ~120 Trash Bags</p>
-                                    
-                                    <div class="scale-graphic-box">
-                                        <div class="scale-stage">
-                                            <!-- 4.5' is 54 inches -->
-                                            <div class="human-fig">
-                                                <svg viewBox="0 0 100 250" height="100"><path d="M50 0C36 0 25 11 25 25s11 25 25 25 25-11 25-25S64 0 50 0zm0 60c-22 0-40 18-40 40v60h20v90h40v-90h20v-60c0-22-18-40-40-40z" fill="var(--primary-black)"/></svg>
-                                                <span>5'10"</span>
-                                            </div>
-                                            <div class="dumpster-box" style="height: 77px; width: 220px; background: var(--forest-green); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; border-radius: 4px; border: 2px solid var(--primary-black);">4.5' Tall</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- 15 YD -->
+                    <div class="d-model-simple">
+                        <div class="d-info-hover">16' L × 4' H<br><span style="color: var(--gold);">~80 Bags</span></div>
+                        <div class="d-box" style="width: 160px; height: 40px;"></div>
+                        <div class="d-label-simple">15 YD</div>
+                    </div>
 
-                        <!-- 30 YD -->
-                        <div class="size-panel" id="sz-30">
-                            <div class="panel-grid">
-                                <div class="panel-media">
-                                    <img src="assets/images/dumpster_30.jpg" alt="30 Yard Dumpster">
-                                </div>
-                                <div class="panel-info">
-                                    <h4 style="font-size: 1.8rem; margin-bottom: 0.5rem;">30 Yard Roll-Off</h4>
-                                    <p style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-dark);"><strong>Dimensions:</strong> 22' L × 8' W × 6' H</p>
-                                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-dark);"><strong>Capacity:</strong> ~180 Trash Bags</p>
-                                    
-                                    <div class="scale-graphic-box">
-                                        <div class="scale-stage">
-                                            <!-- 6' is 72 inches. Just taller than human. -->
-                                            <div class="human-fig">
-                                                <svg viewBox="0 0 100 250" height="100"><path d="M50 0C36 0 25 11 25 25s11 25 25 25 25-11 25-25S64 0 50 0zm0 60c-22 0-40 18-40 40v60h20v90h40v-90h20v-60c0-22-18-40-40-40z" fill="var(--primary-black)"/></svg>
-                                                <span>5'10"</span>
-                                            </div>
-                                            <div class="dumpster-box" style="height: 103px; width: 220px; background: var(--forest-green); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; border-radius: 4px; border: 2px solid var(--primary-black);">6' Tall</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- 20 YD -->
+                    <div class="d-model-simple">
+                        <div class="d-info-hover">22' L × 4.5' H<br><span style="color: var(--gold);">~120 Bags</span></div>
+                        <div class="d-box" style="width: 220px; height: 45px;">
+                            <span style="color: white; font-size: 0.75rem; font-weight: 800; opacity: 0.8;">MOST POPULAR</span>
                         </div>
+                        <div class="d-label-simple">20 YD</div>
+                    </div>
 
+                    <!-- 30 YD -->
+                    <div class="d-model-simple">
+                        <div class="d-info-hover">22' L × 6' H<br><span style="color: var(--gold);">~180 Bags</span></div>
+                        <div class="d-box" style="width: 220px; height: 60px;"></div>
+                        <div class="d-label-simple">30 YD</div>
                     </div>
                 </div>
             </div>
