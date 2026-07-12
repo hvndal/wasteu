@@ -261,3 +261,40 @@ document.addEventListener('DOMContentLoaded', () => {
             hoverObserver.observe(el);
         });
     }
+
+    // Quote Modal Logic
+    const quoteModal = document.getElementById('quoteModal');
+    const openQuoteBtns = document.querySelectorAll('.open-quote-modal');
+    const closeQuoteBtn = document.querySelector('.close-modal');
+    const modalServiceTitle = document.getElementById('modalServiceTitle');
+
+    if (quoteModal && openQuoteBtns.length > 0) {
+        openQuoteBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const service = btn.getAttribute('data-service') || 'Get a Quote';
+                if (modalServiceTitle) {
+                    modalServiceTitle.textContent = service;
+                }
+                quoteModal.style.display = 'flex';
+                // Slight delay to allow display:flex to apply before adding opacity class for transition
+                setTimeout(() => quoteModal.classList.add('show'), 10);
+            });
+        });
+
+        // Close on X click
+        if (closeQuoteBtn) {
+            closeQuoteBtn.addEventListener('click', () => {
+                quoteModal.classList.remove('show');
+                setTimeout(() => quoteModal.style.display = 'none', 300); // match CSS transition time
+            });
+        }
+
+        // Close on click outside modal content
+        window.addEventListener('click', (e) => {
+            if (e.target === quoteModal) {
+                quoteModal.classList.remove('show');
+                setTimeout(() => quoteModal.style.display = 'none', 300);
+            }
+        });
+    }
