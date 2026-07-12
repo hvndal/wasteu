@@ -4,119 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Waste Universe News & Local Updates</title>
-    <meta name="description" content="Local news, waste management updates, and stories from Maynard, Harvard, Stow, and the greater MetroWest MA area.">
+    <meta name="description" content="Local news, waste management updates, and stories from our family-owned business serving Harvard, MA, and Rhode Island. Number 1 Dumpster Rental.">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .blog-hero {
-            background-color: var(--emerald);
-            color: var(--white);
-            padding: 8rem 0 4rem;
+        /* Neo-Brutalist Newspaper Masthead */
+        .masthead {
+            background-color: var(--white);
+            color: var(--primary-black);
+            padding: 8rem 2rem 2rem;
             text-align: center;
-            border-bottom: 4px solid var(--primary-black);
+            border-bottom: 8px solid var(--primary-black);
+            margin-bottom: 3rem;
         }
-        .blog-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-            color: var(--gold);
+        .masthead h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            letter-spacing: -2px;
+            text-transform: uppercase;
         }
-        
-        /* Neo-Brutalism Single Page Feed */
-        .feed-container {
-            max-width: 900px;
-            margin: 4rem auto;
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
+        .masthead-meta {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-top: 2px solid var(--primary-black);
+            border-bottom: 2px solid var(--primary-black);
+            padding: 0.5rem 0;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .post-card {
+        @media (max-width: 768px) {
+            .masthead h1 { font-size: 3rem; }
+        }
+
+        /* Newspaper Grid Layout */
+        .newspaper-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 992px) {
+            .newspaper-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Article Styling (Neo-Brutalist) */
+        .news-article {
             background: var(--cream);
             border: 4px solid var(--primary-black);
+            padding: 2rem;
             box-shadow: 8px 8px 0px var(--forest-green);
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s var(--transition);
+            gap: 1.5rem;
         }
-        .post-card:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0px var(--forest-green);
+        
+        .news-feature {
+            grid-column: 1;
         }
 
-        .post-image {
+        .news-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .news-bottom-row {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Specific Article Elements */
+        .article-image {
             width: 100%;
-            height: 350px;
+            height: 300px;
             object-fit: cover;
-            border-bottom: 4px solid var(--primary-black);
-            background-color: var(--off-white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            letter-spacing: 1px;
+            border: 3px solid var(--primary-black);
+            background: var(--off-white);
         }
 
-        .post-content {
-            padding: 3rem;
-        }
-
-        .post-meta {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .post-tag {
-            background: var(--forest-green);
+        .article-tag {
+            align-self: flex-start;
+            background: var(--primary-black);
             color: var(--gold);
-            padding: 0.4rem 1rem;
+            padding: 0.3rem 0.8rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
             font-size: 0.85rem;
-            border: 2px solid var(--primary-black);
         }
 
-        .post-author {
-            font-weight: 700;
-            color: var(--text-dark);
-            font-size: 1rem;
-            background: var(--off-white);
-            padding: 0.4rem 1rem;
-            border: 2px solid var(--primary-black);
-        }
-
-        .post-content h2 {
+        .article-title {
             font-size: 2.2rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+            line-height: 1.1;
             color: var(--primary-black);
+            font-weight: 800;
         }
 
-        .post-body p {
+        .byline {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--forest-green);
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--primary-black);
+            padding-bottom: 0.5rem;
+        }
+
+        .article-text {
             font-size: 1.15rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+            line-height: 1.7;
             color: var(--text-dark);
         }
         
-        .post-body ul {
-            margin-bottom: 1.5rem;
-            padding-left: 2rem;
-        }
-        .post-body li {
-            font-size: 1.15rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
+        .article-text p {
+            margin-bottom: 1.2rem;
         }
 
-        .post-action {
-            margin-top: 2rem;
-            display: inline-block;
+        .full-content {
+            display: none; /* Hidden by default */
+        }
+
+        .full-content.expanded {
+            display: block;
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 2px dashed var(--primary-black);
+        }
+
+        .expand-btn {
+            align-self: flex-start;
+            background: var(--forest-green);
+            color: var(--white);
+            border: 3px solid var(--primary-black);
+            padding: 0.8rem 1.5rem;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.2s;
+            box-shadow: 4px 4px 0px rgba(0,0,0,1);
+        }
+        
+        .expand-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px rgba(0,0,0,1);
+            background: var(--emerald);
+        }
+
+        /* Office Column Special Styling */
+        .office-column {
+            background: var(--gold);
+            border-color: var(--primary-black);
+        }
+        .office-column .article-title {
+            font-family: monospace;
+            text-transform: uppercase;
         }
     </style>
 </head>
@@ -157,145 +204,111 @@
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="blog-hero">
-        <div class="container">
-            <h1>The MetroWest Feed</h1>
-            <p style="font-size: 1.25rem; font-weight: 500;">Local news, technology updates, and operational stories from the field.</p>
-        </div>
-    </section>
+    <!-- Masthead -->
+    <header class="masthead">
+        <h1>The WasteU Chronicle</h1>
+        <div class="masthead-meta">Serving the MetroWest & Rhode Island • A Family Owned Operation</div>
+    </header>
 
-    <!-- Blog Feed -->
-    <section style="padding-bottom: 6rem; padding-left: 20px; padding-right: 20px;">
-        <div class="feed-container">
+    <!-- Main Newspaper Grid -->
+    <main class="container">
+        <div class="newspaper-grid">
             
-            <!-- Article 1: Herman (News/Marketing) -->
-            <article class="post-card">
-                <div class="post-image" style="background: url('assets/images/service_residential.jpg') center/cover;">
-                    <div style="background: rgba(0,0,0,0.6); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
-                        LOCAL NEWS BULLETIN
-                    </div>
+            <!-- Front Page Feature (Herman) -->
+            <article class="news-article news-feature">
+                <div class="article-tag">FRONT PAGE UPDATE</div>
+                <h2 class="article-title">Maynard's New Residential Waste Program: What It Means for You</h2>
+                <div class="byline">By Herman (IT & Marketing) | July 10, 2026</div>
+                
+                <div class="article-image" style="background: url('assets/images/service_residential.jpg') center/cover;">
+                    <div style="background: rgba(0,0,0,0.6); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem; letter-spacing: 2px;">LOCAL NEWS BRIEF</div>
                 </div>
-                <div class="post-content">
-                    <div class="post-meta">
-                        <span class="post-tag">TOWN UPDATES</span>
-                        <span class="post-author">By Herman (IT & Marketing)</span>
-                        <span class="post-author" style="background: transparent; border: none; color: var(--text-muted);">July 10, 2026</span>
-                    </div>
-                    <h2>Maynard's New Residential Waste Program: What It Means for You</h2>
-                    <div class="post-body">
-                        <p>If you live in Maynard, you've likely seen the recent town notices or heard the chatter on local Facebook groups. The town's residential waste collection program is undergoing massive changes this summer, and frankly, a lot of residents are confused and frustrated by the new restrictions.</p>
-                        
+                
+                <div class="article-text">
+                    <p>If you live in Maynard, you've likely seen the recent town notices or heard the chatter on local Facebook groups. The town's residential waste collection program is undergoing massive changes this summer, and frankly, a lot of residents are confused and frustrated by the new strict municipal limits.</p>
+                    
+                    <div class="full-content">
                         <p>The core issue? <strong>Strict limits on heavy items and yard waste.</strong> Under the new municipal guidelines, the town is drastically reducing what they will pick up curbside. Those massive spring cleanouts, old couches, and stacks of broken down Amazon boxes from your latest home project are no longer going to be magically whisked away on Tuesday mornings.</p>
-                        
                         <p>From an IT and logistics standpoint here at Waste Universe, we've been tracking the data. Over the last three weeks, our search traffic for "Maynard dumpster rental" and "junk removal Maynard" has spiked by over 300%. It is clear that the town's infrastructure changes are pushing residents to find private solutions.</p>
-                        
                         <p><strong>The Solution:</strong> If the town won't take it, we will. We've optimized our dispatch software to prioritize the Maynard area during this transition period. Our residential roll-offs are the exact answer to the town's new limits. You don't need to break down boxes, chop up furniture, or worry about municipal limits. You throw it in the bin, and we handle the rest.</p>
-                        
-                        <p>We're running a localized push to help Maynard residents clear out their garages and basements without dealing with the town bureaucracy. Skip the municipal headache.</p>
-                        
-                        <div class="post-action">
-                            <a href="dumpster-rentals.html" class="btn btn-primary" style="border: 2px solid var(--primary-black);">View Residential Dumpster Sizes</a>
-                        </div>
+                        <p>Skip the municipal headache. Reach out to our commercial and residential teams to get sorted.</p>
+                        <a href="dumpster-rentals.html" class="btn btn-gold" style="margin-top: 1rem; border: 2px solid var(--primary-black);">Rent a Dumpster Today</a>
                     </div>
                 </div>
+                
+                <button class="expand-btn">[ READ FULL STORY + ]</button>
             </article>
 
-            <!-- Article 2: Connor (Ops) -->
-            <article class="post-card">
-                <div class="post-image" style="background: url('assets/images/service_commercial.jpg') center/cover;">
-                    <div style="background: rgba(0,0,0,0.6); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
-                        OPERATIONS LOG
-                    </div>
-                </div>
-                <div class="post-content">
-                    <div class="post-meta">
-                        <span class="post-tag">ON THE ROAD</span>
-                        <span class="post-author">By Connor (Operations)</span>
-                        <span class="post-author" style="background: transparent; border: none; color: var(--text-muted);">June 28, 2026</span>
-                    </div>
-                    <h2>Navigating the Hills of Harvard: A Masterclass in Dumpster Drop-offs</h2>
-                    <div class="post-body">
-                        <p>Anyone who has driven through Harvard, MA knows it's absolutely gorgeous. It's also an operational nightmare for driving a massive, heavy-duty commercial truck carrying a steel box filled with several tons of construction debris.</p>
+            <!-- Sidebar -->
+            <aside class="news-sidebar">
+                
+                <!-- SEO Article (Connor) -->
+                <article class="news-article">
+                    <div class="article-tag">INDUSTRY LEADER</div>
+                    <h2 class="article-title" style="font-size: 1.6rem;">Number 1 Dumpster Rental in Rhode Island & Harvard MA</h2>
+                    <div class="byline">By Connor (Operations)</div>
+                    
+                    <div class="article-text">
+                        <p>As a family owned and operated business, we don't rely on massive national call centers. We rely on grit, local knowledge, and an obsession with customer service. That's why we are proud to be recognized as the number 1 dumpster rental service across Rhode Island and Harvard, Massachusetts.</p>
                         
-                        <p>Last week, we got a call for a 20-yard roll-off drop for a massive home renovation deep in the woods of Harvard. The driveway was essentially a 30-degree incline composed of loose gravel, winding through 100-year-old oak trees with barely an inch of clearance on either side.</p>
-                        
-                        <p>The national waste chains wouldn't touch it. They told the homeowner they'd have to drop the dumpster at the bottom of the hill, right on the edge of the busy state route—which is a massive safety hazard and requires the poor contractors to haul heavy debris a quarter-mile down a hill.</p>
-                        
-                        <p>When Damien and I rolled up, we didn't just back in blindly. It took precise spotting, locking the differentials on the truck, and creeping back at half a mile an hour. We utilized heavy-duty blocking to ensure the dumpster wouldn't slide, and we managed to place it exactly three feet from the contractor's demo window at the top of the hill.</p>
-                        
-                        <p>That is the difference between a massive faceless corporation and a local crew that actually knows how to drive in New England. If you've got a tricky driveway, don't let the big guys tell you it can't be done.</p>
-                        
-                        <div class="post-action">
-                            <a href="dumpster-rentals.html" class="btn btn-primary" style="border: 2px solid var(--primary-black);">Rent a Construction Dumpster</a>
+                        <div class="full-content">
+                            <p>Waste management in Harvard, Massachusetts requires an entirely different operational playbook than running routes in Providence, Rhode Island. Harvard's winding, steep dirt driveways demand precision driving and specialized trucks, while our commercial routes in RI require high-speed, high-frequency pickups.</p>
+                            <p>Because we are family owned, we can adapt our operations instantly. When a massive snowstorm hits the MetroWest, we don't wait for corporate approval from a headquarters in Texas to deploy our drivers. We make the call locally, and we execute locally.</p>
+                            <p>Our commitment to local SEO optimization isn't just a marketing trick; it's a reflection of where we actually work and live. We are your neighbors, and whether you need waste management in Harvard or a fast commercial roll-off in Rhode Island, we are the number one choice.</p>
+                            <a href="dumpster-rentals.html" class="btn btn-gold" style="margin-top: 1rem; border: 2px solid var(--primary-black);">View Our Service Areas</a>
                         </div>
                     </div>
-                </div>
-            </article>
+                    
+                    <button class="expand-btn">[ READ FULL STORY + ]</button>
+                </article>
 
-            <!-- Article 3: Herman (IT/Marketing) -->
-            <article class="post-card">
-                <div class="post-image" style="background: url('assets/images/service_compactor.jpg') center/cover;">
-                    <div style="background: rgba(0,0,0,0.6); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
-                        TECH INSIGHTS
-                    </div>
-                </div>
-                <div class="post-content">
-                    <div class="post-meta">
-                        <span class="post-tag">TECHNOLOGY</span>
-                        <span class="post-author">By Herman (IT & Marketing)</span>
-                        <span class="post-author" style="background: transparent; border: none; color: var(--text-muted);">June 15, 2026</span>
-                    </div>
-                    <h2>How We're Using Data to Beat the Big Guys in Stow</h2>
-                    <div class="post-body">
-                        <p>The waste management industry is notoriously old-school. Most local haulers are still using whiteboards and paper ledgers to track where their dumpsters are. The massive national chains use software, but their systems are so bloated and bureaucratic that it takes a week to get a response.</p>
+                <!-- Office Fun Section (Herman) -->
+                <article class="news-article office-column">
+                    <div class="article-tag" style="background: var(--white); color: var(--primary-black);">THE WATERCOOLER</div>
+                    <h2 class="article-title" style="font-size: 1.6rem;">Growing Pains: When a 'Family' Business Actually Grows Up</h2>
+                    <div class="byline" style="border-color: var(--primary-black);">By Herman (Marketing & IT)</div>
+                    
+                    <div class="article-text">
+                        <p>Working in a fast-growing, family-owned waste management company is basically a sitcom waiting to happen. The dispatch board is half state-of-the-art software and half Connor yelling across the office about a missed driveway in Stow.</p>
                         
-                        <p>We are doing things differently. In Stow, where estates are spread out and GPS routing can sometimes be a disaster (we all know the roads that Google Maps thinks exist but are actually dirt paths), we've implemented a custom routing layer on top of our dispatch software.</p>
-                        
-                        <p>As the IT guy, my goal is simple: make sure Connor and Damien never have to guess where they are going, and make sure our customers never have to guess when their dumpster is arriving.</p>
-                        
-                        <p>We recently rolled out real-time SMS tracking for our commercial clients in the Stow and Acton area. When your dumpster is en route, you don't get a vague 8-hour window. You get an exact ETA, routed dynamically around local traffic and construction. This level of transparency is unheard of in local waste management, and it's exactly why our commercial client base is exploding.</p>
-                        
-                        <p>We pair brutalism in our design with brutal efficiency in our software. It's that simple.</p>
-                        
-                        <div class="post-action">
-                            <a href="dumpster-rentals.html" class="btn btn-primary" style="border: 2px solid var(--primary-black);">Check Our Availability</a>
+                        <div class="full-content">
+                            <p>Just last week, we had an absolute meltdown because the new routing algorithm I built tried to send Damien's 26,000-pound truck down a seasonal dirt road that currently looks like a swamp. Connor literally ran to the radio to call it off, spilling his third iced coffee of the morning directly onto the server rack.</p>
+                            <p>As the "IT guy", my job is supposed to be maintaining servers and optimizing our SEO. In reality, half my job is running damage control when the operations team decides that "technology is slowing them down" and goes rogue with a paper map.</p>
+                            <p>But that's the beauty of it. We are a family. We fight, we spill coffee on expensive equipment, and at the end of the day, we get every single dumpster delivered on time. The corporate guys don't have this kind of chaotic synergy, and it's exactly why they can't beat us.</p>
                         </div>
                     </div>
-                </div>
-            </article>
+                    
+                    <button class="expand-btn">[ READ FULL STORY + ]</button>
+                </article>
 
-            <!-- Article 4: Herman (Marketing/News) -->
-            <article class="post-card">
-                <div class="post-image" style="background: var(--off-white); display: flex; align-items: center; justify-content: center; flex-direction: column; border-bottom: 4px solid var(--primary-black);">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                    <span style="font-weight: 800; color: var(--forest-green); letter-spacing: 2px;">COMMUNITY SPOTLIGHT</span>
-                </div>
-                <div class="post-content">
-                    <div class="post-meta">
-                        <span class="post-tag">COMMUNITY</span>
-                        <span class="post-author">By Herman (IT & Marketing)</span>
-                        <span class="post-author" style="background: transparent; border: none; color: var(--text-muted);">May 30, 2026</span>
-                    </div>
-                    <h2>Estate Cleanouts in the MetroWest: The Emotional Toll</h2>
-                    <div class="post-body">
-                        <p>Let's step away from the logistics and the software for a moment. An estate cleanout is one of the most emotionally draining things a family can go through. Over the last month, we've handled over a dozen massive estate clear-outs across Framingham, Natick, and Sudbury, and the story is always similar.</p>
-                        
-                        <p>Families are dealing with the loss of a loved one or moving an aging parent into a care facility. They are staring at 40 years of accumulated memories, and they have exactly one weekend to clear the property before the real estate agent arrives to take listing photos.</p>
-                        
-                        <p>This is where the marketing meets reality. We don't just sell "metal boxes." We sell relief. When a family calls us in a panic on a Thursday afternoon because the municipal trash won't take 15 bags of old clothes and broken furniture, we don't put them through a robotic phone tree. We get a 15-yard roll-off in their driveway by 7:00 AM the next morning.</p>
-                        
-                        <p>Our commitment is simple: we handle the heavy lifting and the logistics, so you can focus on your family. If you're facing a daunting property clear-out, reach out to us. We will make it the easiest part of your week.</p>
-                        
-                        <div class="post-action">
-                            <a href="dumpster-rentals.html" class="btn btn-primary" style="border: 2px solid var(--primary-black);">View Estate Dumpster Sizes</a>
-                        </div>
+            </aside>
+        </div>
+
+        <!-- Bottom Row -->
+        <div class="news-bottom-row">
+            
+            <!-- Driver Story (Damien) -->
+            <article class="news-article">
+                <div class="article-tag">FROM THE ROAD</div>
+                <h2 class="article-title" style="font-size: 1.8rem;">The Stow Squeeze: Dropping 20 Yards in the Woods</h2>
+                <div class="byline">By Damien (Lead Driver)</div>
+                
+                <div class="article-text">
+                    <p>I've driven commercial trucks for fifteen years, but navigating the backroads of Stow, MA with a 20-yard roll-off strapped to the back is a totally different beast. You don't just drive; you thread the needle.</p>
+                    
+                    <div class="full-content">
+                        <p>Last Tuesday, dispatch sent me out to an estate cleanout deep in the Stow woods. The GPS stopped working about three miles from the address. When I finally found the driveway, I realized it was flanked by a historic stone wall on one side and a 100-year-old oak tree on the other. Total clearance? About two inches on either side of my mirrors.</p>
+                        <p>The national guys would have dropped it in the street and told the homeowner good luck. We don't do that. I spent twenty minutes backing that rig in at a crawl. We laid down our protective planks, dropped the box perfectly square, and pulled out without disturbing a single leaf on that oak tree.</p>
+                        <p>That's what we do. It's not just hauling trash; it's precision logistics. Next time you think your driveway is too tight for a dumpster, give us a call. I love a good challenge.</p>
+                        <a href="dumpster-rentals.html" class="btn btn-gold" style="margin-top: 1rem; border: 2px solid var(--primary-black);">Rent a Roll-Off</a>
                     </div>
                 </div>
+                
+                <button class="expand-btn">[ READ FULL STORY + ]</button>
             </article>
 
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer style="background: var(--primary-black); color: var(--white); padding: 4rem 0 2rem; border-top: 4px solid var(--forest-green);">
@@ -324,11 +337,6 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script src="assets/js/loader.js"></script>
-    
     <!-- Floating Contact Widget -->
     <div class="floating-contact">
         <a href="#" class="float-btn open-quote-modal" data-service="Contact Us" title="Call Us" style="font-size: 28px; text-decoration: none;">
@@ -338,5 +346,32 @@
             ✉️
         </a>
     </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/loader.js"></script>
+    
+    <script>
+        // Article Expand/Collapse Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const expandBtns = document.querySelectorAll('.expand-btn');
+            
+            expandBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const article = e.target.closest('.news-article');
+                    const fullContent = article.querySelector('.full-content');
+                    
+                    if (fullContent.classList.contains('expanded')) {
+                        fullContent.classList.remove('expanded');
+                        e.target.textContent = '[ READ FULL STORY + ]';
+                    } else {
+                        fullContent.classList.add('expanded');
+                        e.target.textContent = '[ COLLAPSE STORY - ]';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
