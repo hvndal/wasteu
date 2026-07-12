@@ -3,73 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stories & Tips - MetroWest Dumpster Rentals Blog | Waste Universe</title>
-    <meta name="description" content="Read stories, tips, and case studies about residential and commercial waste management across Maynard, Framingham, and the greater MetroWest MA area.">
+    <title>Blog - Waste Universe News & Local Updates</title>
+    <meta name="description" content="Local news, waste management updates, and stories from Maynard, Harvard, Stow, and the greater MetroWest MA area.">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         .blog-hero {
             background-color: var(--emerald);
-            color: var(--gold);
+            color: var(--white);
             padding: 8rem 0 4rem;
             text-align: center;
-            border-bottom: 3px solid var(--primary-black);
+            border-bottom: 4px solid var(--primary-black);
         }
         .blog-hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            letter-spacing: -1px;
+            color: var(--gold);
         }
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-        .blog-card {
-            background: var(--cream);
-            border: 3px solid var(--primary-black);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-solid);
-            padding: 2rem;
+        
+        /* Neo-Brutalism Single Page Feed */
+        .feed-container {
+            max-width: 900px;
+            margin: 4rem auto;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 4rem;
+        }
+
+        .post-card {
+            background: var(--cream);
+            border: 4px solid var(--primary-black);
+            box-shadow: 8px 8px 0px var(--forest-green);
+            display: flex;
+            flex-direction: column;
             transition: transform 0.2s var(--transition);
         }
-        .blog-card:hover {
+        .post-card:hover {
             transform: translate(-4px, -4px);
-            box-shadow: 7px 7px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 12px 12px 0px var(--forest-green);
         }
-        .blog-tag {
-            align-self: flex-start;
-            background: var(--forest-green);
-            color: var(--white);
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        .blog-card h2 {
-            font-size: 1.5rem;
-            line-height: 1.3;
-        }
-        .blog-card p {
+
+        .post-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--primary-black);
+            background-color: var(--off-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
             color: var(--text-muted);
-            font-size: 1rem;
-            flex-grow: 1;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
         }
-        .blog-card .read-more {
-            display: inline-block;
-            margin-top: 1rem;
-            color: var(--emerald);
-            font-weight: 700;
-            text-decoration: none;
+
+        .post-content {
+            padding: 3rem;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .post-tag {
+            background: var(--forest-green);
+            color: var(--gold);
+            padding: 0.4rem 1rem;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            border: 2px solid var(--primary-black);
         }
-        .blog-card .read-more:hover {
-            text-decoration: underline;
+
+        .post-author {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1rem;
+            background: var(--off-white);
+            padding: 0.4rem 1rem;
+            border: 2px solid var(--primary-black);
+        }
+
+        .post-content h2 {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--primary-black);
+        }
+
+        .post-body p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .post-body ul {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        .post-body li {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .post-action {
+            margin-top: 2rem;
+            display: inline-block;
         }
     </style>
 </head>
@@ -97,7 +144,7 @@
                 <a href="index.html#home">Home</a>
                 <a href="index.html#about">About Us</a>
                 <a href="services.html">Services</a>
-                <a href="blog.html" class="active">Stories & Tips</a>
+                <a href="blog.html" class="active">Blog</a>
                 <a href="weather.html">Weather & Schedule</a>
                 <a href="#" id="theme-toggle" class="theme-toggle" title="Toggle Theme" style="font-size: 1.2rem; text-decoration: none;">🌙</a>
                 <a href="index.html#contact" class="btn btn-gold nav-action">Control Panel</a>
@@ -113,38 +160,140 @@
     <!-- Hero -->
     <section class="blog-hero">
         <div class="container">
-            <h1>Stories & Tips</h1>
-            <p style="font-size: 1.2rem;">Real-world waste management solutions from across the MetroWest area.</p>
+            <h1>The MetroWest Feed</h1>
+            <p style="font-size: 1.25rem; font-weight: 500;">Local news, technology updates, and operational stories from the field.</p>
         </div>
     </section>
 
-    <!-- Blog Grid -->
-    <section style="padding-bottom: 6rem;">
-        <div class="container">
-            <div class="blog-grid">
-                
-                <article class="blog-card">
-                    <span class="blog-tag">Residential</span>
-                    <h2>Estate Cleanouts in Maynard, MA | Local Dumpster Rental Guide</h2>
-                    <p>When a family in Maynard needed to clear out a multi-generational estate over a single weekend, they needed a roll-off dumpster delivered fast and placed perfectly. Here is how Connor and the team made a stressful weekend totally seamless.</p>
-                    <a href="article-maynard-cleanout.html" class="read-more">Read Story &rarr;</a>
-                </article>
+    <!-- Blog Feed -->
+    <section style="padding-bottom: 6rem; padding-left: 20px; padding-right: 20px;">
+        <div class="feed-container">
+            
+            <!-- Article 1: Herman (News/Marketing) -->
+            <article class="post-card">
+                <div class="post-image" style="background: url('assets/images/service_residential.jpg') center/cover;">
+                    <div style="background: rgba(0,0,0,0.6); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
+                        LOCAL NEWS BULLETIN
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span class="post-tag">TOWN UPDATES</span>
+                        <span class="post-author">By Herman (IT & Marketing)</span>
+                        <span class="post-author" style="background: transparent; border: none; color: var(--text-muted);">July 10, 2026</span>
+                    </div>
+                    <h2>Maynard's New Residential Waste Program: What It Means for You</h2>
+                    <div class="post-body">
+                        <p>If you live in Maynard, you've likely seen the recent town notices or heard the chatter on local Facebook groups. The town's residential waste collection program is undergoing massive changes this summer, and frankly, a lot of residents are confused and frustrated by the new restrictions.</p>
+                        
+                        <p>The core issue? <strong>Strict limits on heavy items and yard waste.</strong> Under the new municipal guidelines, the town is drastically reducing what they will pick up curbside. Those massive spring cleanouts, old couches, and stacks of broken down Amazon boxes from your latest home project are no longer going to be magically whisked away on Tuesday mornings.</p>
+                        
+                        <p>From an IT and logistics standpoint here at Waste Universe, we've been tracking the data. Over the last three weeks, our search traffic for "Maynard dumpster rental" and "junk removal Maynard" has spiked by over 300%. It is clear that the town's infrastructure changes are pushing residents to find private solutions.</p>
+                        
+                        <p><strong>The Solution:</strong> If the town won't take it, we will. We've optimized our dispatch software to prioritize the Maynard area during this transition period. Our residential roll-offs are the exact answer to the town's new limits. You don't need to break down boxes, chop up furniture, or worry about municipal limits. You throw it in the bin, and we handle the rest.</p>
+                        
+                        <p>We're running a localized push to help Maynard residents clear out their garages and basements without dealing with the town bureaucracy. Skip the municipal headache.</p>
+                        
+                        <div class="post-action">
+                            <a href="dumpster-rentals.html" class="btn btn-primary" style="border: 2px solid var(--primary-black);">View Residential Dumpster Sizes</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
 
-                <article class="blog-card">
-                    <span class="blog-tag">Commercial</span>
-                    <h2>Reliable Commercial Waste Management in the MetroWest Area</h2>
-                    <p>Local businesses in Marlborough and Sudbury are tired of national chains missing pickups. Read this case study on how local restaurants and retail shops switched to Waste Universe for reliable, localized commercial dumpster service.</p>
-                    <a href="article-metrowest-commercial.html" class="read-more">Read Case Study &rarr;</a>
-                </article>
+            <!-- Article 2: Connor (Ops) -->
+            <article class="post-card">
+                <div class="post-image" style="background: url('assets/images/service_commercial.jpg') center/cover;">
+                    <div style="background: rgba(0,0,0,0.6); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
+                        OPERATIONS LOG
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span class="post-tag">ON THE ROAD</span>
+                        <span class="post-author">By Connor (Operations)</span>
+                        <span class="post-author" style="background: transparent; border: none; color: var(--text-muted);">June 28, 2026</span>
+                    </div>
+                    <h2>Navigating the Hills of Harvard: A Masterclass in Dumpster Drop-offs</h2>
+                    <div class="post-body">
+                        <p>Anyone who has driven through Harvard, MA knows it's absolutely gorgeous. It's also an operational nightmare for driving a massive, heavy-duty commercial truck carrying a steel box filled with several tons of construction debris.</p>
+                        
+                        <p>Last week, we got a call for a 20-yard roll-off drop for a massive home renovation deep in the woods of Harvard. The driveway was essentially a 30-degree incline composed of loose gravel, winding through 100-year-old oak trees with barely an inch of clearance on either side.</p>
+                        
+                        <p>The national waste chains wouldn't touch it. They told the homeowner they'd have to drop the dumpster at the bottom of the hill, right on the edge of the busy state route—which is a massive safety hazard and requires the poor contractors to haul heavy debris a quarter-mile down a hill.</p>
+                        
+                        <p>When Damien and I rolled up, we didn't just back in blindly. It took precise spotting, locking the differentials on the truck, and creeping back at half a mile an hour. We utilized heavy-duty blocking to ensure the dumpster wouldn't slide, and we managed to place it exactly three feet from the contractor's demo window at the top of the hill.</p>
+                        
+                        <p>That is the difference between a massive faceless corporation and a local crew that actually knows how to drive in New England. If you've got a tricky driveway, don't let the big guys tell you it can't be done.</p>
+                        
+                        <div class="post-action">
+                            <a href="dumpster-rentals.html" class="btn btn-primary" style="border: 2px solid var(--primary-black);">Rent a Construction Dumpster</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
 
-                <article class="blog-card">
-                    <span class="blog-tag">Construction</span>
-                    <h2>Navigating Heavy Home Renovations in Framingham & Natick</h2>
-                    <p>A massive kitchen and bathroom demolition in a tight Framingham driveway requires precision. Learn how our driver Damien maneuvers heavy roll-offs to ensure construction debris removal is the easiest part of your renovation.</p>
-                    <a href="article-framingham-renovation.html" class="read-more">Read Guide &rarr;</a>
-                </article>
+            <!-- Article 3: Herman (IT/Marketing) -->
+            <article class="post-card">
+                <div class="post-image" style="background: url('assets/images/service_compactor.jpg') center/cover;">
+                    <div style="background: rgba(0,0,0,0.6); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
+                        TECH INSIGHTS
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span class="post-tag">TECHNOLOGY</span>
+                        <span class="post-author">By Herman (IT & Marketing)</span>
+                        <span class="post-author" style="background: transparent; border: none; color: var(--text-muted);">June 15, 2026</span>
+                    </div>
+                    <h2>How We're Using Data to Beat the Big Guys in Stow</h2>
+                    <div class="post-body">
+                        <p>The waste management industry is notoriously old-school. Most local haulers are still using whiteboards and paper ledgers to track where their dumpsters are. The massive national chains use software, but their systems are so bloated and bureaucratic that it takes a week to get a response.</p>
+                        
+                        <p>We are doing things differently. In Stow, where estates are spread out and GPS routing can sometimes be a disaster (we all know the roads that Google Maps thinks exist but are actually dirt paths), we've implemented a custom routing layer on top of our dispatch software.</p>
+                        
+                        <p>As the IT guy, my goal is simple: make sure Connor and Damien never have to guess where they are going, and make sure our customers never have to guess when their dumpster is arriving.</p>
+                        
+                        <p>We recently rolled out real-time SMS tracking for our commercial clients in the Stow and Acton area. When your dumpster is en route, you don't get a vague 8-hour window. You get an exact ETA, routed dynamically around local traffic and construction. This level of transparency is unheard of in local waste management, and it's exactly why our commercial client base is exploding.</p>
+                        
+                        <p>We pair brutalism in our design with brutal efficiency in our software. It's that simple.</p>
+                        
+                        <div class="post-action">
+                            <a href="dumpster-rentals.html" class="btn btn-primary" style="border: 2px solid var(--primary-black);">Check Our Availability</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
 
-            </div>
+            <!-- Article 4: Herman (Marketing/News) -->
+            <article class="post-card">
+                <div class="post-image" style="background: var(--off-white); display: flex; align-items: center; justify-content: center; flex-direction: column; border-bottom: 4px solid var(--primary-black);">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <span style="font-weight: 800; color: var(--forest-green); letter-spacing: 2px;">COMMUNITY SPOTLIGHT</span>
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span class="post-tag">COMMUNITY</span>
+                        <span class="post-author">By Herman (IT & Marketing)</span>
+                        <span class="post-author" style="background: transparent; border: none; color: var(--text-muted);">May 30, 2026</span>
+                    </div>
+                    <h2>Estate Cleanouts in the MetroWest: The Emotional Toll</h2>
+                    <div class="post-body">
+                        <p>Let's step away from the logistics and the software for a moment. An estate cleanout is one of the most emotionally draining things a family can go through. Over the last month, we've handled over a dozen massive estate clear-outs across Framingham, Natick, and Sudbury, and the story is always similar.</p>
+                        
+                        <p>Families are dealing with the loss of a loved one or moving an aging parent into a care facility. They are staring at 40 years of accumulated memories, and they have exactly one weekend to clear the property before the real estate agent arrives to take listing photos.</p>
+                        
+                        <p>This is where the marketing meets reality. We don't just sell "metal boxes." We sell relief. When a family calls us in a panic on a Thursday afternoon because the municipal trash won't take 15 bags of old clothes and broken furniture, we don't put them through a robotic phone tree. We get a 15-yard roll-off in their driveway by 7:00 AM the next morning.</p>
+                        
+                        <p>Our commitment is simple: we handle the heavy lifting and the logistics, so you can focus on your family. If you're facing a daunting property clear-out, reach out to us. We will make it the easiest part of your week.</p>
+                        
+                        <div class="post-action">
+                            <a href="dumpster-rentals.html" class="btn btn-primary" style="border: 2px solid var(--primary-black);">View Estate Dumpster Sizes</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
         </div>
     </section>
 
@@ -155,7 +304,7 @@
         </div>
     </footer>
 
-    <!-- Quote Modal & Widget Script dependencies -->
+    <!-- Quote Modal -->
     <div id="quoteModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
