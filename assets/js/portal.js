@@ -1,165 +1,236 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if we are on a portal page that requires Supabase
-    if (!window.supabaseClient) return;
+    if (typeof supabase === 'undefined' || !window.supabaseClient) {
+        console.error('[Portal] Supabase client not loaded. Check supabaseClient.js and CDN script.');
+        return;
+    }
 
-    const supabase = window.supabaseClient;
+    const sb = window.supabaseClient;
+    console.log('[Portal] Supabase client initialized.');
 
-    // ----- UI Elements -----
+    // ----- Mobile Menu Toggle (since we removed main.js from portal pages) -----
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    }
+
+    // ----- Signup -----
     const signupForm = document.getElementById('signupForm');
-    const loginForm = document.getElementById('loginForm');
-    const linkForm = document.getElementById('linkForm');
-    const logoutBtn = document.getElementById('logoutBtn');
-    
-    // ----- AUTH STATE LISTENER -----
-    supabase.auth.onAuthStateChange((event, session) => {
-        const path = window.location.pathname;
-        const isAuthPage = path.includes('login.html') || path.includes('signup.html');
-        
-        if (session) {
-            // User is logged in
-            if (isAuthPage) {
-                window.location.href = 'dashboard.html';
-            }
-            if (path.includes('dashboard.html')) {
-                loadDashboardData(session.user);
-            }
-        } else {
-            // User is logged out
-            if (path.includes('dashboard.html') || path.includes('link-account.html')) {
-                window.location.href = 'login.html';
-            }
-        }
-    });
-
-    // ----- SIGNUP FLOW -----
     if (signupForm) {
+        console.log('[Portal] Signup form found.');
         signupForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const email = document.getElementById('signupEmail').value;
+            const email = document.getElementById('signupEmail').value.trim();
             const password = document.getElementById('signupPassword').value;
             const errorDiv = document.getElementById('signupError');
-            
+            const successDiv = document.getElementById('signupSuccess');
+            const btn = document.getElementById('signupBtn');
+
             errorDiv.style.display = 'none';
-            const { data, error } = await supabase.auth.signUp({ email, password });
-            
-            if (error) {
-                errorDiv.textContent = error.message;
-                errorDiv.style.display = 'block';
-            } else {
-                // Check if email confirmation is required, otherwise redirect
-                if (data.user && data.user.identities && data.user.identities.length === 0) {
-                    errorDiv.textContent = "Email already in use or confirm your email.";
+            if (successDiv) successDiv.style.display = 'none';
+            btn.disabled = true;
+            btn.textContent = 'Creating account...';
+
+            console.log('[Portal] Attempting signup for:', email);
+
+            try {
+                const { data, error } = await sb.auth.signUp({ email, password });
+
+                if (error) {
+                    console.error('[Portal] Signup error:', error.message);
+                    errorDiv.textContent = error.message;
                     errorDiv.style.display = 'block';
-                } else {
-                    window.location.href = 'dashboard.html';
+                    btn.disabled = false;
+                    btn.textContent = 'Create Account';
+                    return;
                 }
+
+                console.log('[Portal] Signup response:', data);
+
+                // Check if email confirmation is needed
+                if (data.user && data.user.identities && data.user.identities.length === 0) {
+                    errorDiv.textContent = 'This email is already registered. Try logging in instead.';
+                    errorDiv.style.display = 'block';
+                    btn.disabled = false;
+                    btn.textContent = 'Create Account';
+                } else if (data.session) {
+                    // Logged in immediately (email confirmation disabled)
+                    console.log('[Portal] Session created, redirecting to dashboard...');
+                    window.location.href = 'dashboard.html';
+                } else {
+                    // Email confirmation required
+                    if (successDiv) {
+                        successDiv.textContent = 'Check your email for a confirmation link! You can close this page.';
+                        successDiv.style.display = 'block';
+                    }
+                    btn.disabled = false;
+                    btn.textContent = 'Create Account';
+                }
+            } catch (err) {
+                console.error('[Portal] Unexpected signup error:', err);
+                errorDiv.textContent = 'An unexpected error occurred. Please try again.';
+                errorDiv.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Create Account';
             }
         });
     }
 
-    // ----- LOGIN FLOW -----
+    // ----- Login -----
+    const loginForm = document.getElementById('loginForm');
     if (loginForm) {
+        console.log('[Portal] Login form found.');
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const email = document.getElementById('loginEmail').value;
+            const email = document.getElementById('loginEmail').value.trim();
             const password = document.getElementById('loginPassword').value;
             const errorDiv = document.getElementById('loginError');
-            
+            const btn = document.getElementById('loginBtn');
+
             errorDiv.style.display = 'none';
-            const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-            
-            if (error) {
-                errorDiv.textContent = error.message;
-                errorDiv.style.display = 'block';
-            } else {
+            btn.disabled = true;
+            btn.textContent = 'Logging in...';
+
+            console.log('[Portal] Attempting login for:', email);
+
+            try {
+                const { data, error } = await sb.auth.signInWithPassword({ email, password });
+
+                if (error) {
+                    console.error('[Portal] Login error:', error.message);
+                    errorDiv.textContent = error.message;
+                    errorDiv.style.display = 'block';
+                    btn.disabled = false;
+                    btn.textContent = 'Log In';
+                    return;
+                }
+
+                console.log('[Portal] Login success, redirecting...');
                 window.location.href = 'dashboard.html';
+            } catch (err) {
+                console.error('[Portal] Unexpected login error:', err);
+                errorDiv.textContent = 'An unexpected error occurred. Please try again.';
+                errorDiv.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Log In';
             }
         });
     }
 
-    // ----- LOGOUT FLOW -----
+    // ----- Logout -----
+    const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', async () => {
-            await supabase.auth.signOut();
+            console.log('[Portal] Logging out...');
+            await sb.auth.signOut();
             window.location.href = 'login.html';
         });
     }
 
-    // ----- LINK ACCOUNT FLOW -----
+    // ----- Link Account -----
+    const linkForm = document.getElementById('linkForm');
     if (linkForm) {
+        console.log('[Portal] Link form found.');
         linkForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const identifier = document.getElementById('linkIdentifier').value;
+            const identifier = document.getElementById('linkIdentifier').value.trim();
             const msgDiv = document.getElementById('linkMessage');
             const btn = document.getElementById('linkBtn');
-            
+
+            msgDiv.style.display = 'none';
             btn.disabled = true;
             btn.textContent = 'Searching...';
-            msgDiv.style.display = 'none';
 
-            // Call secure RPC function to link account
-            const { data, error } = await supabase.rpc('link_customer_account', {
-                contact_identifier: identifier
-            });
+            console.log('[Portal] Attempting to link account with:', identifier);
 
-            btn.disabled = false;
-            btn.textContent = 'Find Account';
+            try {
+                const { data, error } = await sb.rpc('link_customer_account', {
+                    contact_identifier: identifier
+                });
 
-            if (error) {
+                if (error) {
+                    console.error('[Portal] Link error:', error.message);
+                    msgDiv.textContent = error.message || 'Could not find a matching account.';
+                    msgDiv.className = 'portal-error';
+                    msgDiv.style.display = 'block';
+                    btn.disabled = false;
+                    btn.textContent = 'Find My Account';
+                    return;
+                }
+
+                console.log('[Portal] Account linked successfully!');
+                msgDiv.textContent = 'Account linked successfully! Redirecting to dashboard...';
+                msgDiv.className = 'portal-success';
                 msgDiv.style.display = 'block';
-                msgDiv.style.color = 'red';
-                msgDiv.style.backgroundColor = '#ffe5e5';
-                msgDiv.textContent = error.message || 'Could not find an account with that information.';
-            } else {
+                setTimeout(() => { window.location.href = 'dashboard.html'; }, 1500);
+            } catch (err) {
+                console.error('[Portal] Unexpected link error:', err);
+                msgDiv.textContent = 'An unexpected error occurred.';
+                msgDiv.className = 'portal-error';
                 msgDiv.style.display = 'block';
-                msgDiv.style.color = 'green';
-                msgDiv.style.backgroundColor = '#e5ffe5';
-                msgDiv.textContent = 'Account successfully linked! Redirecting...';
-                setTimeout(() => {
-                    window.location.href = 'dashboard.html';
-                }, 1500);
+                btn.disabled = false;
+                btn.textContent = 'Find My Account';
             }
         });
     }
 
-    // ----- DASHBOARD LOGIC -----
-    async function loadDashboardData(user) {
+    // ----- Dashboard -----
+    const dashboardGreeting = document.getElementById('dashboardGreeting');
+    if (dashboardGreeting) {
+        console.log('[Portal] Dashboard page detected. Checking auth...');
+        const loadingState = document.getElementById('loadingState');
         const unlinkedState = document.getElementById('unlinkedState');
         const linkedState = document.getElementById('linkedState');
-        
-        document.getElementById('dashboardGreeting').textContent = \`Welcome back, \${user.email}\`;
 
-        // Query the customer_users table to see if this auth user is linked
-        const { data: linkage, error: linkError } = await supabase
-            .from('customer_users')
-            .select('customer_id')
-            .eq('auth_user_id', user.id)
-            .single();
+        (async () => {
+            const { data: { session } } = await sb.auth.getSession();
 
-        if (linkError || !linkage) {
-            // Not linked
-            unlinkedState.style.display = 'block';
-            linkedState.style.display = 'none';
-            return;
-        }
+            if (!session) {
+                console.log('[Portal] No session found, redirecting to login.');
+                window.location.href = 'login.html';
+                return;
+            }
 
-        // Fetch customer details using RLS (RLS guarantees they can only fetch their own)
-        const { data: customer, error: custError } = await supabase
-            .from('customers')
-            .select('*')
-            .eq('id', linkage.customer_id)
-            .single();
+            const user = session.user;
+            console.log('[Portal] User authenticated:', user.email);
+            dashboardGreeting.textContent = `Welcome back, ${user.email}`;
 
-        if (customer) {
-            unlinkedState.style.display = 'none';
-            linkedState.style.display = 'block';
-            
-            document.getElementById('customerName').textContent = customer.name || 'N/A';
-            document.getElementById('customerEmail').textContent = customer.email || 'N/A';
-            document.getElementById('customerPhone').textContent = customer.phone || 'N/A';
-            document.getElementById('customerSegment').textContent = customer.customer_segment || 'N/A';
-            document.getElementById('billingGroup').textContent = customer.billing_group || 'N/A';
-            document.getElementById('serviceAddress').textContent = customer.billing_address || 'N/A';
-        }
+            // Check if linked
+            const { data: linkage, error: linkError } = await sb
+                .from('customer_users')
+                .select('customer_id')
+                .eq('auth_user_id', user.id)
+                .single();
+
+            if (loadingState) loadingState.style.display = 'none';
+
+            if (linkError || !linkage) {
+                console.log('[Portal] User not linked to a customer record.');
+                unlinkedState.style.display = 'block';
+                linkedState.style.display = 'none';
+                return;
+            }
+
+            console.log('[Portal] User linked to customer:', linkage.customer_id);
+
+            // Fetch customer details
+            const { data: customer } = await sb
+                .from('customers')
+                .select('*')
+                .eq('id', linkage.customer_id)
+                .single();
+
+            if (customer) {
+                unlinkedState.style.display = 'none';
+                linkedState.style.display = 'block';
+                document.getElementById('customerName').textContent = customer.name || '—';
+                document.getElementById('customerEmail').textContent = customer.email || '—';
+                document.getElementById('customerPhone').textContent = customer.phone || '—';
+                document.getElementById('customerSegment').textContent = customer.customer_segment || '—';
+                document.getElementById('billingGroup').textContent = customer.billing_group || '—';
+                document.getElementById('serviceAddress').textContent = customer.billing_address || '—';
+                console.log('[Portal] Dashboard populated.');
+            }
+        })();
     }
 });
