@@ -2557,6 +2557,7 @@ img, video {
     
     .hero {
         padding: 120px 0 60px 0 !important;
+        height: auto !important;
         min-height: 70vh !important;
     }
 
