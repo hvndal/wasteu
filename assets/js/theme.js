@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
-    // Force dark mode
-    root.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', 'dark');
+    // Force light mode
+    root.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
 });
