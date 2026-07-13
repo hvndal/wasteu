@@ -364,10 +364,12 @@ img, video {
     left: 0;
     width: 100%;
     height: 100%;
+    max-width: none; /* Ensures no conflict with global img/video max-width */
     object-fit: cover;
-    object-position: 50% 30%;
+    object-position: center top; /* Keeps top of video anchored to avoid top-cropping */
     z-index: 1;
     opacity: 0.4;
+    pointer-events: none;
 }
 
 .hero .container {
@@ -1338,7 +1340,7 @@ img, video {
         padding: 32px 24px;
     }
     .hero-bg {
-        object-position: 100% 100%;
+        object-position: center center; /* Responsive crop for mobile, keeping focus central */
     }
     .services-grid, .features-grid {
         grid-template-columns: 1fr;
