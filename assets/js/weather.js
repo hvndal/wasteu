@@ -66,8 +66,30 @@ document.addEventListener('DOMContentLoaded', () => {
         // Setup Selectors
         setupSelectors();
 
-        // Load default MA weather
-        loadLocationWeather('Massachusetts');
+        // Auto-detect location
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    
+                    // Update dropdown to show auto location
+                    const autoOption = document.createElement('option');
+                    autoOption.value = `${lat},${lon}`;
+                    autoOption.textContent = '📍 Your Location';
+                    citySelect.insertBefore(autoOption, citySelect.firstChild);
+                    citySelect.value = `${lat},${lon}`;
+
+                    loadLocationWeather(`${lat},${lon}`);
+                },
+                (error) => {
+                    console.log("Geolocation denied or failed.", error);
+                    loadLocationWeather('Massachusetts');
+                }
+            );
+        } else {
+            loadLocationWeather('Massachusetts');
+        }
     }
 
     function setupSelectors() {
