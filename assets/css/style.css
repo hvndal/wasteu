@@ -2551,55 +2551,54 @@ img, video {
 /* --- STATIC CONTACT WIDGET --- */
 .static-contact-widget {
     position: fixed;
-    right: 0;
+    right: 16px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .static-contact-btn {
-    background-color: var(--forest-green);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--primary-black);
     border: 3px solid var(--primary-black);
-    border-right: none;
-    padding: 16px 12px;
-    border-radius: 12px 0 0 12px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
     box-shadow: -4px 4px 0 var(--primary-black);
     transition: all 0.2s ease;
+    font-size: 28px;
+    padding: 0;
+    text-decoration: none;
 }
 
 .static-contact-btn:hover {
-    transform: translateX(-4px);
-    box-shadow: -6px 6px 0 var(--primary-black);
-    background-color: var(--white);
-    color: var(--primary-black);
-}
-
-.static-contact-btn span {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    margin-top: 12px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    font-size: 14px;
-    text-transform: uppercase;
+    transform: translate(-4px, -4px);
+    box-shadow: -8px 8px 0 var(--primary-black);
+    background-color: var(--gold);
 }
 
 @media (max-width: 768px) {
+    .static-contact-widget {
+        right: 12px;
+        gap: 12px;
+    }
     .static-contact-btn {
-        padding: 12px 8px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        border-width: 2px;
+        box-shadow: -3px 3px 0 var(--primary-black);
     }
-    .static-contact-btn svg {
-        width: 20px;
-        height: 20px;
-    }
-    .static-contact-btn span {
-        font-size: 12px;
-        margin-top: 8px;
+    .static-contact-btn:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: -5px 5px 0 var(--primary-black);
     }
 }
 
