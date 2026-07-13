@@ -354,7 +354,7 @@ img, video {
     min-height: 700px;
     display: flex;
     align-items: center;
-    background-color: var(--primary-black);
+    background-color: #0A0F14; /* Fixed dark background so video overlay is always dark, even in dark mode */
     overflow: hidden;
 }
 
@@ -2547,6 +2547,61 @@ img, video {
 }
 
 
+
+/* --- STATIC CONTACT WIDGET --- */
+.static-contact-widget {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+}
+
+.static-contact-btn {
+    background-color: var(--forest-green);
+    color: var(--white);
+    border: 3px solid var(--primary-black);
+    border-right: none;
+    padding: 16px 12px;
+    border-radius: 12px 0 0 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: -4px 4px 0 var(--primary-black);
+    transition: all 0.2s ease;
+}
+
+.static-contact-btn:hover {
+    transform: translateX(-4px);
+    box-shadow: -6px 6px 0 var(--primary-black);
+    background-color: var(--white);
+    color: var(--primary-black);
+}
+
+.static-contact-btn span {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    margin-top: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .static-contact-btn {
+        padding: 12px 8px;
+    }
+    .static-contact-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    .static-contact-btn span {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+}
 
 /* --- MOBILE RESPONSIVENESS REDESIGN --- */
 @media (max-width: 768px) {

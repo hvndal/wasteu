@@ -295,6 +295,36 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === quoteModal) {
                 quoteModal.classList.remove('show');
                 setTimeout(() => quoteModal.style.display = 'none', 300);
+        });
+    }
+
+    // Static Contact Widget Logic
+    const contactInfoModal = document.getElementById('contactInfoModal');
+    const openContactPrompt = document.getElementById('openContactPrompt');
+    const closeContactBtn = document.querySelector('.close-contact-info');
+
+    if (contactInfoModal && openContactPrompt) {
+        openContactPrompt.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (typeof playClickSound === 'function') playClickSound();
+            contactInfoModal.style.display = 'flex';
+            setTimeout(() => contactInfoModal.classList.add('show'), 10);
+            document.body.style.overflow = 'hidden';
+        });
+
+        if (closeContactBtn) {
+            closeContactBtn.addEventListener('click', () => {
+                contactInfoModal.classList.remove('show');
+                setTimeout(() => contactInfoModal.style.display = 'none', 300);
+                document.body.style.overflow = '';
+            });
+        }
+
+        window.addEventListener('click', (e) => {
+            if (e.target === contactInfoModal) {
+                contactInfoModal.classList.remove('show');
+                setTimeout(() => contactInfoModal.style.display = 'none', 300);
+                document.body.style.overflow = '';
             }
         });
     }
