@@ -3,10 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather & Holidays 2026 - Waste Universe</title>
-    <meta name="description" content="Live weather updates and service collection status for Massachusetts and Rhode Island.">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/weather.css">
+    <title>Weather & Service Updates | Waste Universe</title>
+    <meta name="description" content="Live weather updates and trash collection service status for Massachusetts and Rhode Island routes.">
+    <link rel="canonical" href="https://wasteuniverse.com/weather.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wasteuniverse.com/weather.html">
+    <meta property="og:title" content="Weather & Service Updates | Waste Universe">
+    <meta property="og:description" content="Live weather updates and trash collection service status for Massachusetts and Rhode Island routes.">
+    <meta property="og:image" content="https://wasteuniverse.com/assets/images/hero_truck_1783466317759.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://wasteuniverse.com/weather.html">
+    <meta name="twitter:title" content="Weather & Service Updates | Waste Universe">
+    <meta name="twitter:description" content="Live weather updates and trash collection service status for Massachusetts and Rhode Island routes.">
+    <meta name="twitter:image" content="https://wasteuniverse.com/assets/images/hero_truck_1783466317759.jpg">
+
+    <link rel="stylesheet" href="assets/css/style.css?v=3.0">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://wasteuniverse.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Weather & Service Updates",
+        "item": "https://wasteuniverse.com/weather.html"
+      }]
+    }
+    </script>
 </head>
 <body class="weather-page">
     <!-- Loading Screen -->
@@ -66,6 +100,7 @@
     <!-- Dynamic Hero -->
     <section class="weather-hero">
         <div class="container">
+            <h1 style="color: var(--white); font-size: 2.5rem; margin-bottom: 20px; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Local Weather & Collection Status</h1>
             <!-- Neo-Bauhaus Location Selector -->
             <div class="location-selector-container">
                 <div class="state-toggles">
@@ -328,7 +363,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=3.0"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/loader.js"></script>
     <script src="assets/js/weather.js"></script>

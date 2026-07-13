@@ -3,170 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Waste Universe News & Local Updates</title>
-    <meta name="description" content="Local news, waste management updates, and stories from our family-owned business serving Harvard, MA, and Rhode Island. Number 1 Dumpster Rental.">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        /* Classic Newspaper Masthead */
-        .masthead {
-            background-color: var(--white);
-            color: var(--primary-black);
-            padding: 8rem 0rem 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .masthead h1 {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-size: 5.5rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            letter-spacing: -1px;
-            text-transform: uppercase;
-        }
-        .masthead-dateline {
-            display: flex;
-            justify-content: space-between;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-top: 2px solid var(--primary-black);
-            border-bottom: 2px solid var(--primary-black);
-            padding: 0.5rem 0;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-        .masthead-meta {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-size: 1.1rem;
-            font-style: italic;
-            border-bottom: 4px solid var(--primary-black);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
+    <title>Waste Universe Blog | Local Waste Management News</title>
+    <meta name="description" content="Local news, waste management updates, and stories from our family-owned business serving Massachusetts and Rhode Island.">
+    <link rel="canonical" href="https://wasteuniverse.com/blog.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wasteuniverse.com/blog.html">
+    <meta property="og:title" content="Waste Universe Blog | Local Waste Management News">
+    <meta property="og:description" content="Local news, waste management updates, and stories from our family-owned business serving Massachusetts and Rhode Island.">
+    <meta property="og:image" content="https://wasteuniverse.com/assets/images/hero_truck_1783466317759.jpg">
 
-        @media (max-width: 768px) {
-            .masthead h1 { font-size: 3rem; }
-        }
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://wasteuniverse.com/blog.html">
+    <meta name="twitter:title" content="Waste Universe Blog | Local Waste Management News">
+    <meta name="twitter:description" content="Local news, waste management updates, and stories from our family-owned business serving Massachusetts and Rhode Island.">
+    <meta name="twitter:image" content="https://wasteuniverse.com/assets/images/hero_truck_1783466317759.jpg">
 
-        /* Newspaper Grid Layout (Masonry Lego-Cube Style) */
-        .newspaper-grid {
-            column-count: 3;
-            column-gap: 3rem;
-            margin-bottom: 4rem;
-        }
+    <link rel="stylesheet" href="assets/css/style.css?v=3.0">
 
-        /* Article Styling (Neo-Brutalist) */
-        .news-article {
-            background: var(--cream);
-            border: 4px solid var(--primary-black);
-            padding: 2rem;
-            box-shadow: 8px 8px 0px var(--forest-green);
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            
-            /* Masonry specific rules */
-            break-inside: avoid;
-            page-break-inside: avoid;
-            margin-bottom: 3rem;
-            width: 100%;
-            display: inline-block; /* Helps prevent breaking */
-        }
-
-        @media (max-width: 1200px) {
-            .newspaper-grid { column-count: 2; column-gap: 2rem; }
-        }
-
-        @media (max-width: 768px) {
-            .newspaper-grid { column-count: 1; }
-        }
-
-        /* Specific Article Elements */
-        .article-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border: 3px solid var(--primary-black);
-            background: var(--off-white);
-        }
-
-        .article-tag {
-            align-self: flex-start;
-            background: var(--primary-black);
-            color: var(--gold);
-            padding: 0.3rem 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-        }
-
-        .article-title {
-            font-size: 2.2rem;
-            line-height: 1.1;
-            color: var(--primary-black);
-            font-weight: 800;
-        }
-
-        .byline {
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--forest-green);
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--primary-black);
-            padding-bottom: 0.5rem;
-        }
-
-        .article-text {
-            font-size: 1.15rem;
-            line-height: 1.7;
-            color: var(--text-dark);
-        }
-        
-        .article-text p {
-            margin-bottom: 1.2rem;
-        }
-
-        .full-content {
-            display: none; /* Hidden by default */
-        }
-
-        .full-content.expanded {
-            display: block;
-            margin-top: 1.2rem;
-            padding-top: 1.2rem;
-            border-top: 2px dashed var(--primary-black);
-        }
-
-        .expand-btn {
-            align-self: flex-start;
-            background: var(--forest-green);
-            color: var(--white);
-            border: 3px solid var(--primary-black);
-            padding: 0.8rem 1.5rem;
-            font-weight: 800;
-            font-size: 1rem;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: all 0.2s;
-            box-shadow: 4px 4px 0px rgba(0,0,0,1);
-        }
-        
-        .expand-btn:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px rgba(0,0,0,1);
-            background: var(--emerald);
-        }
-
-        /* Office Column Special Styling */
-        .office-column {
-            background: var(--gold);
-            border-color: var(--primary-black);
-        }
-        .office-column .article-title {
-            font-family: monospace;
-            text-transform: uppercase;
-        }
-    </style>
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://wasteuniverse.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Waste Universe Blog",
+        "item": "https://wasteuniverse.com/blog.html"
+      }]
+    }
+    </script>
 </head>
 <body>
     <!-- Loading Screen -->
@@ -517,7 +391,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=3.0"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/loader.js"></script>
     
