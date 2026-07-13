@@ -2561,9 +2561,9 @@ img, video {
 }
 
 .static-contact-btn {
-    background-color: var(--white);
-    color: var(--primary-black);
-    border: 3px solid var(--primary-black);
+    background-color: #0052cc;
+    color: var(--white);
+    border: none;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -2571,17 +2571,17 @@ img, video {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: -4px 4px 0 var(--primary-black);
-    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 82, 204, 0.4);
+    transition: all 0.3s ease;
     font-size: 28px;
     padding: 0;
     text-decoration: none;
 }
 
 .static-contact-btn:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: -8px 8px 0 var(--primary-black);
-    background-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 82, 204, 0.6);
+    background-color: #0043a6;
 }
 
 @media (max-width: 768px) {
@@ -2593,12 +2593,12 @@ img, video {
         width: 50px;
         height: 50px;
         font-size: 24px;
-        border-width: 2px;
-        box-shadow: -3px 3px 0 var(--primary-black);
+        border: none;
+        box-shadow: 0 3px 8px rgba(0, 82, 204, 0.4);
     }
     .static-contact-btn:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: -5px 5px 0 var(--primary-black);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 82, 204, 0.6);
     }
 }
 
