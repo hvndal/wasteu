@@ -301,11 +301,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Static Contact Widget Logic
     const contactInfoModal = document.getElementById('contactInfoModal');
-    const openContactPrompts = document.querySelectorAll('.openContactPrompt');
+    const triggerActionModals = document.querySelectorAll('.triggerActionModal');
     const closeContactBtn = document.querySelector('.close-contact-info');
 
-    if (contactInfoModal && openContactPrompts.length > 0) {
-        openContactPrompts.forEach(btn => {
+    if (contactInfoModal && triggerActionModals.length > 0) {
+        triggerActionModals.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 if (typeof playClickSound === 'function') playClickSound();

@@ -2549,7 +2549,7 @@ img, video {
 
 
 /* --- STATIC CONTACT WIDGET --- */
-.static-contact-widget {
+.floating-action-bar {
     position: fixed;
     right: 16px;
     top: 50%;
@@ -2560,7 +2560,7 @@ img, video {
     gap: 16px;
 }
 
-.static-contact-btn {
+.action-floater-btn {
     background-color: #0052cc;
     color: var(--white);
     border: none;
@@ -2578,25 +2578,25 @@ img, video {
     text-decoration: none;
 }
 
-.static-contact-btn:hover {
+.action-floater-btn:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 16px rgba(0, 82, 204, 0.6);
     background-color: #0043a6;
 }
 
 @media (max-width: 768px) {
-    .static-contact-widget {
+    .floating-action-bar {
         right: 12px;
         gap: 12px;
     }
-    .static-contact-btn {
+    .action-floater-btn {
         width: 50px;
         height: 50px;
         font-size: 24px;
         border: none;
         box-shadow: 0 3px 8px rgba(0, 82, 204, 0.4);
     }
-    .static-contact-btn:hover {
+    .action-floater-btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(0, 82, 204, 0.6);
     }
