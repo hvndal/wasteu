@@ -68,7 +68,7 @@ const PRODUCTS = {
     '30-yard-dumpster': { name: '30 Yard Dumpster Rental', price: 62900 }
 };
 
-const VALID_MA_CITIES = ['Seekonk','Rehoboth','Swansea','Somerset','Fall River','Attleboro','North Attleboro','Dighton','Taunton','Raynham','Norton','Mansfield','Foxborough','Sharon','Easton','Freetown','Lakeville','Berkley','Dartmouth','New Bedford','Fairhaven','Acushnet','Westport'];
+const VALID_MA_CITIES = ['Seekonk','Rehoboth','Swansea','Somerset','Fall River','Attleboro','North Attleboro','Dighton','Taunton','Raynham','Norton','Mansfield','Foxborough','Sharon','Easton','Freetown','Lakeville','Berkley','Dartmouth','New Bedford','Fairhaven','Acushnet','Westport','Littleton','Littleton Common','Stow','Acton','Harvard','Maynard','Concord'];
 const VALID_RI_CITIES = ['Providence','Pawtucket','East Providence','Cranston','Warwick','Central Falls','North Providence','Johnston','Lincoln','Cumberland','Barrington','Warren','Bristol','Tiverton','Portsmouth','Middletown','Newport','West Warwick','East Greenwich','North Kingstown','Smithfield'];
 
 app.post('/api/checkout', async (req, res) => {
