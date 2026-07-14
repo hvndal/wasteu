@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
 
+# Block server-side scripts and sensitive files from indexing
+Disallow: /server.js
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.env
+Disallow: /.env.example
+Disallow: /seo_pages_generator.js
+Disallow: /seo_inject.js
+Disallow: /data/
+
 Sitemap: https://wasteuniverse.com/sitemap.xml
