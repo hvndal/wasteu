@@ -7,11 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'Massachusetts',
             defaultQuery: 'Massachusetts',
             cities: ['Boston', 'Worcester', 'Springfield', 'Cambridge', 'Lowell', 'Framingham', 'Natick', 'Wellesley', 'Weston', 'Wayland', 'Sudbury', 'Marlborough', 'Southborough', 'Westborough', 'Ashland', 'Hopkinton']
-        },
-        'RI': {
-            name: 'Rhode Island',
-            defaultQuery: 'Rhode Island',
-            cities: ['Providence', 'Newport', 'Warwick', 'Cranston', 'Pawtucket']
         }
     };
     

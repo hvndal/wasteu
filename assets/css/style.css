@@ -36,12 +36,12 @@
 
 :root {
     --primary-black: #1C201E;
-    --forest-green: #101E4A;
-    --emerald: #1952A1;
-    --gold: #FFFFFF;
-    --gold-hover: #F0F0F0;
-    --cream: #FFFFFF; 
-    --white: #FFFFFF;
+    --forest-green: #173A2A;
+    --emerald: #007261;
+    --gold: #D1B48C;
+    --gold-hover: #c4a376;
+    --cream: #FDFDF5; 
+    --white: #ffffff;
     
     --text-dark: #1b1e1d;
     --text-muted: #4a5550;
@@ -62,18 +62,7 @@
     --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-[data-theme="dark"] {
-    --primary-black: #F7F9FC;
-    --white: #0B0F19;
-    --cream: #111827;
-    --off-white: #1F2937;
-    --text-dark: #F3F4F6;
-    --text-muted: #9CA3AF;
-    --text-light: #E5E7EB;
-    
-    /* Shadows look better slightly subtle in dark mode */
-    --shadow-solid: 3px 3px 0px rgba(247, 249, 252, 0.15);
-}
+
 
 /* Loading Screen */
 #loading-screen {
