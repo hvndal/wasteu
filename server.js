@@ -8,7 +8,74 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// ─── SECURITY: Lock CORS to known origins only ───────────────────────────────
+const ALLOWED_ORIGINS = [
+    'https://wasteuniverse.com',
+    'https://www.wasteuniverse.com',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000'
+];
+app.use(cors({
+    origin: (origin, callback) => {
+        // Allow requests with no origin (e.g., Stripe webhooks, curl, mobile apps)
+        if (!origin) return callback(null, true);
+        if (ALLOWED_ORIGINS.includes(origin)) return callback(null, true);
+        callback(new Error(`CORS blocked: Origin ${origin} not allowed`));
+    },
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+}));
+
+// ─── SECURITY: HTTP Security Headers ─────────────────────────────────────────
+app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    res.setHeader('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
+    next();
+});
+
+// ─── SECURITY: Rate Limiting (simple in-memory) ───────────────────────────────
+const checkoutAttempts = new Map();
+function rateLimit(req, res, next) {
+    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    const now = Date.now();
+    const windowMs = 15 * 60 * 1000; // 15 minutes
+    const maxRequests = 10;
+
+    if (!checkoutAttempts.has(ip)) {
+        checkoutAttempts.set(ip, { count: 1, firstRequest: now });
+        return next();
+    }
+
+    const record = checkoutAttempts.get(ip);
+    if (now - record.firstRequest > windowMs) {
+        checkoutAttempts.set(ip, { count: 1, firstRequest: now });
+        return next();
+    }
+
+    if (record.count >= maxRequests) {
+        return res.status(429).json({ error: 'Too many checkout attempts. Please wait 15 minutes and try again.' });
+    }
+
+    record.count++;
+    next();
+}
+
+// ─── SECURITY: Block sensitive files from being served publicly ───────────────
+const BLOCKED_PATHS = [
+    '/.env', '/.env.example', '/server.js', '/package.json', '/package-lock.json',
+    '/seo_pages_generator.js', '/seo_inject.js', '/update_sitemap.js',
+    '/remove_bylines.js', '/fix_footers.js', '/robots-block.js'
+];
+app.use((req, res, next) => {
+    const lowerPath = req.path.toLowerCase();
+    if (BLOCKED_PATHS.some(p => lowerPath === p || lowerPath.startsWith('/.')) ) {
+        return res.status(403).send('Forbidden');
+    }
+    next();
+});
 
 // Webhook endpoint must use raw body
 app.post('/api/webhooks/stripe', express.raw({ type: 'application/json' }), (req, res) => {
@@ -71,7 +138,7 @@ const PRODUCTS = {
 const VALID_MA_CITIES = ['Seekonk','Rehoboth','Swansea','Somerset','Fall River','Attleboro','North Attleboro','Dighton','Taunton','Raynham','Norton','Mansfield','Foxborough','Sharon','Easton','Freetown','Lakeville','Berkley','Dartmouth','New Bedford','Fairhaven','Acushnet','Westport','Littleton','Littleton Common','Stow','Acton','Harvard','Maynard','Concord'];
 const VALID_RI_CITIES = ['Providence','Pawtucket','East Providence','Cranston','Warwick','Central Falls','North Providence','Johnston','Lincoln','Cumberland','Barrington','Warren','Bristol','Tiverton','Portsmouth','Middletown','Newport','West Warwick','East Greenwich','North Kingstown','Smithfield'];
 
-app.post('/api/checkout', async (req, res) => {
+app.post('/api/checkout', rateLimit, async (req, res) => {
     try {
         const { product_id, address, city, state, zip, phone, delivery_date, delivery_time, pickup_date, pickup_time, rental_days } = req.body;
 
