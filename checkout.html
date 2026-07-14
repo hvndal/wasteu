@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout | Waste Universe</title>
+    <meta name="description" content="Order a dumpster securely with Waste Universe.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/checkout.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Waste Universe Logo" style="height: 38px; width: auto; display: block;" loading="lazy">
+            </a>
+            <div class="nav-links">
+                <a href="dumpster-rentals.html">Dumpster Rentals</a>
+                <a href="services.html">Services</a>
+                <a href="sustainability.html">Sustainability</a>
+                <a href="blog.html">Blog</a>
+            </div>
+            <a href="tel:4012139516" class="btn btn-primary nav-cta">(401) 213-9516</a>
+        </div>
+    </nav>
+
+    <main class="checkout-main">
+        <div class="checkout-container">
+            <div class="checkout-header">
+                <h1>Complete Your Order</h1>
+                <div class="checkout-stepper">
+                    <div class="step active" id="step-nav-1">1. Dumpster</div>
+                    <div class="step-divider"></div>
+                    <div class="step" id="step-nav-2">2. Location</div>
+                    <div class="step-divider"></div>
+                    <div class="step" id="step-nav-3">3. Schedule</div>
+                    <div class="step-divider"></div>
+                    <div class="step" id="step-nav-4">4. Review</div>
+                    <div class="step-divider"></div>
+                    <div class="step" id="step-nav-5">5. Payment</div>
+                </div>
+            </div>
+
+            <div class="checkout-body">
+                <!-- STEP 1: DUMPSTER SELECTION -->
+                <section class="checkout-step active" id="step-1">
+                    <h2>Select a Dumpster</h2>
+                    <div class="dumpster-grid">
+                        <div class="dumpster-card" data-id="10-yard-dumpster">
+                            <h3>10 Yard Dumpster</h3>
+                            <p class="price">$419</p>
+                            <p class="desc">Includes 10-day rental</p>
+                        </div>
+                        <div class="dumpster-card" data-id="15-yard-dumpster">
+                            <h3>15 Yard Dumpster</h3>
+                            <p class="price">$499</p>
+                            <p class="desc">Includes 10-day rental</p>
+                        </div>
+                        <div class="dumpster-card" data-id="20-yard-dumpster">
+                            <h3>20 Yard Dumpster</h3>
+                            <p class="price">$579</p>
+                            <p class="desc">Includes 10-day rental</p>
+                        </div>
+                        <div class="dumpster-card" data-id="30-yard-dumpster">
+                            <h3>30 Yard Dumpster</h3>
+                            <p class="price">$629</p>
+                            <p class="desc">Includes 10-day rental</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary checkout-next" id="btn-next-1" disabled>Continue</button>
+                </section>
+
+                <!-- STEP 2: LOCATION -->
+                <section class="checkout-step" id="step-2">
+                    <h2>Delivery Location</h2>
+                    <form id="form-location">
+                        <div class="form-group">
+                            <label for="address">Street Address</label>
+                            <input type="text" id="address" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <select id="state" required>
+                                    <option value="" disabled selected>Select State</option>
+                                    <option value="MA">Massachusetts (MA)</option>
+                                    <option value="RI">Rhode Island (RI)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <select id="city" required disabled>
+                                    <option value="" disabled selected>Select State First</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">ZIP Code</label>
+                                <input type="text" id="zip" required pattern="[0-9]{5}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required placeholder="(555) 555-5555">
+                        </div>
+                        
+                        <!-- Call for Service Blocker -->
+                        <div class="call-blocker" id="call-blocker" style="display: none;">
+                            <div class="alert-icon">⚠️</div>
+                            <h3>Call to Schedule</h3>
+                            <p>This location is outside our online ordering radius. Call us and we'll help arrange delivery.</p>
+                            <a href="tel:4012139516" class="btn btn-forest">(401) 213-9516</a>
+                        </div>
+
+                        <div class="step-actions">
+                            <button type="button" class="btn btn-outline checkout-back">Back</button>
+                            <button type="submit" class="btn btn-primary checkout-next" id="btn-next-2">Continue</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- STEP 3: SCHEDULE -->
+                <section class="checkout-step" id="step-3">
+                    <h2>Schedule Delivery & Pickup</h2>
+                    <form id="form-schedule">
+                        <div class="schedule-grid">
+                            <div class="schedule-card">
+                                <h3>🚚 Delivery</h3>
+                                <div class="form-group">
+                                    <label for="delivery-date">Date</label>
+                                    <input type="date" id="delivery-date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="delivery-time">Time Window</label>
+                                    <select id="delivery-time" required>
+                                        <option value="Morning (7am - 12pm)">Morning (7am - 12pm)</option>
+                                        <option value="Afternoon (12pm - 5pm)">Afternoon (12pm - 5pm)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="schedule-card">
+                                <h3>🏗️ Pickup</h3>
+                                <div class="form-group">
+                                    <label for="pickup-date">Date</label>
+                                    <input type="date" id="pickup-date" required disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pickup-time">Time Window</label>
+                                    <select id="pickup-time" required>
+                                        <option value="Morning (7am - 12pm)">Morning (7am - 12pm)</option>
+                                        <option value="Afternoon (12pm - 5pm)">Afternoon (12pm - 5pm)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rental-period-notice" id="rental-notice" style="display: none;">
+                            <p><strong>Rental Period: <span id="rental-days">0</span> days</strong></p>
+                            <p class="over-warning" id="rental-overage" style="display: none;">Rentals over 10 days may incur additional fees. We will contact you to confirm.</p>
+                        </div>
+
+                        <div class="step-actions">
+                            <button type="button" class="btn btn-outline checkout-back">Back</button>
+                            <button type="submit" class="btn btn-primary checkout-next" id="btn-next-3">Review Order</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- STEP 4: REVIEW -->
+                <section class="checkout-step" id="step-4">
+                    <h2>Review Your Order</h2>
+                    <div class="review-container">
+                        <div class="review-section">
+                            <h3>Dumpster</h3>
+                            <p id="review-dumpster">-</p>
+                            <p class="review-price" id="review-base-price">-</p>
+                            <button type="button" class="btn-text edit-btn" data-target="1">Edit</button>
+                        </div>
+                        
+                        <div class="review-section">
+                            <h3>Location</h3>
+                            <p id="review-address">-</p>
+                            <p id="review-phone">-</p>
+                            <button type="button" class="btn-text edit-btn" data-target="2">Edit</button>
+                        </div>
+
+                        <div class="review-section">
+                            <h3>Schedule</h3>
+                            <p><strong>Delivery:</strong> <span id="review-delivery">-</span></p>
+                            <p><strong>Pickup:</strong> <span id="review-pickup">-</span></p>
+                            <p><strong>Duration:</strong> <span id="review-duration">-</span></p>
+                            <button type="button" class="btn-text edit-btn" data-target="3">Edit</button>
+                        </div>
+
+                        <div class="review-total">
+                            <div class="total-line">
+                                <span>Subtotal</span>
+                                <span id="review-subtotal">-</span>
+                            </div>
+                            <div class="total-line">
+                                <span>Estimated Tax (<span id="review-tax-rate">0</span>%)</span>
+                                <span id="review-tax-amount">-</span>
+                            </div>
+                            <div class="total-line grand-total">
+                                <span>Total</span>
+                                <span id="review-final-total">-</span>
+                            </div>
+                        </div>
+                        
+                        <div class="error-msg" id="checkout-error"></div>
+
+                        <div class="step-actions">
+                            <button type="button" class="btn btn-outline checkout-back">Back</button>
+                            <button type="button" class="btn btn-primary checkout-next" id="btn-checkout">Proceed to Secure Payment</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- STEP 5: PAYMENT -->
+                <section class="checkout-step" id="step-5">
+                    <h2>Secure Payment</h2>
+                    <p class="secure-badge">🔒 Encrypted by Stripe</p>
+                    <div id="checkout-spinner" class="spinner">Loading payment portal...</div>
+                    <div id="checkout-embed"></div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <p>Premium waste and recycling solutions for residential and commercial properties.</p>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/checkout.js"></script>
+</body>
+</html>
