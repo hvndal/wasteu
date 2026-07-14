@@ -23,9 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Location Selectors
     const stateBtns = document.querySelectorAll('.state-btn');
+    const townSelects = document.querySelectorAll('.town-select');
     const citySelect = document.getElementById('city-select');
     
-    // Hero Elements
+    // UI Elements
     const locEl = document.getElementById('weather-location');
     const timeEl = document.getElementById('weather-time');
     const iconContainer = document.getElementById('current-icon-container');
