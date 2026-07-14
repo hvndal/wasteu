@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Location Selectors
     const stateBtns = document.querySelectorAll('.state-btn');
+    const autoDetectBtn = document.getElementById('auto-detect-btn');
     const townSelects = document.querySelectorAll('.town-select');
     const citySelect = document.getElementById('city-select');
     
@@ -89,6 +90,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setupSelectors() {
+        if (autoDetectBtn) {
+            autoDetectBtn.addEventListener('click', () => {
+                if ("geolocation" in navigator) {
+                    autoDetectBtn.textContent = "Locating...";
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            const lat = position.coords.latitude;
+                            const lon = position.coords.longitude;
+                            const autoOption = document.createElement('option');
+                            autoOption.value = `${lat},${lon}`;
+                            autoOption.textContent = '📍 Auto-Detected Location';
+                            citySelect.insertBefore(autoOption, citySelect.firstChild);
+                            citySelect.value = `${lat},${lon}`;
+                            loadLocationWeather(`${lat},${lon}`);
+                            autoDetectBtn.textContent = "📍 Auto-Detect";
+                        },
+                        (error) => {
+                            console.log("Geolocation denied or failed.", error);
+                            alert("Could not detect your location. Please check your browser permissions.");
+                            autoDetectBtn.textContent = "📍 Auto-Detect";
+                        }
+                    );
+                } else {
+                    alert("Geolocation is not supported by your browser.");
+                }
+            });
+        }
         // State buttons
         stateBtns.forEach(btn => {
             btn.addEventListener('click', () => {

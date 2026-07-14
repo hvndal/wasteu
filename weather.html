@@ -109,10 +109,12 @@
                 </div>
                 <div class="city-dropdown-wrapper">
                     <label for="city-select">Or select a specific city:</label>
-                    <select id="city-select" class="neo-select">
+                    <div style="display: flex; gap: 10px; align-items: center;"><select id="city-select" class="neo-select" style="flex-grow: 1;">
                         <option value="default">General State Weather</option>
                         <!-- Cities populated by JS -->
                     </select>
+                    <button id="auto-detect-btn" class="btn btn-gold" style="white-space: nowrap; padding: 0.5rem 1rem; border: 2px solid var(--primary-black); font-weight: bold;">📍 Auto-Detect</button>
+                    </div>
                 </div>
             </div>
 
