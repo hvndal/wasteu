@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Quote Modal Logic
     const quoteModal = document.getElementById('quoteModal');
     const openQuoteBtns = document.querySelectorAll('.open-quote-modal');
-    const closeQuoteBtn = document.querySelector('.close-modal');
+    const closeQuoteBtn = quoteModal ? quoteModal.querySelector('.close-modal') : null;
     const modalServiceTitle = document.getElementById('modalServiceTitle');
 
     if (quoteModal && openQuoteBtns.length > 0) {
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Static Contact Widget Logic
     const contactInfoModal = document.getElementById('contactInfoModal');
     const triggerActionModals = document.querySelectorAll('.triggerActionModal');
-    const closeContactBtn = document.querySelector('.close-contact-info');
+    const closeContactBtn = contactInfoModal ? contactInfoModal.querySelector('.close-contact-info') : null;
 
     if (contactInfoModal && triggerActionModals.length > 0) {
         triggerActionModals.forEach(btn => {
