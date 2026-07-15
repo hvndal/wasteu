@@ -127,7 +127,7 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-img-wrapper">
-                        <img src="assets/images/bins_1783466338587.jpg" alt="Trash Collection â€” residential curbside pickup"  loading="lazy">
+                        <img src="assets/images/bins_1783466338587.jpg" alt="Trash Collection — residential curbside pickup" loading="lazy">
                         <div class="card-badge">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                         </div>
@@ -171,12 +171,12 @@
         </div>
     </section>
 
-    <!-- Live Route Tracker -->
+    <!-- Meet Our Driver -->
     <section class="impact-tracker animate-on-scroll">
         <div class="container">
             <div class="tracker-top">
-                <h2>Live Route Tracker</h2>
-                <span class="live-badge">Live</span>
+                <h2>Meet Our Driver</h2>
+                <span class="live-badge" style="background: var(--forest-green); color: #fff;">On Duty</span>
             </div>
             <div class="impact-grid">
                 <!-- Simple 2D Map Tracker -->
@@ -205,19 +205,19 @@
                         
                         <!-- Map Hubs (Framingham, Maynard, Stow, Providence, Newport) -->
                         <circle cx="80" cy="110" r="4.5" fill="var(--emerald)" stroke="var(--primary-black)" stroke-width="1.5"/>
-                        <text x="80" y="98" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Framingham</text>
+                        <text x="80" y="98" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Your Street</text>
 
                         <circle cx="210" cy="80" r="4.5" fill="var(--emerald)" stroke="var(--primary-black)" stroke-width="1.5"/>
-                        <text x="210" y="68" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Maynard</text>
+                        <text x="210" y="68" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Next Stop</text>
 
                         <circle cx="340" cy="110" r="4.5" fill="var(--emerald)" stroke="var(--primary-black)" stroke-width="1.5"/>
-                        <text x="340" y="98" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Stow</text>
+                        <text x="340" y="98" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Midway</text>
 
-                        <circle cx="470" cy="125" r="4.5" fill="var(--gold)" stroke="var(--primary-black)" stroke-width="1.5"/>
-                        <text x="470" y="113" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Providence</text>
+                        <circle cx="470" cy="125" r="4.5" fill="var(--forest-green)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                        <text x="470" y="113" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Almost There</text>
 
-                        <circle cx="600" cy="110" r="4.5" fill="var(--gold)" stroke="var(--primary-black)" stroke-width="1.5"/>
-                        <text x="600" y="98" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Newport</text>
+                        <circle cx="600" cy="110" r="4.5" fill="var(--forest-green)" stroke="var(--primary-black)" stroke-width="1.5"/>
+                        <text x="600" y="98" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="var(--primary-black)">Last Drop</text>
 
                         <!-- Animated Truck along the path -->
                         <g id="truckMainGroup">
@@ -226,10 +226,18 @@
                                 <rect x="-60" y="-11" width="120" height="17" fill="var(--white)" rx="2" stroke="var(--primary-black)" stroke-width="1.5"/>
                                 <polygon points="-4,6 4,6 0,10" fill="var(--white)" stroke="var(--primary-black)" stroke-width="1.5"/>
                                 <line x1="-3" y1="6" x2="3" y2="6" stroke="var(--white)" stroke-width="2"/>
-                                <text id="driver-bubble-text" x="0" y="1" text-anchor="middle" font-family="monospace" font-size="7" font-weight="800" fill="var(--primary-black)">On my way!!!!!!</text>
+                                <text id="driver-bubble-text" x="0" y="1" text-anchor="middle" font-family="monospace" font-size="7" font-weight="800" fill="var(--primary-black)">Morning! Have a great day!</text>
                             </g>
 
-                            <!-- 8-Bit NES Retro 2D Truck (Blocky) -->
+                            <!-- Friendly driver face peeking above cab -->
+                            <circle cx="14" cy="-14" r="6" fill="#FDDCB0" stroke="var(--primary-black)" stroke-width="1"/>
+                            <circle cx="12" cy="-15" r="0.8" fill="var(--primary-black)"/>
+                            <circle cx="16" cy="-15" r="0.8" fill="var(--primary-black)"/>
+                            <path d="M 11,-12 Q 14,-10 17,-12" fill="none" stroke="var(--primary-black)" stroke-width="0.9" stroke-linecap="round"/>
+                            <rect x="8" y="-20" width="12" height="4" fill="var(--forest-green)" rx="1" stroke="var(--primary-black)" stroke-width="0.8"/>
+                            <rect x="6" y="-17" width="16" height="2" fill="var(--forest-green)" rx="0.5" stroke="var(--primary-black)" stroke-width="0.8"/>
+
+                            <!-- WU Truck body -->
                             <rect x="-14" y="-6" width="22" height="12" fill="var(--forest-green)" stroke="var(--primary-black)" stroke-width="1"/>
                             <rect x="8" y="-5" width="8" height="10" fill="#112d20" stroke="var(--primary-black)" stroke-width="1"/>
                             <rect x="11" y="-4" width="3" height="8" fill="#7ab5a0"/>
@@ -237,8 +245,8 @@
                         </g>
                     </svg>
                     <div class="route-legend">
-                        <span class="legend-item active"><span class="live-dot"></span> In Transit</span>
-                        <span class="legend-item" style="margin-left:auto;">1 truck en route</span>
+                        <span class="legend-item active"><span class="live-dot"></span> Out serving your community</span>
+                        <span class="legend-item" style="margin-left:auto;">Always on time &#10003;</span>
                     </div>
                 </div>
 

@@ -69,17 +69,28 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollObserver.observe(el);
     });
 
-    // Animated NES Retro Truck with Stops & Speech Bubbles
+    // Animated Friendly Driver Truck with Stops & Speech Bubbles
+    const driverMessages = [
+        "Morning! Have a great day!",
+        "Thanks for choosing us!",
+        "Your neighborhood hero!",
+        "Happy to help! 😊",
+        "Clean streets, happy community!",
+        "Always on time, always smiling!",
+        "Love serving this community!"
+    ];
+    let driverMsgIdx = 0;
+
     const route = {
         path: document.getElementById('routeMain'),
         truck: document.getElementById('truckMainGroup'),
         bubbleText: document.getElementById('driver-bubble-text'),
         cities: [
-            { name: "Framingham", ratio: 0.0, msg: "Departing Framingham Hub!" },
-            { name: "Maynard", ratio: 0.25, msg: "Emptying recycling bins in Maynard!" },
-            { name: "Stow", ratio: 0.5, msg: "Picking up trash in Stow!" },
-            { name: "Providence", ratio: 0.75, msg: "Loading waste in Providence!" },
-            { name: "Newport", ratio: 1.0, msg: "Final collection in Newport!" }
+            { name: "Your Street",  ratio: 0.0,  msg: "Good morning, neighbor!" },
+            { name: "Next Stop",    ratio: 0.25, msg: "Be right there! 🙌" },
+            { name: "Midway",       ratio: 0.5,  msg: "Halfway done, looking great!" },
+            { name: "Almost There", ratio: 0.75, msg: "Almost finished for you!" },
+            { name: "Last Drop",    ratio: 1.0,  msg: "All done! See you next time!" }
         ],
         maxSpeed: 0.75,
         currentSpeed: 0.75,
@@ -105,7 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (route.pauseTimer >= 3000) { // 3 seconds stop
                 route.state = 'accelerating';
                 route.pauseTimer = 0;
-                route.bubbleText.textContent = "On my way!!!!!!";
+                driverMsgIdx = (driverMsgIdx + 1) % driverMessages.length;
+                route.bubbleText.textContent = driverMessages[driverMsgIdx];
             }
         } else if (route.state === 'driving') {
             // Check if approaching a city
