@@ -28,7 +28,7 @@
 > [!NOTE]
 > Structured data is "invisible" code that speaks directly to Google's Knowledge Graph, feeding it undeniable facts about your business.
 
-- **Organization & LocalBusiness Schema:** ✅ Deployed on the homepage. Explicitly declares the business address (34 Powder Mill Rd, Maynard, MA), service areas (Massachusetts, Rhode Island), and sub-departments (Residential vs. Dumpster Rentals).
+- **Organization & LocalBusiness Schema:** ✅ Deployed on the homepage. Explicitly declares the business address (184 Ayer Road, Maynard, MA), service areas (Massachusetts, Rhode Island), and sub-departments (Residential vs. Dumpster Rentals).
 - **Service Schema:** ✅ Deployed on the Services and Dumpster Rentals pages to classify your exact offerings.
 - **Breadcrumb Schema:** ✅ Deployed across subpages to help Google understand site architecture and display clean breadcrumb trails in mobile search results.
 
