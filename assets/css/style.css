@@ -361,6 +361,10 @@ img, video {
     pointer-events: none;
 }
 
+.hero-bg.mobile-image {
+    display: none;
+}
+
 .hero .container {
     position: relative;
     z-index: 2;
@@ -1330,6 +1334,12 @@ img, video {
     }
     .hero-bg {
         object-position: center center; /* Responsive crop for mobile, keeping focus central */
+    }
+    .hero-bg.desktop-video {
+        display: none;
+    }
+    .hero-bg.mobile-image {
+        display: block;
     }
     .services-grid, .features-grid {
         grid-template-columns: 1fr;
