@@ -231,6 +231,10 @@ app.get('/api/config', (req, res) => {
     res.json({ publishableKey: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || process.env.STRIPE_PUBLISHABLE_KEY });
 });
 
-app.listen(PORT, () => {
-    console.log(`Waste Universe server running on http://localhost:${PORT}`);
-});
+if (process.env.VERCEL !== '1') {
+    app.listen(PORT, () => {
+        console.log(`Waste Universe server running on http://localhost:${PORT}`);
+    });
+}
+
+module.exports = app;
