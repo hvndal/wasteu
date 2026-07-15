@@ -20,6 +20,9 @@ app.use(cors({
         // Allow requests with no origin (e.g., Stripe webhooks, curl, mobile apps)
         if (!origin) return callback(null, true);
         if (ALLOWED_ORIGINS.includes(origin)) return callback(null, true);
+        // Allow Vercel preview and production domains
+        if (origin.endsWith('.vercel.app')) return callback(null, true);
+        
         callback(new Error(`CORS blocked: Origin ${origin} not allowed`));
     },
     methods: ['GET', 'POST'],
