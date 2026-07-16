@@ -147,6 +147,12 @@
                 source.type = 'video/mp4';
                 video.appendChild(source);
                 video.load();
+                var playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function(error) {
+                        console.log("Autoplay prevented:", error);
+                    });
+                }
             }
         </script>
         <div class="container">
