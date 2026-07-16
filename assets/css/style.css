@@ -556,6 +556,7 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
 .service-img-wrapper img {
     width: 100%;
     height: 100%;
+    aspect-ratio: 4/3;
     object-fit: cover;
     transition: transform 0.3s var(--transition);
 }
