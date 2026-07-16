@@ -422,13 +422,13 @@
             <div class="choose-block">
                 <div class="choose-bg" style="background-image: url('assets/images/choose_fleet.jpg');"></div>
                 <div class="choose-overlay"></div>
-                <div class="choose-content" style="color: var(--white);">
+                <div class="choose-content" style="background: rgba(255,255,255,0.9); padding: 12px 24px; border-radius: 12px; color: var(--primary-black); backdrop-filter: blur(4px);">
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                         <line x1="8" y1="21" x2="16" y2="21"></line>
                         <line x1="12" y1="17" x2="12" y2="21"></line>
                     </svg>
-                    <h4 style="color: var(--white);">MODERN FLEET</h4>
+                    <h4 style="color: var(--primary-black); margin-top: 8px;">MODERN FLEET</h4>
                 </div>
             </div>
             <!-- Block 4 -->
@@ -917,6 +917,33 @@
             playClickSound();
         }
     });
+    </script>
+
+    <!-- Mobile Scroll Hover Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Only apply on touch devices or small screens
+            if (window.matchMedia("(max-width: 768px)").matches || ('ontouchstart' in window)) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-30% 0px -30% 0px', // Triggers when element is in the middle 40% of screen
+                    threshold: 0
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active-hover');
+                        } else {
+                            entry.target.classList.remove('active-hover');
+                        }
+                    });
+                }, observerOptions);
+
+                const hoverElements = document.querySelectorAll('.service-card, .choose-block, .dumpster-card');
+                hoverElements.forEach(el => observer.observe(el));
+            }
+        });
     </script>
 </body>
 </html>

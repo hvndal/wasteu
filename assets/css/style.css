@@ -1763,11 +1763,21 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
     margin: 0;
     text-transform: uppercase;
 }
-.choose-block:hover .choose-bg {
-    transform: scale(1.05);
+.choose-block:hover .choose-bg, .choose-block.active-hover .choose-bg {
+    transform: scale(1.1);
 }
-.choose-block:hover .choose-overlay {
-    background-color: rgba(0, 60, 113, 0.5); /* lighter blue on hover so photo reveals more */
+.choose-block:hover .choose-overlay, .choose-block.active-hover .choose-overlay {
+    background-color: rgba(0, 60, 113, 0.4);
+}
+.choose-content {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.choose-block:hover .choose-content, .choose-block.active-hover .choose-content {
+    transform: translateY(-8px);
+}
+.choose-block:hover {
+    box-shadow: var(--shadow-solid-green);
+    border-color: var(--forest-green);
 }
 .get-in-touch-block {
     background-color: var(--white);
