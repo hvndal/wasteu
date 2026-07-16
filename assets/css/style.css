@@ -885,35 +885,33 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
 }
 .team-card {
     background: var(--white);
-    border: var(--border-thin);
-    border-bottom: 6px solid transparent;
-    border-radius: 0;
-    padding: 1.5rem;
+    border: 1px solid rgba(0,0,0,0.04);
+    border-radius: 16px;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1); /* Slower, smoother transition */
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .team-card:hover, .team-card.active-hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    border-color: transparent;
 }
 
 /* Department Color Psychology on Hover (Highly Visible) */
 .team-card[data-department="ops"]:hover, .team-card[data-department="ops"].active-hover {
-    border-bottom-color: var(--forest-green);
-    box-shadow: 0 10px 30px rgba(0, 60, 113, 0.15); /* Forest green glow */
+    box-shadow: 0 20px 40px rgba(0, 60, 113, 0.12); /* Forest green glow */
 }
 .team-card[data-department="cx"]:hover, .team-card[data-department="cx"].active-hover {
-    border-bottom-color: var(--emerald);
-    box-shadow: 0 10px 30px rgba(46, 204, 113, 0.15); /* Emerald glow */
+    box-shadow: 0 20px 40px rgba(46, 204, 113, 0.12); /* Emerald glow */
 }
 .team-card[data-department="sales"]:hover, .team-card[data-department="sales"].active-hover {
-    border-bottom-color: #d4af37; /* Real Gold */
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15); /* Gold glow */
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.12); /* Gold glow */
 }
 .team-card[data-department="admin"]:hover, .team-card[data-department="admin"].active-hover {
-    border-bottom-color: var(--primary-black);
-    box-shadow: 0 10px 30px rgba(33, 37, 41, 0.15); /* Dark glow */
+    box-shadow: 0 20px 40px rgba(33, 37, 41, 0.12); /* Dark glow */
 }
 
 .team-header {
@@ -921,16 +919,20 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
     align-items: center;
     gap: 1.25rem;
     margin-bottom: 0;
-    transition: margin-bottom 0.4s ease;
+    transition: margin-bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .team-card:hover .team-header, .team-card.active-hover .team-header {
     margin-bottom: 1rem;
+}
+.team-card:hover .avatar-img, .team-card.active-hover .avatar-img {
+    transform: scale(1.08);
 }
 .avatar-img, .avatar-placeholder {
     width: 64px;
     height: 64px;
     border-radius: 50%;
     object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .avatar-placeholder {
     background-color: #e5efe9;
@@ -953,11 +955,13 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateY(10px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .team-card:hover .team-body, .team-card.active-hover .team-body {
     max-height: 300px;
     opacity: 1;
+    transform: translateY(0);
 }
 .team-body p {
     font-size: 0.95rem;
