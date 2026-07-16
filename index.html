@@ -919,67 +919,48 @@
     </script>
 
     <script>
-    // Sound Pack: Click effect for interactive elements
-    let audioCtx = null;
-    const initAudio = () => {
-        if (!audioCtx) {
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-    };
+    // Sound Pack: Audio files for interactive elements
+    const clickSound = new Audio('assets/audio/click1.ogg');
+    const hoverSound = new Audio('assets/audio/rollover1.ogg');
+    const expandSound = new Audio('assets/audio/switch1.ogg');
     
-    window.initAudio = initAudio;
+    clickSound.volume = 0.4;
+    hoverSound.volume = 0.15;
+    expandSound.volume = 0.3;
+    
+    window.initAudio = () => {}; // Kept for compatibility with existing code
     
     window.playExpandSound = () => {
-        if (!audioCtx) return;
-        if (audioCtx.state === 'suspended') audioCtx.resume();
-        
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(300, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.1);
-        
-        gain.gain.setValueAtTime(0, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(0.1, audioCtx.currentTime + 0.05);
-        gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.2);
-        
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.2);
+        expandSound.currentTime = 0;
+        expandSound.play().catch(() => {});
     };
 
     const playClickSound = () => {
-        if (!audioCtx) return;
-        // Resume context if suspended (browser autoplay policy)
-        if (audioCtx.state === 'suspended') {
-            audioCtx.resume();
-        }
-        
-        const oscillator = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
-        
-        // Subliminal pleasant pop sound
-        oscillator.type = 'sine';
-        oscillator.frequency.setValueAtTime(600, audioCtx.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.08); 
-        
-        gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-        
-        oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.08);
+        clickSound.currentTime = 0;
+        clickSound.play().catch(() => {});
+    };
+
+    const playHoverSound = () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play().catch(() => {});
     };
 
     document.addEventListener('click', (e) => {
-        initAudio(); // Initialize on first interaction to bypass autoplay restrictions
         if (e.target.closest('a, button, .btn, .service-card, .team-card')) {
             playClickSound();
+        }
+    });
+
+    document.addEventListener('mouseover', (e) => {
+        // Prevent hover sounds on mobile devices where hover doesn't make sense
+        if (window.innerWidth <= 768 || ('ontouchstart' in window && navigator.maxTouchPoints > 0)) return;
+        
+        const target = e.target.closest('a, button, .btn, .service-card, .team-card');
+        if (target) {
+            // Only play if we are entering the element from outside
+            if (!e.relatedTarget || !target.contains(e.relatedTarget)) {
+                playHoverSound();
+            }
         }
     });
     </script>
