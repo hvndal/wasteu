@@ -134,19 +134,9 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <video id="hero-video" autoplay loop muted playsinline poster="assets/images/hero-fallback.jpg" class="hero-bg">
-            <!-- Source dynamically loaded via inline script below to avoid dual-loading overhead and autoplay blocks -->
+        <video id="hero-video" autoplay loop muted playsinline class="hero-bg" style="object-fit: cover; object-position: center;">
+            <source src="assets/video/hero.mp4" type="video/mp4">
         </video>
-        <script>
-            (function() {
-                var video = document.getElementById("hero-video");
-                var isMobile = window.innerWidth <= 768;
-                var source = document.createElement("source");
-                source.src = isMobile ? "assets/video/hero2.mp4" : "assets/video/hero.mp4";
-                source.type = "video/mp4";
-                video.appendChild(source);
-            })();
-        </script>
         <div class="container">
             <div class="hero-card">
                 <div class="hero-card-header">
@@ -204,7 +194,9 @@
 
                 <div class="service-card">
                     <div class="service-img-wrapper">
-                        <img src="assets/images/commercial_edited.jpg" alt="Businesses Choose Waste Universe – Commercial Pickup" style="object-fit: contain; background: #EFEFEF;" loading="lazy">
+                        <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; background: #EFEFEF;">
+                            <source src="assets/video/hero.mp4" type="video/mp4">
+                        </video>
                         <!-- Restaurant / cafe icon badge -->
                         <div class="card-badge">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
