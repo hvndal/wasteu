@@ -355,7 +355,7 @@ img, video {
     height: 100%;
     max-width: none;
     object-fit: cover;
-    object-position: center center; 
+    object-position: center top; /* Keeps top of video anchored to avoid top-cropping */
     z-index: 1;
     opacity: 0.4;
     pointer-events: none;
