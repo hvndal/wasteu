@@ -1800,16 +1800,16 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
     text-transform: uppercase;
 }
 .choose-block:hover .choose-bg, .choose-block.active-hover .choose-bg {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 .choose-block:hover .choose-overlay, .choose-block.active-hover .choose-overlay {
-    background-color: rgba(0, 60, 113, 0.4);
+    background-color: rgba(0, 60, 113, 0.85);
 }
 .choose-content {
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .choose-block:hover .choose-content, .choose-block.active-hover .choose-content {
-    transform: translateY(-8px);
+    transform: translateY(-12px) scale(1.05);
 }
 .choose-block:hover {
     box-shadow: var(--shadow-solid-green);
@@ -2786,3 +2786,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
     transform: translateY(-5px);
 }
 
+.team-card[data-department="ops"] { background-color: rgba(34, 139, 34, 0.05); border-top: 4px solid var(--forest-green); }
+.team-card[data-department="cx"] { background-color: rgba(0, 168, 107, 0.05); border-top: 4px solid var(--emerald); }
+.team-card[data-department="sales"] { background-color: rgba(212, 168, 67, 0.05); border-top: 4px solid var(--golden); }
+.team-card[data-department="admin"] { background-color: rgba(16, 30, 74, 0.05); border-top: 4px solid var(--primary-black); }
