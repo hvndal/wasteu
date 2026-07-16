@@ -2778,14 +2778,14 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
     transform: translateY(-5px);
 }
 
-.team-card[data-department="ops"] { background-color: rgba(34, 139, 34, 0.12) !important; border-top: 4px solid var(--forest-green); }
-.team-card[data-department="cx"] { background-color: rgba(0, 168, 107, 0.12) !important; border-top: 4px solid var(--emerald); }
-.team-card[data-department="sales"] { background-color: rgba(212, 175, 55, 0.15) !important; border-top: 4px solid #d4af37; }
-.team-card[data-department="admin"] { background-color: rgba(28, 32, 30, 0.1) !important; border-top: 4px solid var(--primary-black); }
+.team-card[data-department="ops"] { background-color: rgba(34, 139, 34, 0.08) !important; border-top: 4px solid var(--forest-green); }
+.team-card[data-department="cx"] { background-color: rgba(0, 168, 107, 0.08) !important; border-top: 4px solid var(--emerald); }
+.team-card[data-department="sales"] { background-color: rgba(212, 175, 55, 0.10) !important; border-top: 4px solid #d4af37; }
+.team-card[data-department="admin"] { background-color: rgba(28, 32, 30, 0.06) !important; border-top: 4px solid var(--primary-black); }
 
 /* Distinct Section Separation */
 .what-we-do { background-color: var(--off-white); }
-.meet-the-team { background-color: var(--off-white); }
+.meet-the-team { background: radial-gradient(circle at 50% 0%, #ffffff 0%, var(--off-white) 100%); }
 
 
 /* Team Card Expandable Icon Logic */
