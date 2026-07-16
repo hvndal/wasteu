@@ -886,17 +886,32 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
 .team-card {
     background: var(--white);
     border: var(--border-thin);
-    border-radius: 16px;
+    border-top: 3px solid transparent;
+    border-radius: 0;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .team-card:hover, .team-card.active-hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-solid);
-    border-color: var(--emerald);
 }
+
+/* Department Color Psychology on Hover */
+.team-card[data-department="ops"]:hover, .team-card[data-department="ops"].active-hover {
+    border-top-color: var(--forest-green);
+}
+.team-card[data-department="cx"]:hover, .team-card[data-department="cx"].active-hover {
+    border-top-color: var(--emerald);
+}
+.team-card[data-department="sales"]:hover, .team-card[data-department="sales"].active-hover {
+    border-top-color: #d4af37; /* Real Gold */
+}
+.team-card[data-department="admin"]:hover, .team-card[data-department="admin"].active-hover {
+    border-top-color: var(--primary-black);
+}
+
 .team-header {
     display: flex;
     align-items: center;
@@ -910,7 +925,7 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
 .avatar-img, .avatar-placeholder {
     width: 64px;
     height: 64px;
-    border-radius: 12px;
+    border-radius: 0;
     object-fit: cover;
 }
 .avatar-placeholder {
@@ -923,7 +938,7 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
     font-weight: 700;
 }
 .team-header-info h3 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     margin-bottom: 0.1rem;
 }
 .team-header-info .role {
