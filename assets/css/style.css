@@ -320,9 +320,7 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
     font-size: 14px;
     letter-spacing: 0.5px;
 }
-.navbar.scrolled .nav-links .btn { color: var(--white) !important; 
-    box-shadow: var(--shadow-solid);
-}
+
 
 /* Mobile Menu Toggle */
 .mobile-toggle {
@@ -2802,4 +2800,27 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
 .team-card:hover .expand-icon, .team-card.active-hover .expand-icon {
     transform: translateY(-50%) rotate(180deg);
     color: rgba(0,0,0,0.8);
+}
+
+/* Get In Touch Button Styling */
+.nav-links .btn-forest {
+    background-color: var(--white) !important;
+    color: var(--forest-green) !important;
+    border: 2px solid var(--white) !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transition: all 0.3s ease;
+}
+.nav-links .btn-forest:hover {
+    background-color: transparent !important;
+    color: var(--white) !important;
+}
+.navbar.scrolled .nav-links .btn-forest {
+    background-color: var(--forest-green) !important;
+    color: var(--white) !important;
+    border: 2px solid var(--forest-green) !important;
+}
+.navbar.scrolled .nav-links .btn-forest:hover {
+    background-color: transparent !important;
+    color: var(--forest-green) !important;
 }
