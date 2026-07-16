@@ -929,7 +929,7 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
 .avatar-img, .avatar-placeholder {
     width: 64px;
     height: 64px;
-    border-radius: 0;
+    border-radius: 50%;
     object-fit: cover;
 }
 .avatar-placeholder {
