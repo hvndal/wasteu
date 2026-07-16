@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
     // Mobile Scroll Auto-Hover Logic
-    const hoverElements = document.querySelectorAll('.service-card, .choose-block, .dumpster-card');
+    const hoverElements = document.querySelectorAll('.service-card, .choose-block, .dumpster-card, .team-card');
     
     if (window.innerWidth <= 768) {
         const hoverObserver = new IntersectionObserver((entries) => {
@@ -369,3 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
+    // Initialize audio context on first scroll/touch so scroll-triggered sounds work on mobile
+    window.addEventListener('touchstart', () => {
+        if (typeof window.initAudio === 'function') window.initAudio();
+    }, { once: true });
