@@ -886,30 +886,34 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
 .team-card {
     background: var(--white);
     border: var(--border-thin);
-    border-top: 3px solid transparent;
+    border-bottom: 6px solid transparent;
     border-radius: 0;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1); /* Slower, smoother transition */
 }
 .team-card:hover, .team-card.active-hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-solid);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
 }
 
-/* Department Color Psychology on Hover */
+/* Department Color Psychology on Hover (Highly Visible) */
 .team-card[data-department="ops"]:hover, .team-card[data-department="ops"].active-hover {
-    border-top-color: var(--forest-green);
+    border-bottom-color: var(--forest-green);
+    box-shadow: 0 10px 30px rgba(0, 60, 113, 0.15); /* Forest green glow */
 }
 .team-card[data-department="cx"]:hover, .team-card[data-department="cx"].active-hover {
-    border-top-color: var(--emerald);
+    border-bottom-color: var(--emerald);
+    box-shadow: 0 10px 30px rgba(46, 204, 113, 0.15); /* Emerald glow */
 }
 .team-card[data-department="sales"]:hover, .team-card[data-department="sales"].active-hover {
-    border-top-color: #d4af37; /* Real Gold */
+    border-bottom-color: #d4af37; /* Real Gold */
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15); /* Gold glow */
 }
 .team-card[data-department="admin"]:hover, .team-card[data-department="admin"].active-hover {
-    border-top-color: var(--primary-black);
+    border-bottom-color: var(--primary-black);
+    box-shadow: 0 10px 30px rgba(33, 37, 41, 0.15); /* Dark glow */
 }
 
 .team-header {
@@ -949,7 +953,7 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .team-card:hover .team-body, .team-card.active-hover .team-body {
     max-height: 300px;
