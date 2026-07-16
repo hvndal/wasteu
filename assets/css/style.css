@@ -2837,3 +2837,10 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
     }
 }
 
+
+@media (max-width: 768px) {
+    .hero-card {
+        margin-top: 17vh !important;
+    }
+}
+
