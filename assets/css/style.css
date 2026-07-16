@@ -353,9 +353,9 @@ img, video {
     left: 0;
     width: 100%;
     height: 100%;
-    max-width: none; /* Ensures no conflict with global img/video max-width */
-    object-fit: cover;
-    object-position: center top; /* Keeps top of video anchored to avoid top-cropping */
+    max-width: none;
+    object-fit: contain; /* Shows the full video without cropping */
+    object-position: center center; 
     z-index: 1;
     opacity: 0.4;
     pointer-events: none;
