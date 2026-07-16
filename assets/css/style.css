@@ -2798,3 +2798,22 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
 /* Distinct Section Separation */
 .what-we-do { background-color: var(--off-white); }
 .meet-the-team { background-color: var(--off-white); }
+
+
+/* Team Card Expandable Icon Logic */
+.team-card .team-header-info {
+    position: relative;
+    width: 100%;
+}
+.team-card .expand-icon {
+    position: absolute;
+    right: -10px; /* pull right so it aligns with border */
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(0,0,0,0.3);
+    transition: transform 1.5s ease-out, color 1.5s ease-out;
+}
+.team-card:hover .expand-icon, .team-card.active-hover .expand-icon {
+    transform: translateY(-50%) rotate(180deg);
+    color: rgba(0,0,0,0.8);
+}
