@@ -2637,9 +2637,13 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
     }
     
     .hero {
-        padding: 100px 0 40px 0 !important;
+        padding: 100px 0 0 0 !important;
         height: auto !important;
         min-height: 55vh !important;
+    }
+    
+    .hero .container {
+        padding-bottom: 0 !important;
     }
     
     .hero-card h1 {
