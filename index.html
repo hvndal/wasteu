@@ -134,9 +134,26 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <video id="hero-video" autoplay loop muted playsinline poster="assets/images/hero-fallback.jpg" class="hero-bg" style="object-fit: cover; object-position: center;">
-            <source src="assets/video/hero.mp4" type="video/mp4">
-        </video>
+        <video id="hero-video" autoplay loop muted playsinline class="hero-bg" style="object-fit: cover; object-position: center;">
+</video>
+<script>
+    (function() {
+        var video = document.getElementById("hero-video");
+        var source = document.createElement("source");
+        source.src = "assets/video/hero.mp4";
+        source.type = "video/mp4";
+        video.appendChild(source);
+        
+        // Force load and play to bypass strict browser policies
+        video.load();
+        var playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(function(error) {
+                console.log("Autoplay blocked:", error);
+            });
+        }
+    })();
+</script>
         <div class="container">
             <div class="hero-card">
                 <div class="hero-card-header">
