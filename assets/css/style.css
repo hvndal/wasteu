@@ -369,9 +369,7 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
     pointer-events: none;
 }
 
-.hero-bg.mobile-image {
-    display: none;
-}
+.hero-bg.mobile-image, .hero-bg.mobile-video { display: none; }
 
 .hero .container {
     position: relative;
@@ -1376,9 +1374,7 @@ section:nth-of-type(even):not(.hero):not(.contact-section) {
     .hero-bg.desktop-video {
         display: none;
     }
-    .hero-bg.mobile-image {
-        display: block;
-    }
+    .hero-bg.mobile-image, .hero-bg.mobile-video { display: block; }
     .services-grid, .features-grid {
         grid-template-columns: 1fr;
     }
