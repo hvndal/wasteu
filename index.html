@@ -7,6 +7,10 @@
     <meta name="description" content="Family-owned waste management serving Maynard, Littleton, Stow, Acton, Harvard, Concord, and surrounding MA communities.">
     <link rel="canonical" href="https://wasteuniverse.com/">
     
+    <!-- iOS / Mobile Performance Optimization -->
+    <link rel="preload" href="assets/videos/hero_mobile.mp4" as="video" type="video/mp4" media="(max-width: 768px)">
+    <link rel="preload" href="assets/images/logo_final.png" as="image">
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wasteuniverse.com/">
@@ -110,7 +114,7 @@
     <nav class="navbar" id="navbar">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="assets/images/logo_upscaled.png" alt="Waste Universe Logo" style="height: 38px; width: auto; display: block;" loading="lazy">
+                <img src="assets/images/logo_final.png" alt="Waste Universe Logo" style="height: 38px; width: auto; display: block; filter: drop-shadow(0 0 4px rgba(255,255,255,1)) drop-shadow(0 0 12px rgba(255,255,255,0.8));" loading="lazy">
             </a>
 
             <div class="nav-links" id="navLinks">
@@ -155,7 +159,10 @@
         }
     })();
 </script>
-
+        <!-- Logo Watermark Overlay for Stock Video -->
+        <div class="video-watermark" style="position: absolute; top: 2.5rem; left: 2.5rem; z-index: 5; pointer-events: none;">
+            <img src="assets/images/logo_final.png" alt="Waste Universe Logo" style="width: 260px; height: auto; display: block; filter: drop-shadow(0 0 4px rgba(255,255,255,1)) drop-shadow(0 0 12px rgba(255,255,255,0.8)); image-rendering: high-quality;">
+        </div>
         <div class="container">
             <div class="hero-card">
                 <div class="hero-card-header">

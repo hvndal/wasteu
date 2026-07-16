@@ -2828,3 +2828,12 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
     background-color: transparent !important;
     color: var(--forest-green) !important;
 }
+
+
+
+@media (max-width: 768px) {
+    .video-watermark {
+        display: block !important; top: auto !important; bottom: 1.5rem !important; left: auto !important; right: 1.5rem !important; width: 140px !important; opacity: 0.8;
+    }
+}
+
