@@ -353,3 +353,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Read More Logic
+    const readMoreBtn = document.getElementById("readMoreBtn");
+    if (readMoreBtn) {
+        readMoreBtn.addEventListener("click", () => {
+            const hiddenText = document.querySelector(".hidden-text");
+            if (hiddenText.style.display === "none") {
+                hiddenText.style.display = "block";
+                readMoreBtn.textContent = "Read Less";
+            } else {
+                hiddenText.style.display = "none";
+                readMoreBtn.textContent = "Read More";
+            }
+        });
+    }
+    
