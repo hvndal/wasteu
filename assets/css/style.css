@@ -156,6 +156,14 @@ img, video {
     display: block;
 }
 
+section {
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+section:nth-of-type(even):not(.hero):not(.contact-section) {
+    background-color: var(--off-white);
+}
+
 .container {
     width: 100%;
     max-width: 1200px;
