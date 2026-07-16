@@ -926,7 +926,7 @@ img, video {
 .footer {
     background-color: var(--primary-black);
     color: var(--white);
-    padding: 100px 0 40px;
+    padding: 40px 0 40px;
     position: relative;
 }
 
