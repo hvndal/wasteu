@@ -205,39 +205,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const odoD2 = document.getElementById('odo-d2');
     const odoD3 = document.getElementById('odo-d3');
     const odoD4 = document.getElementById('odo-d4');
+    const turnerContainer = document.querySelector('.turner-container');
 
-    let currentTonnage = 1;
-    const targetTonnage = 1240;
+    let currentTonnage = 0;
+    
+    // Base 1240 tons + 2 tons per day since Jan 1, 2026
+    const startDate = new Date('2026-01-01T00:00:00Z');
+    const now = new Date();
+    const diffDays = Math.max(0, Math.floor((now - startDate) / (1000 * 60 * 60 * 24)));
+    const targetTonnage = 1240 + (diffDays * 2);
 
     function updateOdometer(value) {
-        const valStr = value.toString().padStart(4, '0');
+        const valStr = Math.floor(value).toString().padStart(4, '0');
         const digits = valStr.split('').map(Number);
         
-        // height of each span is 42px in style.css
         if (odoD1) odoD1.style.transform = `translateY(${-digits[0] * 42}px)`;
         if (odoD2) odoD2.style.transform = `translateY(${-digits[1] * 42}px)`;
         if (odoD3) odoD3.style.transform = `translateY(${-digits[2] * 42}px)`;
         if (odoD4) odoD4.style.transform = `translateY(${-digits[3] * 42}px)`;
     }
 
-    // Roll up animation from 1 to 1240
     function startOdometerAnimation() {
-        const duration = 2500; // 2.5 seconds rollup
+        const duration = 2500;
         const startTime = performance.now();
 
         function animate(now) {
             const elapsed = now - startTime;
             const progress = Math.min(elapsed / duration, 1);
             
-            // Ease-out cubic
             const ease = 1 - Math.pow(1 - progress, 3);
-            currentTonnage = Math.floor(ease * (targetTonnage - 1) + 1);
+            currentTonnage = Math.floor(ease * targetTonnage);
             updateOdometer(currentTonnage);
 
             if (progress < 1) {
                 requestAnimationFrame(animate);
             } else {
-                // Ticking interval once rollup completes
                 setInterval(() => {
                     currentTonnage++;
                     updateOdometer(currentTonnage);
@@ -247,8 +249,16 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animate);
     }
 
-    // Initialize with a slight delay
-    setTimeout(startOdometerAnimation, 600);
+    if (turnerContainer) {
+        let hasAnimated = false;
+        const odoObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !hasAnimated) {
+                hasAnimated = true;
+                startOdometerAnimation();
+            }
+        }, { threshold: 0.2 });
+        odoObserver.observe(turnerContainer);
+    }
 });
 
     // Mobile Scroll Auto-Hover Logic
