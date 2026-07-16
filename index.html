@@ -134,27 +134,9 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <video id="hero-video" autoplay loop muted playsinline poster="assets/images/hero-fallback.jpg" class="hero-bg desktop-video">
+        <video id="hero-video" autoplay loop muted playsinline poster="assets/images/hero-fallback.jpg" class="hero-bg">
+            <source src="assets/video/hero.mp4" type="video/mp4">
         </video>
-        <img src="assets/images/hero_truck_1783466317759.jpg" alt="Waste Universe Truck" class="hero-bg mobile-image">
-        <script>
-            var video = document.getElementById('hero-video');
-            if (window.innerWidth <= 768) {
-                if (video) video.remove();
-            } else {
-                var source = document.createElement('source');
-                source.src = 'assets/video/hero.mp4';
-                source.type = 'video/mp4';
-                video.appendChild(source);
-                video.load();
-                var playPromise = video.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(function(error) {
-                        console.log("Autoplay prevented:", error);
-                    });
-                }
-            }
-        </script>
         <div class="container">
             <div class="hero-card">
                 <div class="hero-card-header">
