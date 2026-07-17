@@ -243,7 +243,9 @@ document.addEventListener('DOMContentLoaded', () => {
             style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
             center: [-71.5, 42.3],
             zoom: 7.5,
-            attributionControl: false
+            attributionControl: false,
+            pitchWithRotate: false,
+            dragRotate: false
         });
 
         GLOBAL_MAP.on('load', async () => {

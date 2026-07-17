@@ -333,7 +333,7 @@
 .interactive-map-container {
     position: relative;
     width: 100%;
-    padding-top: 60%; /* Aspect ratio 5:3 */
+    padding-top: 35%; /* Compact aspect ratio */
     background: #e2dfd5;
     border-radius: 8px;
     border: var(--border-thick);
