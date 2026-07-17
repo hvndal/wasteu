@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const locEl = document.getElementById('weather-location');
     const timeEl = document.getElementById('weather-time');
-    const iconContainer = document.getElementById('weather-icon');
-    const tempEl = document.getElementById('weather-temp');
-    const condEl = document.getElementById('weather-cond');
+    const iconContainer = document.getElementById('current-icon-container');
+    const tempEl = document.getElementById('current-temp');
+    const condEl = document.getElementById('current-condition');
     
     const windEl = document.getElementById('detail-wind');
     const humidityEl = document.getElementById('detail-humidity');
