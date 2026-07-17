@@ -23,6 +23,11 @@
 
     <link rel="stylesheet" href="assets/css/style.css?v=3.0">
     <link rel="stylesheet" href="assets/css/weather.css?v=1.0">
+    
+    <!-- MapLibre GL JS for Mapillary Vector Tiles -->
+    <link href="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.js"></script>
+    
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -75,7 +80,7 @@
                 <a href="services.html">Services</a>
                 <!-- <a href="blog.html">Blog</a> -->
                 <a href="weather.html" class="active">Weather</a>
-                <a href="index.html#contact-form-section" class="btn btn-forest" style="padding: 10px 20px; border-width: 2px;">
+                <a href="index.html#contact-form-section" class="btn btn-forest" style="padding: 10px 20px; border-width: 2px; color: white !important;">
                     Get in Touch
                 </a>
             </div>
@@ -123,7 +128,13 @@
             <div class="weather-hero-card neo-card">
                 <div class="weather-header-top">
                     <div id="weather-location" class="weather-location skeleton-text">Loading Location...</div>
-                    <div id="weather-time" class="weather-time skeleton-text">--:--</div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div class="header-status-badge">
+                            <span class="status-dot green"></span>
+                            just on time !!
+                        </div>
+                        <div id="weather-time" class="weather-time skeleton-text">--:--</div>
+                    </div>
                 </div>
                 <div class="weather-current">
                     <div class="weather-emoji-large skeleton-box interactive-emoji" id="current-icon-container">
@@ -181,60 +192,14 @@
                 <!-- Service Map Area -->
                 <div class="service-map-card neo-card">
                     <h3>Service Region Status</h3>
-                    <p class="map-hint">Hover over a town to see local collection status.</p>
-                    <div class="interactive-map-container" id="interactive-map">
-                        <!-- Map SVG with hover regions -->
-                        <svg viewBox="0 0 600 350" class="service-map-svg" style="background: transparent;">
-                            <!-- Stylized Landmass -->
-                            <path d="M 50,150 L 150,80 L 300,50 L 450,60 L 550,130 L 580,200 L 500,240 L 420,220 L 380,330 L 300,340 L 220,290 L 120,300 Z" fill="#FFF2E6" stroke="var(--primary-black)" stroke-width="4" style="filter: drop-shadow(6px 6px 0 var(--primary-black));"></path>
+                    <p class="map-hint">Click a town marker to see street view imagery.</p>
+                    <div class="map-split-view">
+                        <div class="interactive-map-container" id="interactive-map">
+                            <!-- Leaflet Map Container -->
+                            <div id="map" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
                             
-                            <!-- Highway lines -->
-                            <path d="M 420,100 L 310,120 L 220,140 L 100,160" fill="none" stroke="var(--primary-black)" stroke-width="4" stroke-dasharray="8,6"></path>
-                            <path d="M 420,100 L 330,240 L 380,290" fill="none" stroke="var(--primary-black)" stroke-width="4" stroke-dasharray="8,6"></path>
-                            <path d="M 420,100 L 500,200" fill="none" stroke="var(--primary-black)" stroke-width="4" stroke-dasharray="8,6"></path>
-
-                            <!-- Cities -->
-                            <g class="map-region" data-town="Springfield, MA" data-q="Springfield">
-                                <circle cx="100" cy="160" r="10" class="region-point"></circle>
-                                <text x="100" y="140" class="region-label">Springfield</text>
-                            </g>
-                            <g class="map-region" data-town="Worcester, MA" data-q="Worcester">
-                                <circle cx="220" cy="140" r="12" class="region-point"></circle>
-                                <text x="220" y="120" class="region-label">Worcester</text>
-                            </g>
-                            <g class="map-region" data-town="Harvard, MA" data-q="Harvard">
-                                <circle cx="280" cy="110" r="8" class="region-point"></circle>
-                                <text x="280" y="95" class="region-label">Harvard</text>
-                            </g>
-                            <g class="map-region" data-town="Stow, MA" data-q="Stow">
-                                <circle cx="310" cy="115" r="8" class="region-point"></circle>
-                                <text x="310" y="100" class="region-label">Stow</text>
-                            </g>
-                            <g class="map-region" data-town="Maynard, MA" data-q="Maynard">
-                                <circle cx="340" cy="110" r="8" class="region-point"></circle>
-                                <text x="340" y="95" class="region-label">Maynard</text>
-                            </g>
-                            <g class="map-region" data-town="Concord, MA" data-q="Concord">
-                                <circle cx="375" cy="105" r="8" class="region-point"></circle>
-                                <text x="375" y="90" class="region-label">Concord</text>
-                            </g>
-                            
-                            <g class="map-region" data-town="Boston, MA" data-q="Boston">
-                                <circle cx="420" cy="100" r="15" class="region-point" style="fill: var(--emerald);"></circle>
-                                <text x="420" y="75" class="region-label" style="font-weight: 800;">⭐ Boston</text>
-                            </g>
-                            
-                            <g class="map-region" data-town="Cape Cod, MA" data-q="Barnstable">
-                                <circle cx="500" cy="200" r="12" class="region-point"></circle>
-                                <text x="500" y="180" class="region-label">🏖️ Cape Cod</text>
-                            </g>
-                            
-                            
-                            
-                        </svg>
-
-                        <!-- Hover Tooltip -->
-                        <div id="map-tooltip" class="map-tooltip neo-tooltip hidden">
+                            <!-- Hover Tooltip -->
+                            <div id="map-tooltip" class="map-tooltip neo-tooltip hidden">
                             <h4 id="tooltip-town">Town</h4>
                             <div class="tooltip-weather">
                                 <span id="tooltip-temp">--&deg;F</span>
@@ -244,6 +209,14 @@
                                 <span class="status-indicator"></span>
                                 <span class="status-text">On Schedule</span>
                             </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Status Widget -->
+                        <div class="service-status-container status-on-schedule" id="service-status-widget">
+                            <div class="status-icon-large" id="status-icon">✅</div>
+                            <div class="status-title" id="status-title">On Schedule</div>
+                            <div class="status-reason" id="status-reason">Weather conditions are clear. Service will proceed as planned.</div>
                         </div>
                     </div>
                 </div>

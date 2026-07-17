@@ -1,0 +1,596 @@
+{
+  "7 Depot Square  Ayer MA 01432": {
+    "lat": 42.5595118,
+    "lon": -71.5889909
+  },
+  "25 Powder Mill Road  Acton MA 01720": {
+    "lat": 42.4389214,
+    "lon": -71.4339427
+  },
+  "1238 Main Street  Concord MA 01742": {
+    "lat": 42.4586513,
+    "lon": -71.3591572
+  },
+  "57 Main Street  Concord MA 01742": {
+    "lat": 42.4601073,
+    "lon": -71.3497558
+  },
+  "3 Sandy Circle  Leicester MA 01524": {
+    "lat": 42.2663562,
+    "lon": -71.921909
+  },
+  "11 Maighans Way  Leicester MA 01524": {
+    "lat": 42.2648406,
+    "lon": -71.9195541
+  },
+  "482 Whittemore Street  Leicester MA 01524": {
+    "lat": 42.2639896,
+    "lon": -71.9204147
+  },
+  "483 Whittemore Street  Leicester MA 01524": {
+    "lat": 42.2637285,
+    "lon": -71.922056
+  },
+  "13 Maighans Way  Leicester MA 01524": {
+    "lat": 42.2653093,
+    "lon": -71.9200949
+  },
+  "9 Maighans Way  Leicester MA 01524": {
+    "lat": 42.2643468,
+    "lon": -71.9190715
+  },
+  "14 Maighans Way  Leicester MA 01524": {
+    "lat": 42.2660645,
+    "lon": -71.9194275
+  },
+  "4 Maighans Way  Leicester MA 01524": {
+    "lat": 42.2632176,
+    "lon": -71.9171826
+  },
+  "6 Maighans Way  Leicester MA 01524": {
+    "lat": 42.2636953,
+    "lon": -71.9175129
+  },
+  "472 Whittemore Street  Leicester MA 01524": {
+    "lat": 42.262011,
+    "lon": -71.918006
+  },
+  "2 Billys Way  Leicester MA 01524": {
+    "lat": 42.2625519,
+    "lon": -71.9183879
+  },
+  "2 Maighans Way  Leicester MA 01524": {
+    "lat": 42.2626452,
+    "lon": -71.9165932
+  },
+  "1 Maighans Way  Leicester MA 01524": {
+    "lat": 42.2623853,
+    "lon": -71.9173693
+  },
+  "473 Whittemore Street  Leicester MA 01524": {
+    "lat": 42.2613104,
+    "lon": -71.918886
+  },
+  "475 Whittemore Street  Leicester MA 01524": {
+    "lat": 42.2613018,
+    "lon": -71.9201257
+  },
+  "1 TRACY PLACE   Leicester MA 01524": {
+    "failed": true
+  },
+  "9 Traci Place  Leicester MA 01524": {
+    "lat": 42.2612696,
+    "lon": -71.921177
+  },
+  "3 Hemlock Street  Leicester MA 01524": {
+    "lat": 42.2801114,
+    "lon": -71.926677
+  },
+  "177 White Birch Street  Leicester MA 01524": {
+    "lat": 42.2793016,
+    "lon": -71.9287231
+  },
+  "15 Laflash Lane  Leicester MA 01524": {
+    "lat": 42.2780968,
+    "lon": -71.9226059
+  },
+  "340 Marshall Street  Leicester MA 01524": {
+    "lat": 42.278279,
+    "lon": -71.9116083
+  },
+  "415 Marshall Street  Leicester MA 01524": {
+    "lat": 42.2797197,
+    "lon": -71.9199977
+  },
+  "400 Marshall Street  Leicester MA 01524": {
+    "lat": 42.2799818,
+    "lon": -71.9183944
+  },
+  "119 White Birch Street  Leicester MA 01524": {
+    "lat": 42.26576,
+    "lon": -71.9260203
+  },
+  "6 Sherri Lane  Leicester MA 01524": {
+    "lat": 42.261592,
+    "lon": -71.9212773
+  },
+  "2 Sherri Lane  Leicester MA 01524": {
+    "lat": 42.2618639,
+    "lon": -71.9216081
+  },
+  "137 Marshall Street  Leicester MA 01524": {
+    "lat": 42.2758524,
+    "lon": -71.8974499
+  },
+  "100 Marshall Street  Leicester MA 01524": {
+    "lat": 42.2761845,
+    "lon": -71.8935915
+  },
+  "7 Marshall Street  Leicester MA 01524": {
+    "lat": 42.2778338,
+    "lon": -71.8830223
+  },
+  "23 Marshall Street  Leicester MA 01524": {
+    "lat": 42.2777569,
+    "lon": -71.8850726
+  },
+  "706 Salisbury Street  Worcester MA 01609": {
+    "lat": 42.2999119,
+    "lon": -71.8416113
+  },
+  "8 Phoebe Way  Worcester MA 01605": {
+    "lat": 42.2985241,
+    "lon": -71.8288455
+  },
+  "198 Park Avenue  Worcester MA 01609": {
+    "lat": 42.272105,
+    "lon": -71.8149914
+  },
+  "137 Main Street  Worcester MA 01608": {
+    "lat": 42.2684286,
+    "lon": -71.800433
+  },
+  "47 Pleasant Street  Worcester MA 01609": {
+    "lat": 42.2636791,
+    "lon": -71.803522
+  },
+  "1 Mabelle Street  Worcester MA 01602": {
+    "lat": 42.2741093,
+    "lon": -71.827015
+  },
+  "45 Glendale Street  Worcester MA 01602": {
+    "lat": 42.2641091,
+    "lon": -71.8487265
+  },
+  "2 Lynde Brook Drive  Leicester MA 01524": {
+    "failed": true
+  },
+  "71 Crystal Street  Leicester MA 01524": {
+    "lat": 42.2818997,
+    "lon": -71.8895086
+  },
+  "3 Lyndebrook Dr  Leicester MA 01524": {
+    "lat": 42.27726,
+    "lon": -71.8865676
+  },
+  "5 Lyndebrook Dr  Leicester MA 01524": {
+    "lat": 42.2769134,
+    "lon": -71.8864682
+  },
+  "238 Paxton Street  Leicester MA 01524": {
+    "lat": 42.2592883,
+    "lon": -71.9082464
+  },
+  "218 Paxton Street  Leicester MA 01524": {
+    "lat": 42.2573783,
+    "lon": -71.9074402
+  },
+  "17 Whittemore Street  Leicester MA 01524": {
+    "lat": 42.2556489,
+    "lon": -71.9096837
+  },
+  "50 Paxton Street  Leicester MA 01524": {
+    "lat": 42.2538229,
+    "lon": -71.90765
+  },
+  "2 William Circle  Leicester MA 01524": {
+    "lat": 42.2567196,
+    "lon": -71.9054858
+  },
+  "6 William Circle  Leicester MA 01524": {
+    "lat": 42.2566876,
+    "lon": -71.9059148
+  },
+  "220 Paxton Street  Leicester MA 01524": {
+    "lat": 42.2576734,
+    "lon": -71.9075693
+  },
+  "1 Hillside Road  Leicester MA 01611": {
+    "lat": 42.2351259,
+    "lon": -71.8632665
+  },
+  "4 Merrick Street  Leicester MA 01611": {
+    "lat": 42.2340203,
+    "lon": -71.8628844
+  },
+  "32 Ingram Road  Leicester MA 01611": {
+    "lat": 42.23493,
+    "lon": -71.862764
+  },
+  "18 Varnum Street  Worcester MA 01603": {
+    "lat": 42.2405847,
+    "lon": -71.8452496
+  },
+  "16 Laurier Street  Worcester MA 01603": {
+    "lat": 42.2305073,
+    "lon": -71.8478639
+  },
+  "5 Genesee Street  Worcester MA 01603": {
+    "lat": 42.237238,
+    "lon": -71.8445491
+  },
+  "22 Delawanda Drive  Worcester MA 01603": {
+    "lat": 42.2466108,
+    "lon": -71.8482293
+  },
+  "8 Hillside Road  Leicester MA 01611": {
+    "lat": 42.2351628,
+    "lon": -71.8643356
+  },
+  "4 Hillside Road  Leicester MA 01611": {
+    "lat": 42.2355007,
+    "lon": -71.8636144
+  },
+  "6 Hillside Road  Leicester MA 01611": {
+    "lat": 42.2353124,
+    "lon": -71.8640272
+  },
+  "5 Atwood Terrace  Leicester MA 01611": {
+    "lat": 42.2319486,
+    "lon": -71.8617398
+  },
+  "14 Folsom Street  Leicester MA 01611": {
+    "lat": 42.2323027,
+    "lon": -71.862042
+  },
+  "5 Tracy Place  Worcester MA 01603": {
+    "lat": 42.2310968,
+    "lon": -71.8202899
+  },
+  "22 Ingram Road  Leicester MA 01611": {
+    "lat": 42.2331614,
+    "lon": -71.8617408
+  },
+  "24 Ingram Road  Leicester MA 01611": {
+    "lat": 42.233506,
+    "lon": -71.8618359
+  },
+  "6 Folsom Street  Leicester MA 01611": {
+    "lat": 42.2309562,
+    "lon": -71.8607684
+  },
+  "2 Atwood Street  Leicester MA 01611": {
+    "failed": true
+  },
+  "1 Elmwood Avenue  Leicester MA 01611": {
+    "lat": 42.2281607,
+    "lon": -71.8626594
+  },
+  "369 Stafford Street  Leicester MA 01611": {
+    "lat": 42.2280228,
+    "lon": -71.8632521
+  },
+  "9 Elmwood Avenue  Leicester MA 01611": {
+    "lat": 42.2276865,
+    "lon": -71.8624803
+  },
+  "6 Atwood Street  Leicester MA 01611": {
+    "failed": true
+  },
+  "10 Atwood Street  Leicester MA 01611": {
+    "failed": true
+  },
+  "10 Old Stafford Turnpike  Leicester MA 01542": {
+    "lat": 42.215201,
+    "lon": -71.8807476
+  },
+  "9 Old Stafford Turnpike  Leicester MA 01542": {
+    "lat": 42.2146791,
+    "lon": -71.8802905
+  },
+  "692 Stafford Street  Leicester MA 01542": {
+    "lat": 42.2128678,
+    "lon": -71.883676
+  },
+  "401 Auburn Street  Leicester MA 01611": {
+    "lat": 42.2198905,
+    "lon": -71.8777393
+  },
+  "464 Stafford Street  Leicester MA 01611": {
+    "lat": 42.2248366,
+    "lon": -71.8711046
+  },
+  "343 Auburn Street  Leicester MA 01611": {
+    "lat": 42.2239402,
+    "lon": -71.8780249
+  },
+  "356 Auburn Street  Leicester MA 01611": {
+    "lat": 42.2231936,
+    "lon": -71.8786566
+  },
+  "550 Stafford Street  Leicester MA 01611": {
+    "lat": 42.2193334,
+    "lon": -71.8772872
+  },
+  "8 Old Stafford Turnpike  Leicester MA 01542": {
+    "lat": 42.2155744,
+    "lon": -71.8804225
+  },
+  "915 Stafford Street  Leicester MA 01542": {
+    "lat": 42.2017773,
+    "lon": -71.8953378
+  },
+  "885 Stafford Street  Leicester MA 01542": {
+    "lat": 42.2028984,
+    "lon": -71.893749
+  },
+  "911 Stafford Street  Leicester MA 01542": {
+    "lat": 42.2020066,
+    "lon": -71.8948458
+  },
+  "847 Stafford Street  Leicester MA 01542": {
+    "lat": 42.2043243,
+    "lon": -71.8920686
+  },
+  "760 Stafford Street  Leicester MA 01542": {
+    "lat": 42.2090912,
+    "lon": -71.8875982
+  },
+  "752 Stafford Street  Leicester MA 01542": {
+    "lat": 42.2104882,
+    "lon": -71.8869679
+  },
+  "764 Stafford Street  Leicester MA 01542": {
+    "lat": 42.2081835,
+    "lon": -71.8888643
+  },
+  "57 Salem Street  Spencer MA 01562": {
+    "lat": 42.2393372,
+    "lon": -71.9874256
+  },
+  "34 Ash Street  Spencer MA 01562": {
+    "lat": 42.2432417,
+    "lon": -71.9884985
+  },
+  "16 Church Street  Spencer MA 01562": {
+    "lat": 42.240817,
+    "lon": -71.9927856
+  },
+  "18 Church Street  Spencer MA 01562": {
+    "lat": 42.2407161,
+    "lon": -71.9931069
+  },
+  "91 Mechanic Street  Spencer MA 01562": {
+    "lat": 42.2396076,
+    "lon": -71.9924787
+  },
+  "90 Mechanic Street  Spencer MA 01562": {
+    "lat": 42.2394574,
+    "lon": -71.9929698
+  },
+  "29 R Jones Road  Spencer MA 01562": {
+    "lat": 42.2286456,
+    "lon": -71.9697991
+  },
+  "11 Ashview Drive  Spencer MA 01562": {
+    "lat": 42.2296925,
+    "lon": -71.9821363
+  },
+  "127 Mechanic Street  Spencer MA 01562": {
+    "lat": 42.2345329,
+    "lon": -71.9910557
+  },
+  "21 Prospect Street  Spencer MA 01562": {
+    "lat": 42.2398585,
+    "lon": -71.993598
+  },
+  "47 Church Street  Spencer MA 01562": {
+    "lat": 42.2402072,
+    "lon": -71.9960153
+  },
+  "48 Church Street  Spencer MA 01562": {
+    "lat": 42.2405045,
+    "lon": -71.9961056
+  },
+  "51 Chestnut Street  Spencer MA 01562": {
+    "lat": 42.2410163,
+    "lon": -71.9949237
+  },
+  "35 Church Street  Spencer MA 01562": {
+    "lat": 42.2402602,
+    "lon": -71.9946837
+  },
+  "73 Mechanic Street  Spencer MA 01562": {
+    "lat": 42.240522,
+    "lon": -71.9927073
+  },
+  "67 Mechanic Street  Spencer MA 01562": {
+    "lat": 42.2409787,
+    "lon": -71.9928261
+  },
+  "135 Main Street  Spencer MA 01562": {
+    "lat": 42.2440395,
+    "lon": -71.9933745
+  },
+  "19 High Street  Spencer MA 01562": {
+    "lat": 42.2449143,
+    "lon": -71.9968259
+  },
+  "16 High Street  Spencer MA 01562": {
+    "lat": 42.2450046,
+    "lon": -71.9963684
+  },
+  "1 Terkanian Drive  Spencer MA 01562": {
+    "lat": 42.2571774,
+    "lon": -72.0095893
+  },
+  "37 High Street  Spencer MA 01562": {
+    "lat": 42.2464691,
+    "lon": -71.9972636
+  },
+  "41 High Street  Spencer MA 01562": {
+    "lat": 42.2467707,
+    "lon": -71.9972629
+  },
+  "13 School Street  Spencer MA 01562": {
+    "lat": 42.242546,
+    "lon": -72.0013299
+  },
+  "21 Brooks Pond Cross Road  Spencer MA 01562": {
+    "lat": 42.2957041,
+    "lon": -72.0284409
+  },
+  "125 Hastings Road  Spencer MA 01562": {
+    "lat": 42.2865949,
+    "lon": -71.9962147
+  },
+  "109 Hastings Road  Spencer MA 01562": {
+    "lat": 42.2832923,
+    "lon": -71.9958678
+  },
+  "8 Briarwood Lane  Spencer MA 01562": {
+    "lat": 42.2712864,
+    "lon": -72.0305979
+  },
+  "196 Chapel Street  Leicester MA 01524": {
+    "lat": 42.2533819,
+    "lon": -71.8898145
+  },
+  "185 Chapel Street  Leicester MA 01524": {
+    "lat": 42.2534873,
+    "lon": -71.8903989
+  },
+  "119 Manville Street  Leicester MA 01524": {
+    "lat": 42.264574,
+    "lon": -71.9001123
+  },
+  "27 Hyland Avenue  Leicester MA 01524": {
+    "lat": 42.2520787,
+    "lon": -71.8997071
+  },
+  "2 Carey Hill Road  Leicester MA 01524": {
+    "failed": true
+  },
+  "26 Winslow Avenue  Leicester MA 01524": {
+    "lat": 42.2502291,
+    "lon": -71.899602
+  },
+  "2 Deer Pond Drive  Leicester MA 01524": {
+    "lat": 42.2495676,
+    "lon": -71.8998222
+  },
+  "25 Winslow Avenue  Leicester MA 01524": {
+    "lat": 42.2498328,
+    "lon": -71.899966
+  },
+  "35 Deer Pond Drive  Leicester MA 01524": {
+    "lat": 42.2500982,
+    "lon": -71.9006658
+  },
+  "37 Deer Pond Drive  Leicester MA 01524": {
+    "lat": 42.2501258,
+    "lon": -71.9004102
+  },
+  "29 Winslow Avenue  Leicester MA 01524": {
+    "lat": 42.2505117,
+    "lon": -71.9002968
+  },
+  "20 Deer Pond Drive  Leicester MA 01524": {
+    "lat": 42.2496622,
+    "lon": -71.9013658
+  },
+  "10 Deer Pond Drive  Leicester MA 01524": {
+    "lat": 42.2493234,
+    "lon": -71.9010061
+  },
+  "21 Deer Pond Drive  Leicester MA 01524": {
+    "lat": 42.24895,
+    "lon": -71.90253
+  },
+  "49 Winslow Avenue  Leicester MA 01524": {
+    "lat": 42.2498643,
+    "lon": -71.9029179
+  },
+  "41 Winslow Avenue  Leicester MA 01524": {
+    "lat": 42.2503322,
+    "lon": -71.9019617
+  },
+  "27 Deer Pond Drive  Leicester MA 01524": {
+    "lat": 42.2499588,
+    "lon": -71.9017596
+  },
+  "18 Deer Pond Drive  Leicester MA 01524": {
+    "lat": 42.2496415,
+    "lon": -71.901652
+  },
+  "5 Deer Pond Drive  Leicester MA 01524": {
+    "lat": 42.249067,
+    "lon": -71.9001961
+  },
+  "11 Winslow Avenue  Leicester MA 01524": {
+    "lat": 42.2476776,
+    "lon": -71.899147
+  },
+  "774 Main Street  Leicester MA 01524": {
+    "lat": 42.2454583,
+    "lon": -71.8941004
+  },
+  "12 Massasoit Drive  Leicester MA 01524": {
+    "lat": 42.2475228,
+    "lon": -71.8925204
+  },
+  "38 Manville Street  Leicester MA 01524": {
+    "lat": 42.264574,
+    "lon": -71.9001123
+  },
+  "7 Massasoit Drive  Leicester MA 01524": {
+    "lat": 42.2468018,
+    "lon": -71.8925572
+  },
+  "8 Massasoit Drive  Leicester MA 01524": {
+    "lat": 42.2471341,
+    "lon": -71.8922967
+  },
+  "50 Waite Street  Leicester MA 01524": {
+    "lat": 42.2464248,
+    "lon": -71.8908896
+  },
+  "67 Waite Street  Leicester MA 01524": {
+    "lat": 42.2474174,
+    "lon": -71.8896518
+  },
+  "80 Waite Street  Leicester MA 01524": {
+    "lat": 42.2474225,
+    "lon": -71.8887351
+  },
+  "1 Waite Street  Leicester MA 01524": {
+    "lat": 42.2454645,
+    "lon": -71.8936646
+  },
+  "3 Deer Pond Drive  Leicester MA 01524": {
+    "lat": 42.2491592,
+    "lon": -71.8999022
+  },
+  "62 Paxton Street  Leicester MA 01524": {
+    "lat": 42.2483077,
+    "lon": -71.9072114
+  },
+  "67 Paxton Street  Leicester MA 01524": {
+    "lat": 42.248203,
+    "lon": -71.9078103
+  },
+  "68 Paxton Street  Leicester MA 01524": {
+    "lat": 42.2484589,
+    "lon": -71.9073125
+  }
+}

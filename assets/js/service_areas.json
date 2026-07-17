@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Leicester, MA",
+    "activeStops": 530,
+    "lat": 42.2459002,
+    "lon": -71.9081505
+  },
+  {
+    "name": "Stow, MA",
+    "activeStops": 120,
+    "lat": 42.4365949,
+    "lon": -71.5050009
+  },
+  {
+    "name": "Spencer, MA",
+    "activeStops": 119,
+    "lat": 42.2436316,
+    "lon": -71.9934879
+  },
+  {
+    "name": "Concord, MA",
+    "activeStops": 96,
+    "lat": 42.4605189,
+    "lon": -71.3488963
+  },
+  {
+    "name": "Charlton, MA",
+    "activeStops": 31,
+    "lat": 42.1340806,
+    "lon": -71.9698085
+  },
+  {
+    "name": "Acton, MA",
+    "activeStops": 17,
+    "lat": 42.4850931,
+    "lon": -71.43284
+  },
+  {
+    "name": "Maynard, MA",
+    "activeStops": 16,
+    "lat": 42.4321064,
+    "lon": -71.4539683
+  },
+  {
+    "name": "Worcester, MA",
+    "activeStops": 13,
+    "lat": 42.2625621,
+    "lon": -71.8018877
+  },
+  {
+    "name": "Oxford, MA",
+    "activeStops": 7,
+    "lat": 42.1170157,
+    "lon": -71.8644387
+  },
+  {
+    "name": "Auburn, MA",
+    "activeStops": 3,
+    "lat": 42.1945465,
+    "lon": -71.8358095
+  },
+  {
+    "name": "Cherry Valley, MA",
+    "activeStops": 2,
+    "lat": 42.2431486,
+    "lon": -71.873128
+  },
+  {
+    "name": "Southbridge, MA",
+    "activeStops": 2,
+    "lat": 42.0750465,
+    "lon": -72.0337376
+  },
+  {
+    "name": "Rutland, MA",
+    "activeStops": 2,
+    "lat": 42.3767722,
+    "lon": -71.9543851
+  },
+  {
+    "name": "Ayer, MA",
+    "activeStops": 1,
+    "lat": 42.5595807,
+    "lon": -71.5882561
+  }
+]

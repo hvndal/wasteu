@@ -219,10 +219,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const valStr = Math.floor(value).toString().padStart(4, '0');
         const digits = valStr.split('').map(Number);
         
-        if (odoD1) odoD1.style.transform = `translateY(${-digits[0] * 46}px)`;
-        if (odoD2) odoD2.style.transform = `translateY(${-digits[1] * 46}px)`;
-        if (odoD3) odoD3.style.transform = `translateY(${-digits[2] * 46}px)`;
-        if (odoD4) odoD4.style.transform = `translateY(${-digits[3] * 46}px)`;
+        if (odoD1) odoD1.style.transform = `translateY(${-digits[0] * 42}px)`;
+        if (odoD2) odoD2.style.transform = `translateY(${-digits[1] * 42}px)`;
+        if (odoD3) odoD3.style.transform = `translateY(${-digits[2] * 42}px)`;
+        if (odoD4) odoD4.style.transform = `translateY(${-digits[3] * 42}px)`;
     }
 
     function startOdometerAnimation() {
@@ -239,11 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (progress < 1) {
                 requestAnimationFrame(animate);
-            } else {
-                setInterval(() => {
-                    currentTonnage++;
-                    updateOdometer(currentTonnage);
-                }, 8000);
             }
         }
         requestAnimationFrame(animate);

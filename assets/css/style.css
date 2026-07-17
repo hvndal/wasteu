@@ -2801,6 +2801,201 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
     color: rgba(0,0,0,0.3);
     transition: transform 1.5s ease-out, color 1.5s ease-out;
 }
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.side-contact-widget:hover {
+    padding-right: 20px;
+    background-color: #112d20;
+}
+
+.side-contact-widget span {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    margin-top: 4px;
+}
+
+/* --- MOBILE RESPONSIVENESS REDESIGN --- */
+@media (max-width: 768px) {
+    /* Global Section Padding & Typography */
+    section {
+        padding: 40px 0 !important;
+    }
+    
+    h2 {
+        font-size: 28px !important;
+    }
+    
+    .hero {
+        padding: 100px 0 0 0 !important;
+        height: auto !important;
+        min-height: 55vh !important;
+    }
+    
+    .hero .container {
+        padding-bottom: 0 !important;
+    }
+    
+    .hero-card h1 {
+        font-size: 36px !important;
+    }
+
+    /* Services Grid -> Horizontal Swipe Carousel */
+    .services-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 24px !important;
+        gap: 16px !important;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    
+    /* Hide scrollbar for a cleaner look */
+    .services-grid::-webkit-scrollbar {
+        display: none;
+    }
+    .services-grid {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .service-card {
+        flex: 0 0 80% !important;
+        scroll-snap-align: center;
+        max-width: 80% !important;
+    }
+
+    /* Make images compact (16:9 Widescreen) */
+    .service-img-wrapper {
+        aspect-ratio: 16 / 9 !important;
+        height: auto !important;
+    }
+    .service-img-wrapper img {
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    /* Why Choose Us Grid -> 2-Column Grid */
+    .choose-us-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+
+    .choose-block {
+        height: 180px !important;
+    }
+
+    .choose-content h4 {
+        font-size: 1rem !important;
+    }
+
+    .choose-content svg {
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    /* Get in Touch block inside the grid */
+    .get-in-touch-block h4 {
+        font-size: 1.1rem !important;
+    }
+
+    /* Footer & Interactive elements */
+    .impact-number {
+        font-size: 48px !important;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .choose-block {
+        height: 150px !important;
+    }
+    .choose-content h4 {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* --- MOBILE AUTO HOVER STATES --- */
+@media (max-width: 768px) {
+    .service-card.active-hover {
+        transform: translateY(-10px) !important;
+        box-shadow: var(--shadow-solid) !important;
+    }
+    
+    .choose-block.active-hover .choose-overlay {
+        opacity: 1 !important;
+    }
+    
+    .choose-block.active-hover .choose-bg {
+        transform: scale(1.1) !important;
+    }
+    
+    .dumpster-card.active-hover {
+        transform: translateY(-5px) !important;
+        box-shadow: var(--shadow-solid-green) !important;
+        border-color: var(--forest-green) !important;
+    }
+}
+
+/* GLOBAL FONT ENFORCEMENT */
+body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
+    font-family: var(--font-main) !important;
+}
+
+/* WIZARD CARD SELECTED STATE */
+.wizard-btn.service-card {
+    background-color: var(--white);
+    color: var(--primary-black);
+}
+.wizard-btn.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 0 var(--forest-green);
+    border-color: var(--forest-green);
+}
+.wizard-btn.service-card.selected {
+    background-color: var(--forest-green) !important;
+    color: var(--white) !important;
+    border-color: var(--primary-black) !important;
+    box-shadow: 4px 4px 0 var(--primary-black) !important;
+    transform: translateY(-5px);
+}
+
+.team-card[data-department="ops"] { background-color: rgba(34, 139, 34, 0.12) !important; border-top: 4px solid var(--forest-green); }
+.team-card[data-department="cx"] { background-color: rgba(0, 168, 107, 0.12) !important; border-top: 4px solid var(--emerald); }
+.team-card[data-department="sales"] { background-color: rgba(212, 175, 55, 0.15) !important; border-top: 4px solid #d4af37; }
+.team-card[data-department="admin"] { background-color: rgba(28, 32, 30, 0.1) !important; border-top: 4px solid var(--primary-black); }
+
+/* Distinct Section Separation */
+.what-we-do { background-color: var(--off-white); }
+.meet-the-team { background-color: var(--off-white); }
+
+
+/* Team Card Expandable Icon Logic */
+.team-card .team-header-info {
+    position: relative;
+    width: 100%;
+}
+.team-card .expand-icon {
+    position: absolute;
+    right: -10px; /* pull right so it aligns with border */
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(0,0,0,0.3);
+    transition: transform 1.5s ease-out, color 1.5s ease-out;
+}
 .team-card:hover .expand-icon, .team-card.active-hover .expand-icon {
     transform: translateY(-50%) rotate(180deg);
     color: rgba(0,0,0,0.8);
@@ -2808,47 +3003,47 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea, select {
 
 /* Get In Touch Button Styling */
 .nav-links .btn-forest {
-    background-color: var(--white) !important;
-    color: var(--forest-green) !important;
-    border: 2px solid var(--white) !important;
+    background-color: var(--forest-green) !important;
+    color: var(--white) !important;
+    border: 2px solid var(--forest-green) !important;
     box-shadow: none !important;
     text-shadow: none !important;
     transition: all 0.3s ease;
 }
 .nav-links .btn-forest:hover {
-    background-color: transparent !important;
+    background-color: var(--primary-black) !important;
+    border-color: var(--primary-black) !important;
     color: var(--white) !important;
 }
+
+/* Ensure button stays white even when navbar is scrolled */
 .navbar.scrolled .nav-links .btn-forest {
     background-color: var(--forest-green) !important;
     color: var(--white) !important;
     border: 2px solid var(--forest-green) !important;
 }
 .navbar.scrolled .nav-links .btn-forest:hover {
-    background-color: transparent !important;
-    color: var(--forest-green) !important;
+    background-color: var(--primary-black) !important;
+    border-color: var(--primary-black) !important;
+    color: var(--white) !important;
 }
-
-
 
 @media (max-width: 768px) {
     .video-watermark {
-        display: block !important; top: 5rem !important; left: 50% !important; transform: translateX(-50%) !important; width: 180px !important; bottom: auto !important; right: auto !important; opacity: 1;
+        display: block !important; 
+        top: 5rem !important; 
+        left: 50% !important; 
+        transform: translateX(-50%) !important; 
+        width: 180px !important; 
+        bottom: auto !important; 
+        right: auto !important; 
+        opacity: 1;
     }
-}
-
-
-@media (max-width: 768px) {
-    .hero-card {
-        margin-top: 17vh !important;
-    }
-}
-
-
-@media (max-width: 768px) {
     .video-watermark img {
         width: 150px !important;
         height: auto !important;
     }
+    .hero-card {
+        margin-top: 17vh !important;
+    }
 }
-
